@@ -1,0 +1,488 @@
+{
+ "absolute_only_PRIMARY_v13": [
+  {
+   "seed": 0,
+   "n_severe": 1875,
+   "icd_agreement_on_severe": 0.3616,
+   "hard_violations": 1076,
+   "coverage_severe": 0.7861333333333334,
+   "violation_rate_deployed": 0.7299864314789688
+  },
+  {
+   "seed": 1,
+   "n_severe": 1795,
+   "icd_agreement_on_severe": 0.3643454038997215,
+   "hard_violations": 997,
+   "coverage_severe": 0.796100278551532,
+   "violation_rate_deployed": 0.6976906927921623
+  },
+  {
+   "seed": 2,
+   "n_severe": 1725,
+   "icd_agreement_on_severe": 0.392463768115942,
+   "hard_violations": 922,
+   "coverage_severe": 0.782608695652174,
+   "violation_rate_deployed": 0.682962962962963
+  },
+  {
+   "seed": 3,
+   "n_severe": 1840,
+   "icd_agreement_on_severe": 0.3472826086956522,
+   "hard_violations": 1067,
+   "coverage_severe": 0.7978260869565217,
+   "violation_rate_deployed": 0.7268392370572208
+  },
+  {
+   "seed": 4,
+   "n_severe": 1832,
+   "icd_agreement_on_severe": 0.37882096069869,
+   "hard_violations": 1018,
+   "coverage_severe": 0.8111353711790393,
+   "violation_rate_deployed": 0.6850605652759085
+  },
+  {
+   "seed": 5,
+   "n_severe": 1696,
+   "icd_agreement_on_severe": 0.39681603773584906,
+   "hard_violations": 939,
+   "coverage_severe": 0.8048349056603774,
+   "violation_rate_deployed": 0.6879120879120879
+  },
+  {
+   "seed": 6,
+   "n_severe": 1842,
+   "icd_agreement_on_severe": 0.36536373507057546,
+   "hard_violations": 1051,
+   "coverage_severe": 0.8056460369163952,
+   "violation_rate_deployed": 0.7082210242587601
+  },
+  {
+   "seed": 7,
+   "n_severe": 1761,
+   "icd_agreement_on_severe": 0.39636570130607607,
+   "hard_violations": 1007,
+   "coverage_severe": 0.7915956842703009,
+   "violation_rate_deployed": 0.7223816355810617
+  },
+  {
+   "seed": 8,
+   "n_severe": 1812,
+   "icd_agreement_on_severe": 0.3824503311258278,
+   "hard_violations": 1073,
+   "coverage_severe": 0.8250551876379691,
+   "violation_rate_deployed": 0.7177257525083612
+  },
+  {
+   "seed": 9,
+   "n_severe": 1808,
+   "icd_agreement_on_severe": 0.3689159292035398,
+   "hard_violations": 1044,
+   "coverage_severe": 0.8174778761061947,
+   "violation_rate_deployed": 0.706359945872801
+  },
+  {
+   "seed": 10,
+   "n_severe": 1751,
+   "icd_agreement_on_severe": 0.3763563677898344,
+   "hard_violations": 994,
+   "coverage_severe": 0.7824100513992005,
+   "violation_rate_deployed": 0.7255474452554744
+  },
+  {
+   "seed": 11,
+   "n_severe": 1816,
+   "icd_agreement_on_severe": 0.3491189427312775,
+   "hard_violations": 1128,
+   "coverage_severe": 0.816079295154185,
+   "violation_rate_deployed": 0.7611336032388664
+  },
+  {
+   "seed": 12,
+   "n_severe": 1798,
+   "icd_agreement_on_severe": 0.3631813125695217,
+   "hard_violations": 1070,
+   "coverage_severe": 0.8097886540600667,
+   "violation_rate_deployed": 0.7348901098901099
+  },
+  {
+   "seed": 13,
+   "n_severe": 1790,
+   "icd_agreement_on_severe": 0.3636871508379888,
+   "hard_violations": 1058,
+   "coverage_severe": 0.7949720670391062,
+   "violation_rate_deployed": 0.7434996486296557
+  },
+  {
+   "seed": 14,
+   "n_severe": 1838,
+   "icd_agreement_on_severe": 0.3808487486398259,
+   "hard_violations": 1054,
+   "coverage_severe": 0.7932535364526659,
+   "violation_rate_deployed": 0.7229080932784636
+  },
+  {
+   "seed": 15,
+   "n_severe": 1659,
+   "icd_agreement_on_severe": 0.38276069921639544,
+   "hard_violations": 914,
+   "coverage_severe": 0.7637130801687764,
+   "violation_rate_deployed": 0.7213891081294396
+  },
+  {
+   "seed": 16,
+   "n_severe": 1719,
+   "icd_agreement_on_severe": 0.37638161721931357,
+   "hard_violations": 984,
+   "coverage_severe": 0.7923211169284468,
+   "violation_rate_deployed": 0.7224669603524229
+  },
+  {
+   "seed": 17,
+   "n_severe": 1672,
+   "icd_agreement_on_severe": 0.40251196172248804,
+   "hard_violations": 902,
+   "coverage_severe": 0.7978468899521531,
+   "violation_rate_deployed": 0.6761619190404797
+  },
+  {
+   "seed": 18,
+   "n_severe": 1776,
+   "icd_agreement_on_severe": 0.3721846846846847,
+   "hard_violations": 1026,
+   "coverage_severe": 0.8158783783783784,
+   "violation_rate_deployed": 0.7080745341614907
+  },
+  {
+   "seed": 19,
+   "n_severe": 1652,
+   "icd_agreement_on_severe": 0.39709443099273606,
+   "hard_violations": 915,
+   "coverage_severe": 0.7869249394673123,
+   "violation_rate_deployed": 0.7038461538461539
+  }
+ ],
+ "relative_only_3x": [
+  {
+   "seed": 0,
+   "n_severe": 74,
+   "icd_agreement_on_severe": 0.44594594594594594,
+   "hard_violations": 42,
+   "coverage_severe": 0.7567567567567568,
+   "violation_rate_deployed": 0.75
+  },
+  {
+   "seed": 1,
+   "n_severe": 83,
+   "icd_agreement_on_severe": 0.4457831325301205,
+   "hard_violations": 52,
+   "coverage_severe": 0.7590361445783133,
+   "violation_rate_deployed": 0.8253968253968254
+  },
+  {
+   "seed": 2,
+   "n_severe": 63,
+   "icd_agreement_on_severe": 0.4444444444444444,
+   "hard_violations": 34,
+   "coverage_severe": 0.7619047619047619,
+   "violation_rate_deployed": 0.7083333333333334
+  },
+  {
+   "seed": 3,
+   "n_severe": 64,
+   "icd_agreement_on_severe": 0.5,
+   "hard_violations": 39,
+   "coverage_severe": 0.796875,
+   "violation_rate_deployed": 0.7647058823529411
+  },
+  {
+   "seed": 4,
+   "n_severe": 63,
+   "icd_agreement_on_severe": 0.47619047619047616,
+   "hard_violations": 34,
+   "coverage_severe": 0.746031746031746,
+   "violation_rate_deployed": 0.723404255319149
+  },
+  {
+   "seed": 5,
+   "n_severe": 67,
+   "icd_agreement_on_severe": 0.4626865671641791,
+   "hard_violations": 39,
+   "coverage_severe": 0.746268656716418,
+   "violation_rate_deployed": 0.78
+  },
+  {
+   "seed": 6,
+   "n_severe": 60,
+   "icd_agreement_on_severe": 0.43333333333333335,
+   "hard_violations": 31,
+   "coverage_severe": 0.75,
+   "violation_rate_deployed": 0.6888888888888889
+  },
+  {
+   "seed": 7,
+   "n_severe": 66,
+   "icd_agreement_on_severe": 0.42424242424242425,
+   "hard_violations": 40,
+   "coverage_severe": 0.7575757575757576,
+   "violation_rate_deployed": 0.8
+  },
+  {
+   "seed": 8,
+   "n_severe": 56,
+   "icd_agreement_on_severe": 0.42857142857142855,
+   "hard_violations": 39,
+   "coverage_severe": 0.8392857142857143,
+   "violation_rate_deployed": 0.8297872340425532
+  },
+  {
+   "seed": 9,
+   "n_severe": 59,
+   "icd_agreement_on_severe": 0.4406779661016949,
+   "hard_violations": 35,
+   "coverage_severe": 0.8305084745762712,
+   "violation_rate_deployed": 0.7142857142857143
+  },
+  {
+   "seed": 10,
+   "n_severe": 60,
+   "icd_agreement_on_severe": 0.45,
+   "hard_violations": 34,
+   "coverage_severe": 0.75,
+   "violation_rate_deployed": 0.7555555555555555
+  },
+  {
+   "seed": 11,
+   "n_severe": 67,
+   "icd_agreement_on_severe": 0.44776119402985076,
+   "hard_violations": 41,
+   "coverage_severe": 0.8208955223880597,
+   "violation_rate_deployed": 0.7454545454545455
+  },
+  {
+   "seed": 12,
+   "n_severe": 58,
+   "icd_agreement_on_severe": 0.5,
+   "hard_violations": 34,
+   "coverage_severe": 0.7758620689655172,
+   "violation_rate_deployed": 0.7555555555555555
+  },
+  {
+   "seed": 13,
+   "n_severe": 61,
+   "icd_agreement_on_severe": 0.4426229508196721,
+   "hard_violations": 37,
+   "coverage_severe": 0.7704918032786885,
+   "violation_rate_deployed": 0.7872340425531915
+  },
+  {
+   "seed": 14,
+   "n_severe": 59,
+   "icd_agreement_on_severe": 0.4745762711864407,
+   "hard_violations": 40,
+   "coverage_severe": 0.7966101694915254,
+   "violation_rate_deployed": 0.851063829787234
+  },
+  {
+   "seed": 15,
+   "n_severe": 69,
+   "icd_agreement_on_severe": 0.4057971014492754,
+   "hard_violations": 44,
+   "coverage_severe": 0.8260869565217391,
+   "violation_rate_deployed": 0.7719298245614035
+  },
+  {
+   "seed": 16,
+   "n_severe": 58,
+   "icd_agreement_on_severe": 0.5344827586206896,
+   "hard_violations": 32,
+   "coverage_severe": 0.7931034482758621,
+   "violation_rate_deployed": 0.6956521739130435
+  },
+  {
+   "seed": 17,
+   "n_severe": 54,
+   "icd_agreement_on_severe": 0.5370370370370371,
+   "hard_violations": 29,
+   "coverage_severe": 0.7592592592592593,
+   "violation_rate_deployed": 0.7073170731707317
+  },
+  {
+   "seed": 18,
+   "n_severe": 73,
+   "icd_agreement_on_severe": 0.5205479452054794,
+   "hard_violations": 36,
+   "coverage_severe": 0.7671232876712328,
+   "violation_rate_deployed": 0.6428571428571429
+  },
+  {
+   "seed": 19,
+   "n_severe": 62,
+   "icd_agreement_on_severe": 0.45161290322580644,
+   "hard_violations": 32,
+   "coverage_severe": 0.7258064516129032,
+   "violation_rate_deployed": 0.7111111111111111
+  }
+ ],
+ "absolute_or_relative_EXTENDED": [
+  {
+   "seed": 0,
+   "n_severe": 1924,
+   "icd_agreement_on_severe": 0.36382536382536385,
+   "hard_violations": 1105,
+   "coverage_severe": 0.7853430353430353,
+   "violation_rate_deployed": 0.7313037723362011
+  },
+  {
+   "seed": 1,
+   "n_severe": 1852,
+   "icd_agreement_on_severe": 0.367170626349892,
+   "hard_violations": 1034,
+   "coverage_severe": 0.7964362850971922,
+   "violation_rate_deployed": 0.7010169491525424
+  },
+  {
+   "seed": 2,
+   "n_severe": 1768,
+   "icd_agreement_on_severe": 0.3947963800904977,
+   "hard_violations": 946,
+   "coverage_severe": 0.7833710407239819,
+   "violation_rate_deployed": 0.6830324909747293
+  },
+  {
+   "seed": 3,
+   "n_severe": 1884,
+   "icd_agreement_on_severe": 0.3508492569002123,
+   "hard_violations": 1099,
+   "coverage_severe": 0.7993630573248408,
+   "violation_rate_deployed": 0.7297476759628154
+  },
+  {
+   "seed": 4,
+   "n_severe": 1871,
+   "icd_agreement_on_severe": 0.3810796365579904,
+   "hard_violations": 1043,
+   "coverage_severe": 0.8102618920363442,
+   "violation_rate_deployed": 0.6879947229551451
+  },
+  {
+   "seed": 5,
+   "n_severe": 1738,
+   "icd_agreement_on_severe": 0.3993095512082854,
+   "hard_violations": 965,
+   "coverage_severe": 0.8037974683544303,
+   "violation_rate_deployed": 0.6907659269863994
+  },
+  {
+   "seed": 6,
+   "n_severe": 1883,
+   "icd_agreement_on_severe": 0.3674986723313861,
+   "hard_violations": 1075,
+   "coverage_severe": 0.804567180031864,
+   "violation_rate_deployed": 0.7095709570957096
+  },
+  {
+   "seed": 7,
+   "n_severe": 1806,
+   "icd_agreement_on_severe": 0.39700996677740863,
+   "hard_violations": 1036,
+   "coverage_severe": 0.79125138427464,
+   "violation_rate_deployed": 0.7249825052484254
+  },
+  {
+   "seed": 8,
+   "n_severe": 1851,
+   "icd_agreement_on_severe": 0.38303619665045924,
+   "hard_violations": 1102,
+   "coverage_severe": 0.8260399783900594,
+   "violation_rate_deployed": 0.7207325049051668
+  },
+  {
+   "seed": 9,
+   "n_severe": 1848,
+   "icd_agreement_on_severe": 0.37067099567099565,
+   "hard_violations": 1072,
+   "coverage_severe": 0.8181818181818182,
+   "violation_rate_deployed": 0.708994708994709
+  },
+  {
+   "seed": 10,
+   "n_severe": 1793,
+   "icd_agreement_on_severe": 0.37646402677077523,
+   "hard_violations": 1020,
+   "coverage_severe": 0.7824874511991077,
+   "violation_rate_deployed": 0.7270135424091233
+  },
+  {
+   "seed": 11,
+   "n_severe": 1862,
+   "icd_agreement_on_severe": 0.35284640171858217,
+   "hard_violations": 1155,
+   "coverage_severe": 0.8152524167561761,
+   "violation_rate_deployed": 0.7608695652173914
+  },
+  {
+   "seed": 12,
+   "n_severe": 1841,
+   "icd_agreement_on_severe": 0.36719174361759915,
+   "hard_violations": 1097,
+   "coverage_severe": 0.8093427485062467,
+   "violation_rate_deployed": 0.736241610738255
+  },
+  {
+   "seed": 13,
+   "n_severe": 1827,
+   "icd_agreement_on_severe": 0.36617405582922824,
+   "hard_violations": 1084,
+   "coverage_severe": 0.79584017515052,
+   "violation_rate_deployed": 0.7455295735900963
+  },
+  {
+   "seed": 14,
+   "n_severe": 1878,
+   "icd_agreement_on_severe": 0.3828541001064963,
+   "hard_violations": 1082,
+   "coverage_severe": 0.7933972310969116,
+   "violation_rate_deployed": 0.7261744966442953
+  },
+  {
+   "seed": 15,
+   "n_severe": 1706,
+   "icd_agreement_on_severe": 0.38335287221570924,
+   "hard_violations": 945,
+   "coverage_severe": 0.7655334114888629,
+   "violation_rate_deployed": 0.723583460949464
+  },
+  {
+   "seed": 16,
+   "n_severe": 1754,
+   "icd_agreement_on_severe": 0.3825541619156214,
+   "hard_violations": 1002,
+   "coverage_severe": 0.7924743443557583,
+   "violation_rate_deployed": 0.720863309352518
+  },
+  {
+   "seed": 17,
+   "n_severe": 1706,
+   "icd_agreement_on_severe": 0.4044548651817116,
+   "hard_violations": 924,
+   "coverage_severe": 0.7977725674091442,
+   "violation_rate_deployed": 0.6789125642909625
+  },
+  {
+   "seed": 18,
+   "n_severe": 1821,
+   "icd_agreement_on_severe": 0.37616694124107636,
+   "hard_violations": 1051,
+   "coverage_severe": 0.8154859967051071,
+   "violation_rate_deployed": 0.7077441077441078
+  },
+  {
+   "seed": 19,
+   "n_severe": 1690,
+   "icd_agreement_on_severe": 0.3994082840236686,
+   "hard_violations": 936,
+   "coverage_severe": 0.7857988165680473,
+   "violation_rate_deployed": 0.7048192771084337
+  }
+ ]
+}

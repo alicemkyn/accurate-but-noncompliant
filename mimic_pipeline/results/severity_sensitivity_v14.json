@@ -1,0 +1,63 @@
+{
+ "prereg_tag": "prereg-v1.4",
+ "arm_type": "SENSITIVITY (primary specification prereg-v1.3 unchanged)",
+ "n_seeds": 20,
+ "absolute_threshold_mgdl": 4.0,
+ "relative_factor_stage3": 3.0,
+ "not_computable": {
+  "rrt_initiation": "requires MIMIC-IV procedureevents / dialysis items, which are not part of the released cohort derivative; in an ICU population RRT is the least ambiguous marker of severe AKI, so BOTH arms remain conservative",
+  "paediatric_egfr_limb": "MIMIC-IV is adult-only"
+ },
+ "baseline_proxy_caveat": "the relative limb uses the within-24h nadir as a proxy for pre-morbid baseline, inheriting the same conservative bias the primary arm discloses",
+ "clinical_review": "NOT clinically reviewed; authors' reading of published KDIGO criteria",
+ "cohort_level": {
+  "absolute_only_PRIMARY_v13": {
+   "n_cases_cohort": 5954,
+   "icd_agreement_cohort": 0.3697
+  },
+  "relative_only_3x": {
+   "n_cases_cohort": 211,
+   "icd_agreement_cohort": 0.4645
+  },
+  "absolute_or_relative_EXTENDED": {
+   "n_cases_cohort": 6091,
+   "icd_agreement_cohort": 0.3722
+  },
+  "newly_captured_by_relative_limb": {
+   "n_cases_cohort": 137,
+   "icd_agreement_cohort": 0.4818
+  }
+ },
+ "arms": {
+  "absolute_only_PRIMARY_v13": {
+   "n_severe_mean": 1772.8,
+   "icd_agreement_on_severe_mean": 0.3759,
+   "hard_violations_mean": 1011.95,
+   "violation_rate_deployed_mean": 0.7143,
+   "violation_rate_deployed_p95": 0.7444,
+   "coverage_severe_mean": 0.7986,
+   "coverage_severe_p5": 0.7815,
+   "certificate_pass_logged": false
+  },
+  "relative_only_3x": {
+   "n_severe_mean": 63.8,
+   "icd_agreement_on_severe_mean": 0.4633,
+   "hard_violations_mean": 37.2,
+   "violation_rate_deployed_mean": 0.7504,
+   "violation_rate_deployed_p95": 0.8309,
+   "coverage_severe_mean": 0.7765,
+   "coverage_severe_p5": 0.745,
+   "certificate_pass_logged": false
+  },
+  "absolute_or_relative_EXTENDED": {
+   "n_severe_mean": 1815.2,
+   "icd_agreement_on_severe_mean": 0.3783,
+   "hard_violations_mean": 1038.65,
+   "violation_rate_deployed_mean": 0.716,
+   "violation_rate_deployed_p95": 0.7463,
+   "coverage_severe_mean": 0.7986,
+   "coverage_severe_p5": 0.7816,
+   "certificate_pass_logged": false
+  }
+ }
+}

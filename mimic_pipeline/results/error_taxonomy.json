@@ -1,0 +1,69 @@
+{
+ "prereg_tag": "prereg-v1.4",
+ "n_seeds": 20,
+ "axis_A_definition": {
+  "A1_elevated_at_arrival": "creat_nadir_24h >= 4.0 mg/dL",
+  "A2_rise_from_near_normal": "creat_nadir_24h < 2.0 mg/dL",
+  "A3_rise_from_elevated_base": "2.0 <= creat_nadir_24h < 4.0 mg/dL"
+ },
+ "axis_B_definition": {
+  "coded": "ICD AKI code present (aki=1)",
+  "uncoded": "no ICD AKI code (aki=0)"
+ },
+ "oliguric_limb": "not computable from this cohort (no urine output); see results/urine_output_arm.json",
+ "total_confident_denials_mean": 1011.95,
+ "total_severe_mean": 1772.85,
+ "cells": {
+  "A1_elevated_at_arrival|coded": {
+   "n_confident_denials_mean": 104.4,
+   "n_severe_in_cell_mean": 436.5
+  },
+  "A1_elevated_at_arrival|uncoded": {
+   "n_confident_denials_mean": 766.05,
+   "n_severe_in_cell_mean": 907.7
+  },
+  "A2_rise_from_near_normal|coded": {
+   "n_confident_denials_mean": 1.15,
+   "n_severe_in_cell_mean": 10.85
+  },
+  "A2_rise_from_near_normal|uncoded": {
+   "n_confident_denials_mean": 4.05,
+   "n_severe_in_cell_mean": 9.3
+  },
+  "A3_rise_from_elevated_base|coded": {
+   "n_confident_denials_mean": 18.3,
+   "n_severe_in_cell_mean": 218.4
+  },
+  "A3_rise_from_elevated_base|uncoded": {
+   "n_confident_denials_mean": 118.0,
+   "n_severe_in_cell_mean": 190.1
+  }
+ },
+ "marginals": {
+  "A1_elevated_at_arrival": {
+   "n_confident_denials_mean": 870.45,
+   "n_severe_in_cell_mean": 1344.2,
+   "denial_rate_within_cell_mean": 0.647
+  },
+  "A2_rise_from_near_normal": {
+   "n_confident_denials_mean": 5.2,
+   "n_severe_in_cell_mean": 20.15,
+   "denial_rate_within_cell_mean": 0.2545
+  },
+  "A3_rise_from_elevated_base": {
+   "n_confident_denials_mean": 136.3,
+   "n_severe_in_cell_mean": 408.5,
+   "denial_rate_within_cell_mean": 0.3338
+  },
+  "coded": {
+   "n_confident_denials_mean": 123.85,
+   "n_severe_in_cell_mean": 665.75,
+   "denial_rate_within_cell_mean": 0.1862
+  },
+  "uncoded": {
+   "n_confident_denials_mean": 888.1,
+   "n_severe_in_cell_mean": 1107.1,
+   "denial_rate_within_cell_mean": 0.8019
+  }
+ }
+}

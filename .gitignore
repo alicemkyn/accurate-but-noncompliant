@@ -1,0 +1,122 @@
+# MIMIC-IV data — NEVER commit (PhysioNet DUA prohibits redistribution)
+# NOTE: patterns are specific so they do NOT match the mimic_pipeline/ code dir
+#       (macOS filesystem is case-insensitive).
+mimiciv/
+mimic-iv/
+mimic_iv/
+physionet.org/
+# `data/` is excluded file-by-file rather than as a directory: git will not
+# re-include anything inside an excluded DIRECTORY, so a blanket `data/` makes
+# the PROVENANCE.md exception below unreachable. Matching contents keeps the
+# exclusion and lets the prose through.
+data/**
+!data/
+**/data/**
+!**/data/
+*.csv
+*.csv.gz
+*.parquet
+*.feather
+*.db
+*.sqlite
+
+# ...but keep provenance documents. These are prose (checksums, mirror URLs,
+# column semantics, caveats) and carry no data rows. Without this exception the
+# broad `data/` rule above silently swallows them, and a data file with no
+# recorded provenance is worse than no data file.
+!**/data/PROVENANCE.md
+!**/PROVENANCE.md
+
+# Recruitment logistics — OURS, not the paper's. Email drafts carry author names,
+# institution and deadlines, so they would both break double-blind review and
+# publish material no reader needs. The adjudication PROTOCOL is a different thing
+# and is released: scripts/ADJUDICATION_INSTRUCTIONS.md sits beside the script it
+# documents, because a reader replicating the adjudication needs it.
+outreach/
+
+# Clinician-adjudication files — PATIENT-LEVEL, never commit.
+#   adjudication_key.json    maps case_id -> hadm_id / subject_id (400 real MIMIC ids)
+#   adjudication_packet.csv  200 rows of demographics + labs
+# The packet happens to be caught by the *.csv rule above; the key is JSON and was
+# NOT caught, so it is named explicitly here. Both are regenerable from the seed and
+# stratum targets recorded in 11_clinician_adjudication.py, which is what the paper
+# promises instead of the files themselves.
+adjudication_key.json
+**/adjudication_key.json
+adjudication_packet.csv
+**/adjudication_packet.csv
+# Returned clinician responses are patient-level judgements on those rows.
+reviewer_*.csv
+**/reviewer_*.csv
+
+# Derived patient-level artifacts (trace bundles are DUA-covered too)
+traces/
+decision_traces/
+cohorts/
+auditnesy_mimic_out/
+**/auditnesy_mimic_out/
+audit_mimic_out/
+**/audit_mimic_out/
+audit_mimic_out*/
+**/audit_mimic_out*/
+audit_mimic_*/
+**/audit_mimic_*/
+
+# Models & runs
+models/
+runs/
+*.pkl
+*.pt
+*.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Claude Code session / local tooling
+.claude/
+
+# Figure intermediates (regenerated from real results; keep scripts, not outputs)
+figures/figdata/
+figures/out/
+
+# Venue template — third-party content, not ours to redistribute. Fetch it from
+# the venue's own template page; ml4h2026_template_facts.json records what we
+# needed from it (class options, required commands, autoloaded packages).
+ml4h2026_template.tex
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+
+# Local bundles (rebuilt on demand; keep the sources, not the archives)
+*.tgz
+*.tar.gz
+*.zip
+.audit_bundle.tgz
+
+# Internal working notes / revision-process artifacts — LOCAL ONLY, never pushed.
+# These carry informal session narrative and revision-process detail; publishing
+# them would expose material no reader needs and risks the double-blind review.
+# Kept on disk so we retain the working context; excluded from the mirror.
+PROJECT_STATUS.md
+phase1_changelog.md
+phase3_changelog.md
+AuditNeSy_final_rapor.md
+icd_label_citations.json
+
+# pytest cache (pytest also drops its own .gitignore inside, but be explicit)
+.pytest_cache/
+**/.pytest_cache/

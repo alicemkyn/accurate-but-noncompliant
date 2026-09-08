@@ -1,0 +1,123 @@
+{
+  "prereg_tag": "prereg-v1.3",
+  "model_core": "gbm",
+  "dataset": "MIMIC-IV hosp / aki_icd (label_source=icd)",
+  "n_admissions": 378591,
+  "n_patients": 167147,
+  "aki_rate": 0.1834,
+  "n_severe_acute": 5954,
+  "aki_rate_in_severe_acute": 0.3697,
+  "n_seeds": 20,
+  "aggregate": {
+    "arm": "primary = learned neural core, rules LOGGED",
+    "auroc_mean": 0.8815,
+    "auroc_range": [
+      0.8796,
+      0.8829
+    ],
+    "T1_pass_stability": "20/20",
+    "T1_pass": true,
+    "T2_hard_violations_mean": 1028.7,
+    "T2_pass_stability": "0/20",
+    "T2_pass": false,
+    "T3_ece_point_mean": 0.002,
+    "T3_ece_ci_upper_median": 0.0041,
+    "T3_pass": true,
+    "T3_pass_borderline": false,
+    "probe_creatinine_sensitivity_mean": 0.0787,
+    "audit_readiness": "2/3",
+    "enforced_arm": {
+      "policy": "same model, hard constraint ESCALATES confident no-AKI to a deferral",
+      "T2_hard_violations_mean": 0.0,
+      "T2_pass": true,
+      "escalated_on_severe_mean": 1028.7,
+      "escalation_rate_on_severe": 0.58,
+      "audit_readiness": "3/3"
+    },
+    "compliance_coverage_certificate": {
+      "coverage_floor_beta": 0.5,
+      "violation_rate_max": 0.05,
+      "logged_policy": {
+        "coverage_severe_mean": 0.81,
+        "coverage_severe_p5": 0.796,
+        "violation_rate_deployed_mean": 0.716,
+        "violation_rate_deployed_p95": 0.734,
+        "certificate_pass": false,
+        "fails_on": "violation"
+      },
+      "enforced_policy": {
+        "coverage_severe_mean": 0.23,
+        "coverage_severe_p5": 0.2142,
+        "violation_rate_deployed_mean": 0.0,
+        "violation_rate_deployed_p95": 0.0,
+        "certificate_pass": false,
+        "fails_on": "coverage"
+      }
+    }
+  },
+  "shift_evaluation": {
+    "available": true,
+    "n_seeds": 3,
+    "degradation_pass_stability": "3/3",
+    "direction_pass_stability": "0/3",
+    "T3_shift_pass": false,
+    "per_seed": [
+      {
+        "seed": 0,
+        "ece_id_ci_upper": 0.0067,
+        "ece_shift_ci_upper": 0.014,
+        "ece_degradation": 0.0073,
+        "abstain_id": 0.1621,
+        "abstain_shift": 0.1371,
+        "degradation_ok": true,
+        "direction_ok": false
+      },
+      {
+        "seed": 1,
+        "ece_id_ci_upper": 0.0047,
+        "ece_shift_ci_upper": 0.0142,
+        "ece_degradation": 0.0095,
+        "abstain_id": 0.1534,
+        "abstain_shift": 0.1313,
+        "degradation_ok": true,
+        "direction_ok": false
+      },
+      {
+        "seed": 2,
+        "ece_id_ci_upper": 0.0047,
+        "ece_shift_ci_upper": 0.0142,
+        "ece_degradation": 0.0095,
+        "abstain_id": 0.1433,
+        "abstain_shift": 0.1259,
+        "degradation_ok": true,
+        "direction_ok": false
+      }
+    ]
+  },
+  "negative_controls": {
+    "NC_A_uncalibrated": {
+      "ece_ci_upper": 0.10234456365163966,
+      "flagged_T3": true,
+      "target": "T3"
+    },
+    "NC_B_constraint_blind": {
+      "available": true,
+      "hard_violations": 537,
+      "flagged_T2": true,
+      "n_severe": 1875,
+      "target": "T2"
+    },
+    "NC_C_stale": {
+      "ece_ci_upper_late": 0.01393956641768081,
+      "abstain_rate_late": 0.13481376086183242,
+      "flagged_T3_shift": false,
+      "target": "T3-shift"
+    },
+    "NC_D_nondeterministic": {
+      "mismatches": 2076,
+      "hash_match": false,
+      "flagged_T1": true,
+      "target": "T1"
+    }
+  }
+}

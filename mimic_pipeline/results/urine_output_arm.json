@@ -1,0 +1,45 @@
+{
+  "description": "KDIGO urine-output arm: additional AKI captured beyond the creatinine-only definition (ICU subset).",
+  "method": {
+    "urine_itemids": [
+      226559,
+      226627,
+      226631
+    ],
+    "window_hours": 24,
+    "block_hours": 6,
+    "oliguria_threshold_ml_kg_h": 0.5,
+    "weight_source": "inputevents.patientweight (median per stay)",
+    "rules": {
+      "sensitive": "any charted 6-h block < 0.5 mL/kg/h (UPPER bound; inflated by sparse charting + transient dips)",
+      "conservative": "full 24-h charting (all 4 blocks) AND >= 2 low blocks (>= 12 h low) (specific LOWER bound)"
+    },
+    "caveats": [
+      "ICU intime-anchored window vs hosp admittime-anchored creatinine label",
+      "fixed 6-h blocks (not rolling)",
+      "urine limb computable only for admissions with an ICU stay"
+    ]
+  },
+  "counts": {
+    "cohort_admissions_total": 378591,
+    "admissions_with_computable_urine_limb": 51089,
+    "creatinine_aki_positive": 16899
+  },
+  "sensitive": {
+    "urine_oliguric_positive": 27593,
+    "aki_both_limbs": 11194,
+    "additional_aki_from_urine_only": 16399,
+    "undercount_fraction_of_creatinine_positives": 0.9704,
+    "additional_aki_as_fraction_of_icu_subset": 0.321,
+    "oliguric_rate_in_icu_subset": 0.5401
+  },
+  "conservative": {
+    "urine_oliguric_positive": 12244,
+    "aki_both_limbs": 5991,
+    "additional_aki_from_urine_only": 6253,
+    "undercount_fraction_of_creatinine_positives": 0.37,
+    "additional_aki_as_fraction_of_icu_subset": 0.1224,
+    "oliguric_rate_in_icu_subset": 0.2397
+  },
+  "interpretation": "The creatinine-only AKI definition omits the urine limb entirely. Under the conservative (>=12 h sustained, fully-charted) rule, the KDIGO urine criterion flags 6253 additional AKI cases in the ICU subset with no qualifying creatinine rise (+37.0% over creatinine-positives). Even this lower-bound estimate shows the administrative/creatinine label materially under-counts AKI, so the label-validity gap reported in the paper is conservative."
+}

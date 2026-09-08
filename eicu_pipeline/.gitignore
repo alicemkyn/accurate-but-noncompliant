@@ -1,0 +1,7 @@
+# eICU data and derived cohorts — NEVER commit (PhysioNet DUA)
+eicu/
+eicu-crd/
+eicu_out/
+*.parquet
+*.csv
+*.csv.gz

@@ -1,0 +1,67 @@
+{
+  "ece_bound": 0.1,
+  "datasets": {
+    "mimic": {
+      "k_star_median": 3.125,
+      "k_star_range": [
+        3.0,
+        3.25
+      ],
+      "k_star_per_seed": [
+        3.25,
+        3.0,
+        3.25,
+        3.0,
+        3.0,
+        3.0,
+        3.25,
+        3.0,
+        3.0,
+        3.25,
+        3.25,
+        3.0,
+        3.25,
+        3.25,
+        3.0,
+        3.0,
+        3.25,
+        3.25,
+        3.25,
+        3.0
+      ],
+      "ece_bound": 0.1,
+      "n_seeds": 20
+    },
+    "eicu": {
+      "k_star_median": 8.0,
+      "k_star_range": [
+        7.25,
+        8.0
+      ],
+      "k_star_per_seed": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        8.0,
+        7.75,
+        7.25,
+        null,
+        8.0,
+        null,
+        null,
+        8.0,
+        null
+      ],
+      "ece_bound": 0.1,
+      "n_seeds": 5
+    }
+  }
+}

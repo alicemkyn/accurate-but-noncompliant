@@ -1,0 +1,782 @@
+{
+ "prereg_tag": "prereg-v1.4",
+ "cohort": "audit_mimic_out/aki_cohort.parquet",
+ "n_admissions": 378591,
+ "n_patients": 167147,
+ "n_severe_acute": 5954,
+ "n_seeds": 20,
+ "min_subgroup_n": 500,
+ "tau_per_seed": [
+  0.6498,
+  0.6528,
+  0.6477,
+  0.6441,
+  0.6545,
+  0.6514,
+  0.6459,
+  0.6587,
+  0.6461,
+  0.6494,
+  0.6512,
+  0.6537,
+  0.6534,
+  0.6531,
+  0.6536,
+  0.6512,
+  0.6505,
+  0.6493,
+  0.6504,
+  0.6484
+ ],
+ "note": "Subgroup criteria are UNDETERMINED below min_subgroup_n (prereg \u00a72). All quantities restricted to decision-time acute-severe cases where the T2 constraint applies, except n_all.",
+ "subgroups": {
+  "age_band": {
+   "18-44": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3097,
+     "p5": 0.2694,
+     "p95": 0.3485,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8157,
+     "p5": 0.7803,
+     "p95": 0.8478,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.8038,
+     "p5": 0.755,
+     "p95": 0.8425,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 223.8,
+     "p5": 186.2,
+     "p95": 256.15,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.822,
+     "p5": 0.7905,
+     "p95": 0.8628,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 341.0,
+     "p5": 298.8,
+     "p95": 381.15,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 341.0,
+    "status": "UNDETERMINED"
+   },
+   "45-59": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3558,
+     "p5": 0.3264,
+     "p95": 0.3896,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8009,
+     "p5": 0.7728,
+     "p95": 0.8272,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.749,
+     "p5": 0.7086,
+     "p95": 0.7794,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 332.55,
+     "p5": 270.8,
+     "p95": 373.5,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7667,
+     "p5": 0.7365,
+     "p95": 0.791,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 553.25,
+     "p5": 492.9,
+     "p95": 609.3,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 553.2,
+    "status": "UNDETERMINED"
+   },
+   "60-74": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3869,
+     "p5": 0.3539,
+     "p95": 0.4184,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8001,
+     "p5": 0.7586,
+     "p95": 0.8236,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.6919,
+     "p5": 0.6479,
+     "p95": 0.7426,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 336.9,
+     "p5": 308.15,
+     "p95": 370.7,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7477,
+     "p5": 0.7231,
+     "p95": 0.7775,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 608.45,
+     "p5": 569.85,
+     "p95": 650.4,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 608.5,
+    "status": "OK"
+   },
+   "75+": {
+    "icd_agreement_on_severe": {
+     "mean": 0.479,
+     "p5": 0.4465,
+     "p95": 0.5193,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7682,
+     "p5": 0.732,
+     "p95": 0.7971,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.571,
+     "p5": 0.5191,
+     "p95": 0.6037,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 118.7,
+     "p5": 101.85,
+     "p95": 145.2,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.6815,
+     "p5": 0.6512,
+     "p95": 0.7171,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 270.15,
+     "p5": 245.55,
+     "p95": 297.65,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 270.1,
+    "status": "UNDETERMINED"
+   }
+  },
+  "sex": {
+   "Female": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3445,
+     "p5": 0.3068,
+     "p95": 0.3697,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8018,
+     "p5": 0.7726,
+     "p95": 0.8331,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7375,
+     "p5": 0.704,
+     "p95": 0.7656,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 369.65,
+     "p5": 339.65,
+     "p95": 413.85,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7152,
+     "p5": 0.6867,
+     "p95": 0.7403,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 624.45,
+     "p5": 579.05,
+     "p95": 662.75,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 624.5,
+    "status": "OK"
+   },
+   "Male": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3934,
+     "p5": 0.3705,
+     "p95": 0.4288,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7967,
+     "p5": 0.7668,
+     "p95": 0.8203,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7012,
+     "p5": 0.6569,
+     "p95": 0.7344,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 642.3,
+     "p5": 553.7,
+     "p95": 699.45,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7814,
+     "p5": 0.7659,
+     "p95": 0.7923,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 1148.4,
+     "p5": 1073.55,
+     "p95": 1221.15,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 1148.4,
+    "status": "OK"
+   }
+  },
+  "race": {
+   "AIAN/NHPI": {
+    "icd_agreement_on_severe": {
+     "mean": 0.2271,
+     "p5": 0.0633,
+     "p95": 0.3381,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7291,
+     "p5": 0.5803,
+     "p95": 0.8733,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7248,
+     "p5": 0.4964,
+     "p95": 0.9406,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 6.8,
+     "p5": 2.95,
+     "p95": 14.05,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7978,
+     "p5": 0.621,
+     "p95": 1.0,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 12.55,
+     "p5": 7.0,
+     "p95": 20.0,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 12.6,
+    "status": "UNDETERMINED"
+   },
+   "Asian": {
+    "icd_agreement_on_severe": {
+     "mean": 0.2518,
+     "p5": 0.196,
+     "p95": 0.3058,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7908,
+     "p5": 0.7163,
+     "p95": 0.864,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7949,
+     "p5": 0.7031,
+     "p95": 0.8733,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 44.5,
+     "p5": 30.6,
+     "p95": 65.05,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.8045,
+     "p5": 0.7634,
+     "p95": 0.8744,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 69.85,
+     "p5": 50.85,
+     "p95": 92.15,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 69.8,
+    "status": "UNDETERMINED"
+   },
+   "Black": {
+    "icd_agreement_on_severe": {
+     "mean": 0.287,
+     "p5": 0.2498,
+     "p95": 0.3251,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8341,
+     "p5": 0.8027,
+     "p95": 0.8506,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.8457,
+     "p5": 0.7969,
+     "p95": 0.8765,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 351.45,
+     "p5": 290.4,
+     "p95": 419.9,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.8369,
+     "p5": 0.8146,
+     "p95": 0.8581,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 497.1,
+     "p5": 435.95,
+     "p95": 573.05,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 497.1,
+    "status": "UNDETERMINED"
+   },
+   "Hispanic/Latino": {
+    "icd_agreement_on_severe": {
+     "mean": 0.2059,
+     "p5": 0.173,
+     "p95": 0.2366,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8761,
+     "p5": 0.8168,
+     "p95": 0.9075,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.8353,
+     "p5": 0.8051,
+     "p95": 0.8766,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 90.95,
+     "p5": 79.0,
+     "p95": 106.25,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.8039,
+     "p5": 0.7512,
+     "p95": 0.8511,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 124.1,
+     "p5": 111.8,
+     "p95": 138.15,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 124.1,
+    "status": "UNDETERMINED"
+   },
+   "Other/Multiple": {
+    "icd_agreement_on_severe": {
+     "mean": 0.304,
+     "p5": 0.2205,
+     "p95": 0.3618,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8169,
+     "p5": 0.7263,
+     "p95": 0.8946,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7714,
+     "p5": 0.7142,
+     "p95": 0.8462,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 49.25,
+     "p5": 38.0,
+     "p95": 58.7,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7292,
+     "p5": 0.6663,
+     "p95": 0.7955,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 78.45,
+     "p5": 62.95,
+     "p95": 90.4,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 78.5,
+    "status": "UNDETERMINED"
+   },
+   "Unknown/Declined": {
+    "icd_agreement_on_severe": {
+     "mean": 0.5458,
+     "p5": 0.5028,
+     "p95": 0.6099,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7754,
+     "p5": 0.7177,
+     "p95": 0.8395,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.491,
+     "p5": 0.4334,
+     "p95": 0.5529,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 40.45,
+     "p5": 29.8,
+     "p95": 49.2,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.6841,
+     "p5": 0.6146,
+     "p95": 0.753,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 106.0,
+     "p5": 87.95,
+     "p95": 115.4,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 106.0,
+    "status": "UNDETERMINED"
+   },
+   "White": {
+    "icd_agreement_on_severe": {
+     "mean": 0.4485,
+     "p5": 0.4249,
+     "p95": 0.4924,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7703,
+     "p5": 0.7426,
+     "p95": 0.7931,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.6287,
+     "p5": 0.5943,
+     "p95": 0.6635,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 428.55,
+     "p5": 393.45,
+     "p95": 481.1,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7144,
+     "p5": 0.6984,
+     "p95": 0.7306,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 884.8,
+     "p5": 849.45,
+     "p95": 925.85,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 884.8,
+    "status": "OK"
+   }
+  },
+  "insurance": {
+   "Medicaid": {
+    "icd_agreement_on_severe": {
+     "mean": 0.4219,
+     "p5": 0.3933,
+     "p95": 0.4534,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.784,
+     "p5": 0.7275,
+     "p95": 0.8321,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.6903,
+     "p5": 0.6434,
+     "p95": 0.7404,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 140.55,
+     "p5": 122.95,
+     "p95": 166.9,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7444,
+     "p5": 0.7087,
+     "p95": 0.7783,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 259.35,
+     "p5": 227.2,
+     "p95": 281.35,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 259.4,
+    "status": "UNDETERMINED"
+   },
+   "Medicare": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3269,
+     "p5": 0.306,
+     "p95": 0.3479,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8206,
+     "p5": 0.7997,
+     "p95": 0.8351,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.7425,
+     "p5": 0.7101,
+     "p95": 0.7809,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 654.2,
+     "p5": 593.05,
+     "p95": 711.0,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7638,
+     "p5": 0.7437,
+     "p95": 0.7788,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 1073.1,
+     "p5": 1006.8,
+     "p95": 1143.1,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 1073.1,
+    "status": "OK"
+   },
+   "No charge": {
+    "icd_agreement_on_severe": null,
+    "coverage_severe": null,
+    "violation_rate_deployed": null,
+    "hard_violations": {
+     "mean": 0.0,
+     "p5": 0.0,
+     "p95": 0.0,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": null,
+    "n_severe": {
+     "mean": 0.0,
+     "p5": 0.0,
+     "p95": 0.0,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 0.0,
+    "status": "UNDETERMINED"
+   },
+   "Other": {
+    "icd_agreement_on_severe": {
+     "mean": 0.3635,
+     "p5": 0.2927,
+     "p95": 0.4446,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.8461,
+     "p5": 0.7909,
+     "p95": 0.9055,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.8188,
+     "p5": 0.7555,
+     "p95": 0.8768,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 36.3,
+     "p5": 27.8,
+     "p95": 45.05,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.8776,
+     "p5": 0.8264,
+     "p95": 0.9257,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 52.3,
+     "p5": 41.6,
+     "p95": 63.2,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 52.3,
+    "status": "UNDETERMINED"
+   },
+   "Private": {
+    "icd_agreement_on_severe": {
+     "mean": 0.4724,
+     "p5": 0.4281,
+     "p95": 0.5122,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.7394,
+     "p5": 0.7078,
+     "p95": 0.7745,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.6365,
+     "p5": 0.5877,
+     "p95": 0.6875,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 175.85,
+     "p5": 143.65,
+     "p95": 204.1,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7333,
+     "p5": 0.6951,
+     "p95": 0.7729,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 373.2,
+     "p5": 338.8,
+     "p95": 409.7,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 373.2,
+    "status": "UNDETERMINED"
+   },
+   "Unrecorded": {
+    "icd_agreement_on_severe": {
+     "mean": 0.7591,
+     "p5": 0.6273,
+     "p95": 0.9269,
+     "n_seeds": 20
+    },
+    "coverage_severe": {
+     "mean": 0.773,
+     "p5": 0.6353,
+     "p95": 0.9095,
+     "n_seeds": 20
+    },
+    "violation_rate_deployed": {
+     "mean": 0.4306,
+     "p5": 0.1773,
+     "p95": 0.6284,
+     "n_seeds": 20
+    },
+    "hard_violations": {
+     "mean": 5.05,
+     "p5": 1.95,
+     "p95": 9.05,
+     "n_seeds": 20
+    },
+    "frac_elevated_at_arrival": {
+     "mean": 0.7553,
+     "p5": 0.6425,
+     "p95": 0.8486,
+     "n_seeds": 20
+    },
+    "n_severe": {
+     "mean": 14.9,
+     "p5": 10.0,
+     "p95": 21.2,
+     "n_seeds": 20
+    },
+    "n_severe_mean": 14.9,
+    "status": "UNDETERMINED"
+   }
+  }
+ }
+}

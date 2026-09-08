@@ -1,0 +1,24 @@
+{
+ "quantity": "ICD AKI code presence among guideline-severe cases",
+ "chi2_4group": {
+  "groups": [
+   "White",
+   "Black",
+   "Hispanic/Latino",
+   "Asian"
+  ],
+  "chi2": 187.88,
+  "dof": 3,
+  "p": 1.7523554248719453e-40,
+  "unit": "admission",
+  "note": "anticonservative under repeated admissions; the patient-level permutation test below is the primary test"
+ },
+ "white_vs_black_patient_permutation": {
+  "difference_in_proportion": 0.1425,
+  "p": 4.999750012499375e-05,
+  "B": 20000,
+  "n_patients_white": 2143,
+  "n_patients_black": 911,
+  "unit": "patient (each patient contributes the mean over their severe admissions)"
+ }
+}

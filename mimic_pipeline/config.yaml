@@ -1,0 +1,76 @@
+# ============================================================================
+# AuditNeSy / MIMIC-IV configuration
+# Mirrors the RATIFIED pre-registration (git tag: prereg-v1.0).
+# Any change to a gated threshold here requires a new registered prereg version
+# and an entry in preregistration.md §8 (Deviations Log).
+# ============================================================================
+
+prereg_tag: prereg-v1.3
+
+data:
+  # Folder containing the MIMIC-IV *hosp* module CSV[.gz] files.
+  # Override with env var MIMIC_DIR. NEVER commit this data (PhysioNet DUA).
+  mimic_hosp_dir: ./mimiciv/hosp
+  out_dir: ./auditnesy_mimic_out          # gitignored; contains patient-level derivatives
+
+# --- Task & label (issue #1 fix: label is INDEPENDENT of the constraint feature) ---
+task:
+  name: aki_icd
+  # Primary label source. "icd" => administrative AKI diagnosis (independent of the
+  # creatinine trajectory used by the T2 constraint, breaking the label-constraint
+  # circularity). "kdigo_creatinine" is available but flagged CIRCULAR and off by default.
+  label_source: icd
+  icd9_prefixes: ["584"]                   # acute kidney failure
+  icd10_prefixes: ["N17"]                  # acute kidney failure
+  feature_window_hours: 24                 # features AND the T2 constraint use only the first 24h (decision-time; no look-ahead)
+  constraint_window_days: 7                # DEPRECATED in prereg-v1.2 (constraint now uses feature_window_hours); kept only for the kdigo_creatinine label option
+
+# --- KDIGO / constraint parameters ---
+constraints:
+  kdigo_abs_rise_mgdl: 0.3                 # >= 0.3 mg/dL within 48h  (reference only when label_source=kdigo_creatinine)
+  kdigo_rel_rise_factor: 1.5               # >= 1.5x baseline within 7 days
+  creatinine_severe_mgdl: 4.0              # T2 HARD constraint: pred "no AKI" with peak creat >= this => violation
+
+# --- Pass criteria (pre-declared; CI-based per RR2/RR3) ---
+audit:
+  n_bins_ece: 10
+  ece_pass_upper_ci: 0.10                  # T3 passes iff bootstrap 95% CI UPPER bound of ECE < this
+  abstain_target_rate: 0.15                # tau selected on validation to hit <= this deferral rate, then frozen
+  abstain_tau_frozen: null                 # written by experiment at freeze time (preregistration_lock)
+  shift_ece_degradation_max: 0.05          # ECE(shift) - ECE(id) upper-CI bound must be <= this
+  min_subgroup_n: 500                      # below this a subgroup criterion is UNDETERMINED, not PASS
+  coverage_floor_beta: 0.50                # T2 compliance-coverage certificate: >= this fraction of acute-severe decisions must be DEPLOYED (not deferred) -- closes abstention-gaming
+  violation_rate_max: 0.05                 # max hard-violation rate among DEPLOYED acute-severe decisions (upper bound across seeds)
+  probe_sweep_creatinine: [0.6, 5.0]       # counterfactual low/high mg/dL for the concept-semantics probe (T2s)
+  probe_n_samples: 200
+
+# --- Statistical design (RR2) ---
+experiment:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]  # 20 seeds
+  test_size: 0.30
+  split: subject_group                     # issue #4 fix: GroupShuffleSplit on subject_id (no patient leakage)
+  bootstrap_B: 1000
+
+# --- Distribution shift axis (issue #2 fix: NOT the constraint feature) ---
+shift:
+  axis: anchor_year_group                  # era shift; independent of creatinine
+  train_groups: ["2008 - 2010", "2011 - 2013"]
+  eval_groups:  ["2017 - 2019", "2020 - 2022"]
+
+# --- Models / integration styles (RR/S2: three styles) ---
+models:
+  pipeline_coupled:
+    enabled: true
+    core: mlp                              # mlp | gbm -- neural core vs gradient-boosted trees (robustness: does the gap persist with a stronger model?)
+    hidden_layers: [32, 16]
+    calibrate: isotonic                    # calibration layer so T3 measures calibration, not class_weight distortion
+  differentiable_ltn:
+    enabled: true                          # requires torch; skipped gracefully if unavailable
+    n_axioms: 2
+    epochs: 200
+    sat_threshold: 0.5                     # categorical conversion; swept in sensitivity
+    sat_mean_min: 0.90                     # mean satisfaction on hard-constraint subset must be >= this
+  spl_probabilistic:
+    enabled: false                         # stub; see models.py. Fallback DeepProbLog documented in plan.
+  pure_neural_baseline:
+    enabled: true                          # S1: emits no T2 evidence by construction

@@ -1,0 +1,222 @@
+{
+ "prereg_tag": "prereg-v1.4",
+ "quantity": "fraction of decision-time acute-severe cases carrying an ICD AKI code (model-free: no training, no split, no seed)",
+ "severity_definition": "creat_peak_24h >= 4.0 mg/dL within the 24h decision window",
+ "n_severe_cases": 5954,
+ "n_patients": 3928,
+ "uncertainty": "patient-level cluster bootstrap on subject_id, B=2000, 95% percentile interval",
+ "overall_icd_agreement": 0.3697,
+ "overall_ci95": [
+  0.3533,
+  0.3855
+ ],
+ "caveat": "this script reports the model-free label-validity quantity only; the model-dependent per-split quantities remain UNDETERMINED below min_subgroup_n as required by prereg \u00a72 and are NOT re-reported here",
+ "subgroups": {
+  "age_band": {
+   "18-44": {
+    "n_severe_cases": 1145,
+    "n_patients": 625,
+    "icd_agreement": 0.3031,
+    "ci95": [
+     0.27,
+     0.3423
+    ],
+    "frac_elevated_at_arrival": 0.8183,
+    "note": null
+   },
+   "45-59": {
+    "n_severe_cases": 1870,
+    "n_patients": 1185,
+    "icd_agreement": 0.354,
+    "ci95": [
+     0.3266,
+     0.3836
+    ],
+    "frac_elevated_at_arrival": 0.7658,
+    "note": null
+   },
+   "60-74": {
+    "n_severe_cases": 2035,
+    "n_patients": 1399,
+    "icd_agreement": 0.3799,
+    "ci95": [
+     0.3543,
+     0.407
+    ],
+    "frac_elevated_at_arrival": 0.7464,
+    "note": null
+   },
+   "75+": {
+    "n_severe_cases": 904,
+    "n_patients": 719,
+    "icd_agreement": 0.4635,
+    "ci95": [
+     0.4253,
+     0.5011
+    ],
+    "frac_elevated_at_arrival": 0.6892,
+    "note": null
+   }
+  },
+  "sex": {
+   "Female": {
+    "n_severe_cases": 2097,
+    "n_patients": 1362,
+    "icd_agreement": 0.3391,
+    "ci95": [
+     0.3153,
+     0.3656
+    ],
+    "frac_elevated_at_arrival": 0.7139,
+    "note": null
+   },
+   "Male": {
+    "n_severe_cases": 3857,
+    "n_patients": 2566,
+    "icd_agreement": 0.3863,
+    "ci95": [
+     0.3665,
+     0.407
+    ],
+    "frac_elevated_at_arrival": 0.7814,
+    "note": null
+   }
+  },
+  "race": {
+   "AIAN/NHPI": {
+    "n_severe_cases": 42,
+    "n_patients": 30,
+    "icd_agreement": 0.1905,
+    "ci95": [
+     0.0769,
+     0.3429
+    ],
+    "frac_elevated_at_arrival": 0.7857,
+    "note": null
+   },
+   "Asian": {
+    "n_severe_cases": 242,
+    "n_patients": 162,
+    "icd_agreement": 0.2438,
+    "ci95": [
+     0.1938,
+     0.3022
+    ],
+    "frac_elevated_at_arrival": 0.8182,
+    "note": null
+   },
+   "Black": {
+    "n_severe_cases": 1677,
+    "n_patients": 913,
+    "icd_agreement": 0.2767,
+    "ci95": [
+     0.2497,
+     0.3049
+    ],
+    "frac_elevated_at_arrival": 0.8318,
+    "note": null
+   },
+   "Hispanic/Latino": {
+    "n_severe_cases": 400,
+    "n_patients": 222,
+    "icd_agreement": 0.205,
+    "ci95": [
+     0.1557,
+     0.2634
+    ],
+    "frac_elevated_at_arrival": 0.81,
+    "note": null
+   },
+   "Other/Multiple": {
+    "n_severe_cases": 249,
+    "n_patients": 185,
+    "icd_agreement": 0.3092,
+    "ci95": [
+     0.2471,
+     0.3736
+    ],
+    "frac_elevated_at_arrival": 0.7269,
+    "note": null
+   },
+   "Unknown/Declined": {
+    "n_severe_cases": 366,
+    "n_patients": 346,
+    "icd_agreement": 0.5519,
+    "ci95": [
+     0.5,
+     0.6067
+    ],
+    "frac_elevated_at_arrival": 0.6885,
+    "note": null
+   },
+   "White": {
+    "n_severe_cases": 2978,
+    "n_patients": 2147,
+    "icd_agreement": 0.4396,
+    "ci95": [
+     0.415,
+     0.4625
+    ],
+    "frac_elevated_at_arrival": 0.7146,
+    "note": null
+   }
+  },
+  "insurance": {
+   "Medicaid": {
+    "n_severe_cases": 874,
+    "n_patients": 614,
+    "icd_agreement": 0.4245,
+    "ci95": [
+     0.3834,
+     0.4669
+    ],
+    "frac_elevated_at_arrival": 0.7426,
+    "note": null
+   },
+   "Medicare": {
+    "n_severe_cases": 3593,
+    "n_patients": 2363,
+    "icd_agreement": 0.3198,
+    "ci95": [
+     0.301,
+     0.34
+    ],
+    "frac_elevated_at_arrival": 0.7637,
+    "note": null
+   },
+   "Other": {
+    "n_severe_cases": 179,
+    "n_patients": 153,
+    "icd_agreement": 0.3408,
+    "ci95": [
+     0.264,
+     0.4186
+    ],
+    "frac_elevated_at_arrival": 0.8715,
+    "note": null
+   },
+   "Private": {
+    "n_severe_cases": 1259,
+    "n_patients": 947,
+    "icd_agreement": 0.4647,
+    "ci95": [
+     0.4318,
+     0.4963
+    ],
+    "frac_elevated_at_arrival": 0.7339,
+    "note": null
+   },
+   "Unrecorded": {
+    "n_severe_cases": 49,
+    "n_patients": 49,
+    "icd_agreement": 0.7143,
+    "ci95": [
+     0.5913,
+     0.8367
+    ],
+    "frac_elevated_at_arrival": 0.7755,
+    "note": null
+   }
+  }
+ }
+}

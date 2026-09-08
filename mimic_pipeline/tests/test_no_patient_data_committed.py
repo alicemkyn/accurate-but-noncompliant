@@ -1,0 +1,115 @@
+"""Repository hygiene: patient-level files must never become committable.
+
+MIMIC-IV and eICU are credentialed-access databases whose DUAs bar redistribution
+of patient-level data and derivatives. This repository is intended to be pushed
+and then mirrored for anonymous review, so a file that is merely *untracked* is
+one `git add .` away from being published.
+
+A real near-miss motivated this file: `results/adjudication_key.json` maps 200
+case ids to 400 real MIMIC identifiers, and the ignore rules caught the packet
+(via `*.csv`) but not the key (JSON). These tests fail if that class of gap
+reopens.
+
+Run: cd mimic_pipeline && python -m pytest tests/test_no_patient_data_committed.py -q
+"""
+import json
+import subprocess
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent.parent   # repository root
+IDENTIFIER_KEYS = {"hadm_id", "subject_id", "patientunitstayid", "uniquepid",
+                   "patienthealthsystemstayid"}
+
+# Files that carry patient-level rows and must be ignored, not merely untracked.
+MUST_BE_IGNORED = [
+    "mimic_pipeline/results/adjudication_key.json",
+    "mimic_pipeline/results/adjudication_packet.csv",
+]
+
+
+def _git(*args):
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True)
+
+
+def _is_repo():
+    return _git("rev-parse", "--is-inside-work-tree").returncode == 0
+
+
+pytestmark = pytest.mark.skipif(not _is_repo(), reason="not a git working tree")
+
+
+@pytest.mark.parametrize("rel", MUST_BE_IGNORED)
+def test_patient_level_file_is_git_ignored(rel):
+    """If the file exists it must be ignored; if absent, nothing to check."""
+    if not (ROOT / rel).exists():
+        pytest.skip(f"{rel} not present in this checkout")
+    r = _git("check-ignore", "-q", rel)
+    assert r.returncode == 0, (
+        f"{rel} carries patient-level rows and is NOT git-ignored -- one `git add .` "
+        f"would publish it. Add a rule to .gitignore.")
+
+
+def test_no_tracked_file_carries_identifier_columns_of_data():
+    """Tracked JSON must not contain identifier KEYS with values.
+
+    Code and config legitimately mention `hadm_id` as a column name; a tracked
+    results file containing it as a populated key means real ids shipped.
+    """
+    r = _git("ls-files", "-z")
+    assert r.returncode == 0, r.stderr
+    offenders = []
+    for rel in [x for x in r.stdout.split("\0") if x.endswith(".json")]:
+        p = ROOT / rel
+        if not p.exists():
+            continue
+        try:
+            payload = json.loads(p.read_text(errors="ignore"))
+        except Exception:
+            continue
+
+        def walk(node):
+            if isinstance(node, dict):
+                for k, v in node.items():
+                    if k in IDENTIFIER_KEYS and isinstance(v, (int, str)):
+                        return True
+                    if walk(v):
+                        return True
+            elif isinstance(node, list):
+                return any(walk(x) for x in node)
+            return False
+
+        if walk(payload):
+            offenders.append(rel)
+    assert not offenders, (
+        f"tracked JSON files contain populated patient identifiers: {offenders}")
+
+
+def test_no_tabular_data_files_are_tracked():
+    """No .csv/.parquet/.db in the index: those are how cohorts leak."""
+    r = _git("ls-files")
+    bad = [f for f in r.stdout.splitlines()
+           if f.endswith((".csv", ".csv.gz", ".parquet", ".feather", ".db", ".sqlite"))]
+    assert not bad, f"tabular data files are tracked: {bad}"
+
+
+def test_history_never_contained_a_data_file():
+    """Rewriting history is expensive; catch a bad commit while it is still recent."""
+    r = _git("log", "--all", "--name-only", "--pretty=format:")
+    seen = {f for f in r.stdout.splitlines() if f}
+    bad = sorted(f for f in seen
+                 if f.endswith((".csv", ".parquet", ".feather", ".db", ".sqlite", ".pkl")))
+    assert not bad, (
+        f"these data files exist somewhere in git history and cannot be removed by "
+        f".gitignore alone: {bad}")
+
+
+def test_the_paper_promises_regeneration_not_the_files():
+    """The availability statement must not offer files we cannot legally share."""
+    tex = ROOT / "AuditNeSy_v26.tex"
+    if not tex.exists():
+        pytest.skip("paper source not in this checkout")
+    s = tex.read_text(errors="ignore")
+    assert "not\nreleased" in s or "\\emph{not} released" in s or "are \\emph{not}" in s, (
+        "the paper must state that the adjudication packet and key are withheld")

@@ -1,0 +1,547 @@
+{
+ "prereg_tag": "prereg-v1.5",
+ "analysis_status": "EXPLORATORY -- not pre-registered; added in response to review to test whether the positive control's effect survives when cohort composition is held fixed. Same rows, same features, same splits, same seeds; the training target is the only thing that varies. No registered threshold was changed.",
+ "matching_provenance": {
+  "n_icd_cohort": 378591,
+  "n_kdigo_cohort": 364566,
+  "n_matched": 364393,
+  "dropped_from_icd_arm": 14198,
+  "dropped_from_kdigo_arm": 173,
+  "severe_mask_identical": true,
+  "n_severe_matched": 5954,
+  "prevalence_icd_label": 0.1905,
+  "prevalence_kdigo_label": 0.2688,
+  "features_taken_from": "ICD build for BOTH arms, so the design matrix is identical",
+  "feature_differences_between_builds": {
+   "wbc": {
+    "rows_differing": 16573,
+    "share": 0.0455
+   }
+  }
+ },
+ "effect_ceiling": {
+  "why_this_exists": "The KDIGO target and the T2 constraint are both derived from the creatinine trajectory; cohort.py flags this label CIRCULAR. Reporting the control without this bound would overstate it.",
+  "constraint_applicable_cases": 5954,
+  "note_on_matching": "both targets are evaluated on the same matched rows, so the two positive rates below are computed on an identical denominator",
+  "target_positive_rate_among_constraint_applicable": {
+   "icd_label": 0.3697,
+   "kdigo_label": 0.9536
+  },
+  "target_says_no_aki_there": {
+   "icd_label": 0.6303,
+   "kdigo_label": 0.0464
+  },
+  "coincidence_of_kdigo_target_and_constraint": 0.9536,
+  "violation_drop_implied_by_target_base_rates": 0.584,
+  "violation_drop_observed": 0.7184,
+  "observed_over_implied": 1.23,
+  "share_attributable_to_base_rate": 0.813,
+  "reading": "On the constraint-applicable subgroup the KDIGO target is already positive for 95.4% of cases against 37.0% for the ICD target, so a model fitted to it starts near-compliant by construction. Base rates alone imply a violation-rate drop of 0.584; the observed drop is 0.718. Roughly 81% of the effect is therefore target arithmetic and the remainder is learned. This is a valid POSITIVE CONTROL -- it shows the constraint is triggerable and the harness responds -- but it is NOT clean causal evidence that a guideline-faithful target fixes compliance, and it should not be promoted to the paper's primary causal claim."
+ },
+ "arms": {
+  "icd_label": {
+   "target": "ICD label",
+   "n_seeds": 20,
+   "auroc_own_target_mean": 0.8761,
+   "hard_violations_mean": 1056.15,
+   "violation_rate_deployed_mean": 0.7198,
+   "coverage_severe_mean": 0.812,
+   "ece_point_mean": 0.0024,
+   "certificate": {
+    "coverage_severe_p5": 0.799,
+    "violation_rate_deployed_p95": 0.7449,
+    "certificate_pass": false
+   }
+  },
+  "kdigo_label": {
+   "target": "KDIGO label",
+   "n_seeds": 20,
+   "auroc_own_target_mean": 0.7738,
+   "hard_violations_mean": 2.35,
+   "violation_rate_deployed_mean": 0.0014,
+   "coverage_severe_mean": 0.9445,
+   "ece_point_mean": 0.0026,
+   "certificate": {
+    "coverage_severe_p5": 0.9355,
+    "violation_rate_deployed_p95": 0.0023,
+    "certificate_pass": true
+   }
+  }
+ },
+ "paired_tests": [
+  {
+   "comparison": "deployed violation rate: ICD - KDIGO",
+   "median_difference": 0.7193,
+   "statistic": 0.0,
+   "p_value": 1.9073486328125e-06,
+   "n_pairs": 20
+  },
+  {
+   "comparison": "hard violations: ICD - KDIGO",
+   "median_difference": 1047.5,
+   "statistic": 0.0,
+   "p_value": 1.9073486328125e-06,
+   "n_pairs": 20
+  },
+  {
+   "comparison": "severe coverage: ICD - KDIGO",
+   "median_difference": -0.1327,
+   "statistic": 0.0,
+   "p_value": 1.9073486328125e-06,
+   "n_pairs": 20
+  },
+  {
+   "comparison": "AUROC against own target: ICD - KDIGO",
+   "median_difference": 0.1016,
+   "statistic": 0.0,
+   "p_value": 1.9073486328125e-06,
+   "n_pairs": 20
+  }
+ ],
+ "per_seed": {
+  "icd_label": [
+   {
+    "seed": 0,
+    "auroc_own_target": 0.8759210590750875,
+    "tau": 0.6416,
+    "hard_violations": 1086,
+    "n_severe": 1879,
+    "coverage_severe": 0.8169238956891964,
+    "violation_rate_deployed": 0.7074918566775245,
+    "ece_point": 0.0014685286181729761,
+    "ece_ci_upper": 0.003947570539465506
+   },
+   {
+    "seed": 1,
+    "auroc_own_target": 0.8744953905538064,
+    "tau": 0.6401,
+    "hard_violations": 1015,
+    "n_severe": 1872,
+    "coverage_severe": 0.8002136752136753,
+    "violation_rate_deployed": 0.677570093457944,
+    "ece_point": 0.002951087008512162,
+    "ece_ci_upper": 0.0051821428238123975
+   },
+   {
+    "seed": 2,
+    "auroc_own_target": 0.8759345559212481,
+    "tau": 0.645,
+    "hard_violations": 1141,
+    "n_severe": 1881,
+    "coverage_severe": 0.8261562998405104,
+    "violation_rate_deployed": 0.7342342342342343,
+    "ece_point": 0.000915169590472157,
+    "ece_ci_upper": 0.003362569925297822
+   },
+   {
+    "seed": 3,
+    "auroc_own_target": 0.8759630248503109,
+    "tau": 0.6428,
+    "hard_violations": 966,
+    "n_severe": 1670,
+    "coverage_severe": 0.7910179640718563,
+    "violation_rate_deployed": 0.7312641937925813,
+    "ece_point": 0.0015167978436003546,
+    "ece_ci_upper": 0.0037467357079839594
+   },
+   {
+    "seed": 4,
+    "auroc_own_target": 0.877556774149584,
+    "tau": 0.6467,
+    "hard_violations": 1044,
+    "n_severe": 1805,
+    "coverage_severe": 0.8099722991689751,
+    "violation_rate_deployed": 0.7140902872777017,
+    "ece_point": 0.0032519730409720465,
+    "ece_ci_upper": 0.005246059583970426
+   },
+   {
+    "seed": 5,
+    "auroc_own_target": 0.87394690481731,
+    "tau": 0.6441,
+    "hard_violations": 1029,
+    "n_severe": 1778,
+    "coverage_severe": 0.811586051743532,
+    "violation_rate_deployed": 0.7130977130977131,
+    "ece_point": 0.0011083727559488548,
+    "ece_ci_upper": 0.0036298200890214297
+   },
+   {
+    "seed": 6,
+    "auroc_own_target": 0.874045467181972,
+    "tau": 0.6441,
+    "hard_violations": 1099,
+    "n_severe": 1847,
+    "coverage_severe": 0.805630752571738,
+    "violation_rate_deployed": 0.7385752688172043,
+    "ece_point": 0.0014960347133085136,
+    "ece_ci_upper": 0.004087166226482746
+   },
+   {
+    "seed": 7,
+    "auroc_own_target": 0.874481825939464,
+    "tau": 0.6435,
+    "hard_violations": 1046,
+    "n_severe": 1759,
+    "coverage_severe": 0.8249005116543491,
+    "violation_rate_deployed": 0.7208821502412129,
+    "ece_point": 0.0023994882316312055,
+    "ece_ci_upper": 0.004430288638023246
+   },
+   {
+    "seed": 8,
+    "auroc_own_target": 0.8752887750690131,
+    "tau": 0.6399,
+    "hard_violations": 1127,
+    "n_severe": 1799,
+    "coverage_severe": 0.8221234018899388,
+    "violation_rate_deployed": 0.762001352265044,
+    "ece_point": 0.0013910676222593993,
+    "ece_ci_upper": 0.0037076239654596286
+   },
+   {
+    "seed": 9,
+    "auroc_own_target": 0.8765733379435208,
+    "tau": 0.6464,
+    "hard_violations": 972,
+    "n_severe": 1674,
+    "coverage_severe": 0.8076463560334528,
+    "violation_rate_deployed": 0.7189349112426036,
+    "ece_point": 0.003127707343937027,
+    "ece_ci_upper": 0.005345170974707119
+   },
+   {
+    "seed": 10,
+    "auroc_own_target": 0.8773832764454955,
+    "tau": 0.6372,
+    "hard_violations": 1019,
+    "n_severe": 1800,
+    "coverage_severe": 0.8044444444444444,
+    "violation_rate_deployed": 0.7037292817679558,
+    "ece_point": 0.0031168813975303296,
+    "ece_ci_upper": 0.005266249926931936
+   },
+   {
+    "seed": 11,
+    "auroc_own_target": 0.8761111404790836,
+    "tau": 0.6412,
+    "hard_violations": 1070,
+    "n_severe": 1877,
+    "coverage_severe": 0.8156632924880128,
+    "violation_rate_deployed": 0.6988896146309601,
+    "ece_point": 0.002104458564751998,
+    "ece_ci_upper": 0.004547945354098701
+   },
+   {
+    "seed": 12,
+    "auroc_own_target": 0.8757539018346789,
+    "tau": 0.6505,
+    "hard_violations": 1118,
+    "n_severe": 1914,
+    "coverage_severe": 0.799373040752351,
+    "violation_rate_deployed": 0.730718954248366,
+    "ece_point": 0.002330417351155773,
+    "ece_ci_upper": 0.004583394426646984
+   },
+   {
+    "seed": 13,
+    "auroc_own_target": 0.8742516617632963,
+    "tau": 0.6465,
+    "hard_violations": 972,
+    "n_severe": 1733,
+    "coverage_severe": 0.8055395268320831,
+    "violation_rate_deployed": 0.6962750716332379,
+    "ece_point": 0.001587303896139063,
+    "ece_ci_upper": 0.0038993691071596
+   },
+   {
+    "seed": 14,
+    "auroc_own_target": 0.8743463463783239,
+    "tau": 0.6486,
+    "hard_violations": 1071,
+    "n_severe": 1807,
+    "coverage_severe": 0.8096292197011622,
+    "violation_rate_deployed": 0.7320574162679426,
+    "ece_point": 0.0015873277559220697,
+    "ece_ci_upper": 0.003924663263953121
+   },
+   {
+    "seed": 15,
+    "auroc_own_target": 0.8771301285975709,
+    "tau": 0.6425,
+    "hard_violations": 1027,
+    "n_severe": 1779,
+    "coverage_severe": 0.8201236649803261,
+    "violation_rate_deployed": 0.7039067854694997,
+    "ece_point": 0.0036790780591273485,
+    "ece_ci_upper": 0.005595044328026052
+   },
+   {
+    "seed": 16,
+    "auroc_own_target": 0.8763926924349639,
+    "tau": 0.6463,
+    "hard_violations": 1078,
+    "n_severe": 1761,
+    "coverage_severe": 0.8228279386712095,
+    "violation_rate_deployed": 0.7439613526570048,
+    "ece_point": 0.0009333352122078017,
+    "ece_ci_upper": 0.0033980460993081373
+   },
+   {
+    "seed": 17,
+    "auroc_own_target": 0.8794460170761095,
+    "tau": 0.6384,
+    "hard_violations": 1054,
+    "n_severe": 1801,
+    "coverage_severe": 0.8250971682398668,
+    "violation_rate_deployed": 0.7092866756393001,
+    "ece_point": 0.00376034862361629,
+    "ece_ci_upper": 0.0058500549794052135
+   },
+   {
+    "seed": 18,
+    "auroc_own_target": 0.8793263243451148,
+    "tau": 0.6354,
+    "hard_violations": 1151,
+    "n_severe": 1943,
+    "coverage_severe": 0.8193515182707154,
+    "violation_rate_deployed": 0.7229899497487438,
+    "ece_point": 0.004179768658066919,
+    "ece_ci_upper": 0.006358540056895486
+   },
+   {
+    "seed": 19,
+    "auroc_own_target": 0.8766769139269992,
+    "tau": 0.6411,
+    "hard_violations": 1038,
+    "n_severe": 1758,
+    "coverage_severe": 0.8020477815699659,
+    "violation_rate_deployed": 0.7361702127659574,
+    "ece_point": 0.0043358715930563035,
+    "ece_ci_upper": 0.006336296609901336
+   }
+  ],
+  "kdigo_label": [
+   {
+    "seed": 0,
+    "auroc_own_target": 0.7729918023764178,
+    "tau": 0.6329,
+    "hard_violations": 2,
+    "n_severe": 1879,
+    "coverage_severe": 0.94252261841405,
+    "violation_rate_deployed": 0.001129305477131564,
+    "ece_point": 0.0012241953064123193,
+    "ece_ci_upper": 0.004134951788065907
+   },
+   {
+    "seed": 1,
+    "auroc_own_target": 0.7728795686630211,
+    "tau": 0.6366,
+    "hard_violations": 5,
+    "n_severe": 1872,
+    "coverage_severe": 0.9492521367521367,
+    "violation_rate_deployed": 0.0028137310073157004,
+    "ece_point": 0.000994014293765247,
+    "ece_ci_upper": 0.004245186329140348
+   },
+   {
+    "seed": 2,
+    "auroc_own_target": 0.7764067864080412,
+    "tau": 0.6307,
+    "hard_violations": 3,
+    "n_severe": 1881,
+    "coverage_severe": 0.9590643274853801,
+    "violation_rate_deployed": 0.0016629711751662971,
+    "ece_point": 0.0030351976142164515,
+    "ece_ci_upper": 0.005916411900396498
+   },
+   {
+    "seed": 3,
+    "auroc_own_target": 0.7722134759278299,
+    "tau": 0.6331,
+    "hard_violations": 2,
+    "n_severe": 1670,
+    "coverage_severe": 0.9377245508982036,
+    "violation_rate_deployed": 0.001277139208173691,
+    "ece_point": 0.001877149257811492,
+    "ece_ci_upper": 0.004865568584306448
+   },
+   {
+    "seed": 4,
+    "auroc_own_target": 0.7711523692865939,
+    "tau": 0.6332,
+    "hard_violations": 2,
+    "n_severe": 1805,
+    "coverage_severe": 0.9357340720221606,
+    "violation_rate_deployed": 0.0011841326228537595,
+    "ece_point": 0.0017782192910890844,
+    "ece_ci_upper": 0.004977103577923284
+   },
+   {
+    "seed": 5,
+    "auroc_own_target": 0.7741621402622616,
+    "tau": 0.6281,
+    "hard_violations": 1,
+    "n_severe": 1778,
+    "coverage_severe": 0.9398200224971879,
+    "violation_rate_deployed": 0.0005984440454817474,
+    "ece_point": 0.002812807499774528,
+    "ece_ci_upper": 0.005615264672311816
+   },
+   {
+    "seed": 6,
+    "auroc_own_target": 0.7727915786101218,
+    "tau": 0.6388,
+    "hard_violations": 2,
+    "n_severe": 1847,
+    "coverage_severe": 0.944775311315647,
+    "violation_rate_deployed": 0.001146131805157593,
+    "ece_point": 0.002324063200026465,
+    "ece_ci_upper": 0.005267108083150617
+   },
+   {
+    "seed": 7,
+    "auroc_own_target": 0.7723856569957656,
+    "tau": 0.633,
+    "hard_violations": 1,
+    "n_severe": 1759,
+    "coverage_severe": 0.9471290505969301,
+    "violation_rate_deployed": 0.0006002400960384153,
+    "ece_point": 0.0016500237285502857,
+    "ece_ci_upper": 0.004641434492210454
+   },
+   {
+    "seed": 8,
+    "auroc_own_target": 0.7736514864611133,
+    "tau": 0.6288,
+    "hard_violations": 2,
+    "n_severe": 1799,
+    "coverage_severe": 0.9399666481378544,
+    "violation_rate_deployed": 0.0011827321111768185,
+    "ece_point": 0.0015691022731724753,
+    "ece_ci_upper": 0.004632572106141003
+   },
+   {
+    "seed": 9,
+    "auroc_own_target": 0.7726123860860576,
+    "tau": 0.632,
+    "hard_violations": 1,
+    "n_severe": 1674,
+    "coverage_severe": 0.9575866188769414,
+    "violation_rate_deployed": 0.0006238303181534623,
+    "ece_point": 0.006089024263315134,
+    "ece_ci_upper": 0.008782870910445807
+   },
+   {
+    "seed": 10,
+    "auroc_own_target": 0.7763270056760364,
+    "tau": 0.6304,
+    "hard_violations": 2,
+    "n_severe": 1800,
+    "coverage_severe": 0.9372222222222222,
+    "violation_rate_deployed": 0.0011855364552459987,
+    "ece_point": 0.0034472353955637388,
+    "ece_ci_upper": 0.006056134213877991
+   },
+   {
+    "seed": 11,
+    "auroc_own_target": 0.7750992148089737,
+    "tau": 0.6346,
+    "hard_violations": 3,
+    "n_severe": 1877,
+    "coverage_severe": 0.9568460309003729,
+    "violation_rate_deployed": 0.0016703786191536749,
+    "ece_point": 0.0026921625575141842,
+    "ece_ci_upper": 0.0052156676812017844
+   },
+   {
+    "seed": 12,
+    "auroc_own_target": 0.7745175971551425,
+    "tau": 0.6345,
+    "hard_violations": 3,
+    "n_severe": 1914,
+    "coverage_severe": 0.9399164054336469,
+    "violation_rate_deployed": 0.0016675931072818232,
+    "ece_point": 0.002408909682348938,
+    "ece_ci_upper": 0.005372365625626561
+   },
+   {
+    "seed": 13,
+    "auroc_own_target": 0.7716956032049006,
+    "tau": 0.6343,
+    "hard_violations": 0,
+    "n_severe": 1733,
+    "coverage_severe": 0.9382573571840739,
+    "violation_rate_deployed": 0.0,
+    "ece_point": 0.001740633415237004,
+    "ece_ci_upper": 0.00449529545617995
+   },
+   {
+    "seed": 14,
+    "auroc_own_target": 0.7713445485757792,
+    "tau": 0.633,
+    "hard_violations": 2,
+    "n_severe": 1807,
+    "coverage_severe": 0.9302711676812396,
+    "violation_rate_deployed": 0.001189767995240928,
+    "ece_point": 0.0025651482486879745,
+    "ece_ci_upper": 0.005166641676825544
+   },
+   {
+    "seed": 15,
+    "auroc_own_target": 0.7764328411095222,
+    "tau": 0.6357,
+    "hard_violations": 3,
+    "n_severe": 1779,
+    "coverage_severe": 0.9477234401349073,
+    "violation_rate_deployed": 0.0017793594306049821,
+    "ece_point": 0.0029403624381662717,
+    "ece_ci_upper": 0.005813907541970956
+   },
+   {
+    "seed": 16,
+    "auroc_own_target": 0.773055261632172,
+    "tau": 0.6323,
+    "hard_violations": 3,
+    "n_severe": 1761,
+    "coverage_severe": 0.9403747870528109,
+    "violation_rate_deployed": 0.0018115942028985507,
+    "ece_point": 0.0018864619524890127,
+    "ece_ci_upper": 0.004677549549476237
+   },
+   {
+    "seed": 17,
+    "auroc_own_target": 0.7725434919103333,
+    "tau": 0.6317,
+    "hard_violations": 4,
+    "n_severe": 1801,
+    "coverage_severe": 0.9650194336479734,
+    "violation_rate_deployed": 0.0023014959723820483,
+    "ece_point": 0.003899305747540129,
+    "ece_ci_upper": 0.006521186368219272
+   },
+   {
+    "seed": 18,
+    "auroc_own_target": 0.7781652239129553,
+    "tau": 0.6319,
+    "hard_violations": 3,
+    "n_severe": 1943,
+    "coverage_severe": 0.9397838394235718,
+    "violation_rate_deployed": 0.0016429353778751369,
+    "ece_point": 0.0028509986280333527,
+    "ece_ci_upper": 0.00565133171764758
+   },
+   {
+    "seed": 19,
+    "auroc_own_target": 0.7751962638045177,
+    "tau": 0.6336,
+    "hard_violations": 3,
+    "n_severe": 1758,
+    "coverage_severe": 0.9402730375426621,
+    "violation_rate_deployed": 0.0018148820326678765,
+    "ece_point": 0.003247044720504837,
+    "ece_ci_upper": 0.005916690187180431
+   }
+  ]
+ }
+}

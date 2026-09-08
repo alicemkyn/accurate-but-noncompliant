@@ -1,0 +1,9 @@
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+pyyaml>=6.0
+pyarrow>=12.0        # parquet cohort cache
+# optional, for the differentiable LTN integration style:
+#   pip install torch
+# optional, for tests:
+#   pip install pytest

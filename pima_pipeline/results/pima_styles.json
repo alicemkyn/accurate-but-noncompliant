@@ -1,0 +1,40 @@
+{
+ "reconstruction_notice": "The pipeline-coupled arm reproduces the paper's reference-split values exactly. The differentiable (LTN) arm is NOT a reproduction: no LTN hyper-parameters were ever recorded, and the earlier draft's four values (AUROC 0.831, acc 0.745, ECE 0.089, satisfaction 0.887) cannot be produced jointly by this implementation at any epoch count between 100 and 1200. This run uses the class default of 200 epochs and reports what it produces; the paper is corrected to these numbers.",
+ "ltn_reproduction_status": "NOT_REPRODUCED_FRESH_RUN",
+ "clinical_validity_caveat": "Pima `Glucose` is a 2-hour OGTT value while the 126/180 mg/dL thresholds come from FASTING glucose guidance; these rules illustrate protocol mechanics, not valid diabetes criteria.",
+ "reference_seed": 42,
+ "n_test": 231,
+ "n_severe_hyperglycaemia_test": 16,
+ "sat_threshold": 0.5,
+ "ece_bound": 0.1,
+ "arms": {
+  "pipeline_coupled": {
+   "model": "logistic regression on standardised features (uncalibrated)",
+   "auroc": 0.8363,
+   "accuracy": 0.7446,
+   "ece": 0.0701,
+   "T3_pass": true,
+   "T1_mismatches": 0,
+   "T1_hash_match": true,
+   "T1_pass": true,
+   "T2_evidence": "discrete per-decision boolean",
+   "T2_hard_violations": 0,
+   "T2_verdict": "PASS"
+  },
+  "differentiable_ltn": {
+   "model": "LTN-style MLP, Reichenbach implication, 200 epochs",
+   "auroc": 0.8165,
+   "accuracy": 0.7446,
+   "ece": 0.1107,
+   "T3_pass": false,
+   "T1_mismatches": 0,
+   "T1_hash_match": true,
+   "T1_pass": true,
+   "T2_evidence": "soft satisfaction score in [0,1]",
+   "T2_mean_satisfaction_on_severe": 0.8064,
+   "T2_cases_below_threshold": 3,
+   "T2_verdict": "requires an additional thresholding decision; at 0.5 it flags 3 case(s)"
+  }
+ },
+ "reading": "Both arms reach comparable discrimination and both pass T1. The pipeline-coupled arm passes T3 (ECE 0.070); the differentiable arm does NOT (ECE 0.111 exceeds the 0.10 bound). They differ structurally on T2: the pipeline-coupled model emits a countable boolean per decision, while the differentiable model emits a continuous score whose conversion to a categorical verdict is itself a modelling choice."
+}

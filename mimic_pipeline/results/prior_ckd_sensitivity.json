@@ -1,0 +1,377 @@
+{
+ "prereg_tag": "prereg-v1.6",
+ "analysis_status": "EXPLORATORY, post hoc, selection-limited. Not pre-registered; added in response to review. Restricted to severe cases whose patient has an earlier MIMIC admission discharged before the current one, which changes the target population unequally across groups (block E). No registered threshold is changed.",
+ "ckd_definition": {
+  "icd9_prefixes": [
+   "585"
+  ],
+  "icd10_prefixes": [
+   "N18"
+  ],
+  "wider_chronic_renal_icd9": [
+   "V420",
+   "V451",
+   "V560"
+  ],
+  "wider_chronic_renal_icd10": [
+   "Z940",
+   "Z992",
+   "Z49"
+  ],
+  "current_admission_codes_used": false,
+  "indicator_name": "CKD documented in a prior MIMIC hospitalisation",
+  "why_not_has_ckd": "Absence of a prior MIMIC CKD code is not absence of CKD: care outside the MIMIC window is invisible. The indicator is named for what it measures."
+ },
+ "n_severe_cases": 5954,
+ "n_observed_history": 4203,
+ "E_selection_audit": {
+  "White": {
+   "n_severe": 2978,
+   "n_observed_history": 2075,
+   "share_observed_history": 0.6968,
+   "share_prior_ckd_among_observed": 0.8492,
+   "share_prior_esrd_among_observed": 0.508
+  },
+  "Black": {
+   "n_severe": 1677,
+   "n_observed_history": 1390,
+   "share_observed_history": 0.8289,
+   "share_prior_ckd_among_observed": 0.9281,
+   "share_prior_esrd_among_observed": 0.6583
+  },
+  "Hispanic/Latino": {
+   "n_severe": 400,
+   "n_observed_history": 314,
+   "share_observed_history": 0.785,
+   "share_prior_ckd_among_observed": 0.9459,
+   "share_prior_esrd_among_observed": 0.7006
+  },
+  "Asian": {
+   "n_severe": 242,
+   "n_observed_history": 178,
+   "share_observed_history": 0.7355,
+   "share_prior_ckd_among_observed": 0.9157,
+   "share_prior_esrd_among_observed": 0.573
+  },
+  "_verdict": {
+   "max_minus_min_share": 0.1321,
+   "differentially_observable": true,
+   "interpretation": "The observed-history restriction changes the target population and does so unequally across race buckets. Results below therefore describe patients with prior MIMIC contact, not all severe cases. This is a selection-limited sensitivity analysis, not a correction of the main estimate."
+  }
+ },
+ "A_by_prior_ckd": {
+  "prior_ckd_documented": {
+   "White": {
+    "n": 1762,
+    "agreement": 0.2753,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 1290,
+    "agreement": 0.1829,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.0923,
+    "ci95": [
+     0.0544,
+     0.1282
+    ],
+    "excludes_zero": true
+   },
+   "n": 3736,
+   "agreement": 0.2181
+  },
+  "prior_ckd_not_documented": {
+   "White": {
+    "n": 313,
+    "agreement": 0.9137,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 100,
+    "agreement": 0.87,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.0437,
+    "ci95": [
+     -0.0288,
+     0.1182
+    ],
+    "excludes_zero": false
+   },
+   "n": 467,
+   "agreement": 0.8951
+  }
+ },
+ "B_double_stratified": {
+  "A1_elevated_at_arrival|prior_ckd_documented": {
+   "White": {
+    "n": 1305,
+    "agreement": 0.2483,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 1113,
+    "agreement": 0.1752,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.0731,
+    "ci95": [
+     0.0362,
+     0.1107
+    ],
+    "excludes_zero": true
+   },
+   "n": 2976
+  },
+  "A1_elevated_at_arrival|prior_ckd_not_documented": {
+   "White": {
+    "n": 186,
+    "agreement": 0.8925,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 56,
+    "agreement": 0.8393,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.0532,
+    "ci95": [
+     -0.0451,
+     0.161
+    ],
+    "excludes_zero": false
+   },
+   "n": 273
+  },
+  "A2_rise_from_near_normal|prior_ckd_documented": {
+   "White": {
+    "n": 14,
+    "agreement": 0.1429,
+    "thin_cell": true
+   },
+   "Black": {
+    "n": 7,
+    "agreement": 0.1429,
+    "thin_cell": true
+   },
+   "_white_minus_black": null,
+   "_note": "cell below MIN_CELL_N=30; gap not tested",
+   "n": 23
+  },
+  "A2_rise_from_near_normal|prior_ckd_not_documented": {
+   "White": {
+    "n": 6,
+    "agreement": 1.0,
+    "thin_cell": true
+   },
+   "Black": {
+    "n": 2,
+    "agreement": 0.5,
+    "thin_cell": true
+   },
+   "_white_minus_black": null,
+   "_note": "cell below MIN_CELL_N=30; gap not tested",
+   "n": 10
+  },
+  "A3_rise_from_elevated_base|prior_ckd_documented": {
+   "White": {
+    "n": 443,
+    "agreement": 0.3589,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 170,
+    "agreement": 0.2353,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.1236,
+    "ci95": [
+     0.0306,
+     0.2104
+    ],
+    "excludes_zero": true
+   },
+   "n": 737
+  },
+  "A3_rise_from_elevated_base|prior_ckd_not_documented": {
+   "White": {
+    "n": 121,
+    "agreement": 0.9421,
+    "thin_cell": false
+   },
+   "Black": {
+    "n": 42,
+    "agreement": 0.9286,
+    "thin_cell": false
+   },
+   "_white_minus_black": {
+    "point": 0.0136,
+    "ci95": [
+     -0.0746,
+     0.1083
+    ],
+    "excludes_zero": false
+   },
+   "n": 184
+  }
+ },
+ "C_joint_standardisation": {
+  "joint_mix": {
+   "A1_elevated_at_arrival|ckd": 0.7081,
+   "A1_elevated_at_arrival|no_ckd": 0.065,
+   "A2_rise_from_near_normal|ckd": 0.0055,
+   "A2_rise_from_near_normal|no_ckd": 0.0024,
+   "A3_rise_from_elevated_base|ckd": 0.1754,
+   "A3_rise_from_elevated_base|no_ckd": 0.0438
+  },
+  "White": {
+   "crude": 0.3716,
+   "standardised": 0.3411,
+   "ci95": [
+    0.3177,
+    0.3671
+   ]
+  },
+  "Black": {
+   "crude": 0.2324,
+   "standardised": 0.2625,
+   "ci95": [
+    0.2405,
+    0.291
+   ]
+  }
+ },
+ "D_regression_robustness": {
+  "model": "logistic; outcome = ICD AKI code present; guideline-severe cases with observed prior history; White and Black buckets only",
+  "n": 3465,
+  "covariates": [
+   "race_black",
+   "traj_A3",
+   "traj_A2",
+   "chronic_like",
+   "prior_ckd_documented",
+   "race_black_x_prior_ckd"
+  ],
+  "inference": "patient-level cluster bootstrap, B=400",
+  "is_causal_adjustment": false,
+  "coefficients": {
+   "race_black": {
+    "log_odds": -0.5268,
+    "odds_ratio": 0.5905,
+    "ci95_log_odds": [
+     -1.1969,
+     0.3008
+    ],
+    "excludes_zero": false
+   },
+   "traj_A3": {
+    "log_odds": 0.8435,
+    "odds_ratio": 2.3244,
+    "ci95_log_odds": [
+     0.6334,
+     1.0641
+    ],
+    "excludes_zero": true
+   },
+   "traj_A2": {
+    "log_odds": 0.0205,
+    "odds_ratio": 1.0207,
+    "ci95_log_odds": [
+     -0.9815,
+     0.9053
+    ],
+    "excludes_zero": false
+   },
+   "chronic_like": {
+    "log_odds": 0.7602,
+    "odds_ratio": 2.1386,
+    "ci95_log_odds": [
+     0.5725,
+     0.9633
+    ],
+    "excludes_zero": true
+   },
+   "prior_ckd_documented": {
+    "log_odds": -3.4311,
+    "odds_ratio": 0.0324,
+    "ci95_log_odds": [
+     -3.9024,
+     -3.0053
+    ],
+    "excludes_zero": true
+   },
+   "race_black_x_prior_ckd": {
+    "log_odds": 0.0814,
+    "odds_ratio": 1.0848,
+    "ci95_log_odds": [
+     -0.7939,
+     0.7575
+    ],
+    "excludes_zero": false
+   }
+  }
+ },
+ "G_renal_replacement_stratification": {
+  "question": "Is the label-guideline gap concentrated in patients for whom the severity rule itself is arguably misapplied?",
+  "strata": {
+   "prior_renal_replacement": {
+    "n": 2447,
+    "agreement": 0.0789,
+    "ci95": [
+     0.0677,
+     0.091
+    ],
+    "rise_profile": {
+     "median_nadir_mgdl": 5.8,
+     "median_absolute_rise_mgdl": 1.0,
+     "median_peak_over_nadir": 1.16,
+     "share_meeting_relative_limb": 0.2317
+    }
+   },
+   "no_prior_renal_replacement": {
+    "n": 1756,
+    "agreement": 0.5923,
+    "ci95": [
+     0.5677,
+     0.6179
+    ]
+   },
+   "no_prior_renal_disease_at_all": {
+    "n": 457,
+    "agreement": 0.8972,
+    "ci95": [
+     0.8698,
+     0.9243
+    ],
+    "rise_profile": {
+     "median_nadir_mgdl": 4.3,
+     "median_absolute_rise_mgdl": 1.0,
+     "median_peak_over_nadir": 1.207,
+     "share_meeting_relative_limb": 0.2363
+    }
+   }
+  },
+  "no_observed_history": {
+   "n": 1751,
+   "agreement": 0.5528,
+   "note": "prior renal status unknowable for these cases; reported so the three strata above are not read as a partition of all severe cases"
+  },
+  "_rise_comparison": {
+   "absolute_rise_is_comparable": true,
+   "note": "Median absolute rise is 1.0 mg/dL in the renal-replacement stratum against 1.0 mg/dL where there is no prior renal disease, and the share meeting the relative limb is 23.2% against 23.6%. The rise is therefore NOT weaker in the renal-replacement group; what differs is the baseline it sits on (5.8 against 4.3 mg/dL). The rule is not firing on noise there -- it is firing on a comparable acute change on top of a chronic baseline, which is a coding-convention question rather than a measurement artifact."
+  },
+  "_verdict": {
+   "agreement_without_prior_renal_disease": 0.8972,
+   "agreement_with_prior_renal_replacement": 0.0789,
+   "overlapping_intervals": false,
+   "interpretation": "Where the severity rule is least contestable -- no prior CKD and no prior renal-replacement code -- the administrative label agrees with it 89.7% of the time. Among patients with a prior renal-replacement or transplant code it agrees 7.9% of the time. The headline disagreement is therefore concentrated in patients already carrying documented chronic renal disease. Two readings are possible and the rise profile recorded above discriminates between them: were the acute rise trivial there, the rule would be firing on noise; it is not (see _rise_comparison). What differs is the baseline the rise sits on. This is a CONSTRAINT-VALIDITY finding about the audit rule as much as a label-validity finding about the coders -- whether a comparable acute change on a chronic baseline should carry an AKI code is a coding-convention question our rule answers one way and the coders answer the other -- and it narrows the population to which the paper's headline most confidently applies."
+  }
+ },
+ "reading": "The gradient persists in some but not all prior-CKD strata: documented pre-existing CKD explains part, but not all, of the observed gradient."
+}

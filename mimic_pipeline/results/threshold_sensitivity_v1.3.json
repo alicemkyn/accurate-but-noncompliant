@@ -1,0 +1,170 @@
+{
+  "betas": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "caps": [
+    0.02,
+    0.05,
+    0.1
+  ],
+  "grid": {
+    "logged|beta=0.3|cap=0.02": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.3|cap=0.05": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.3|cap=0.1": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.4|cap=0.02": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.4|cap=0.05": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.4|cap=0.1": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.5|cap=0.02": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.5|cap=0.05": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.5|cap=0.1": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.6|cap=0.02": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.6|cap=0.05": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.6|cap=0.1": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.7|cap=0.02": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.7|cap=0.05": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "logged|beta=0.7|cap=0.1": {
+      "coverage_p5": 0.7815,
+      "violation_p95": 0.7444,
+      "pass": false
+    },
+    "enforced|beta=0.3|cap=0.02": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.3|cap=0.05": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.3|cap=0.1": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.4|cap=0.02": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.4|cap=0.05": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.4|cap=0.1": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.5|cap=0.02": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.5|cap=0.05": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.5|cap=0.1": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.6|cap=0.02": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.6|cap=0.05": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.6|cap=0.1": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.7|cap=0.02": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.7|cap=0.05": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    },
+    "enforced|beta=0.7|cap=0.1": {
+      "coverage_p5": 0.2035,
+      "violation_p95": 0.0,
+      "pass": false
+    }
+  },
+  "any_policy_passes_anywhere": false,
+  "n_passing_gridpoints": 0,
+  "n_gridpoints": 30,
+  "interpretation": "Verdict robust: no deployment policy passes anywhere on the grid."
+}
