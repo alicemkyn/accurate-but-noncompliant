@@ -42,7 +42,7 @@ only the training target makes it disappear.
 ├── mimic_pipeline/             # the audit harness (dataset-agnostic) + MIMIC-IV arm
 │   ├── auditnesy_mimic/        #   config, cohort, metrics, models, audit (T1/T2/T3 + probe
 │   │                           #   + compliance–coverage certificate), negative_controls, experiment
-│   ├── scripts/                #   00–03 build and run the audit; 04–11 are the analyses
+│   ├── scripts/                #   00–02 build and run the audit; 03–11 are the analyses
 │   │                           #   (see "Analysis scripts" below)
 │   │                           #   + ADJUDICATION_INSTRUCTIONS.md — the sheet adjudicators
 │   │                             receive; part of the protocol, so it sits beside its script
@@ -77,9 +77,9 @@ they carry author-identifying material and are not needed to reproduce any resul
 
 ## Analysis scripts
 
-`00`–`03` are the original pipeline. `04`–`11` are the analysis scripts (ten,
-counting `05b`) referenced from the paper; each is standalone, reads only committed
-aggregate results or a cohort cache, and never mutates the harness.
+`00`–`02` build the cohort and run the audit. `03`–`11` are the ten analysis
+scripts referenced from the paper (counting `05b`); each is standalone, reads only
+committed aggregate results or a cohort cache, and never mutates the harness.
 
 | Script | What it answers | Output |
 |---|---|---|
@@ -124,9 +124,10 @@ export MIMIC_DIR=/path/to/mimiciv/hosp AUDITNESY_OUT=./audit_mimic_out
 python scripts/00_check_itemids.py       # verify lab itemids
 python scripts/01_build_cohort.py        # build + cache cohort (gitignored)
 python scripts/02_run_experiment.py      # 20-seed audit + negative controls + certificate
-python scripts/03_threshold_sensitivity.py
 
-# Analysis scripts (each standalone; see the table above)
+# Analysis scripts 03–11 (each standalone; see the table above)
+python scripts/03_threshold_sensitivity.py
+python scripts/04_urine_output_arm.py         # uses AUDITNESY_OUT; needs the MIMIC-IV icu module
 python scripts/05_subgroup_audit.py --cohort audit_mimic_out/aki_cohort.parquet
 python scripts/05b_label_validity_by_subgroup.py --cohort audit_mimic_out/aki_cohort.parquet
 python scripts/06_baselines.py --cohort audit_mimic_out/aki_cohort.parquet
