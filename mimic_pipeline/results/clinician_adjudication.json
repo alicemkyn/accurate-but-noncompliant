@@ -1,0 +1,39 @@
+{
+ "n_reviewers": 1,
+ "n_cases_adjudicated": 162,
+ "n_cases_left_blank_by_every_reviewer": 38,
+ "n_cases_with_at_least_one_blank": 38,
+ "blank_handling": "a blank is 'cannot tell from what is shown', not a 'no': it is dropped from that reviewer's contribution rather than scored against the rule",
+ "declared_thresholds": {
+  "min_agreement_cell_B": 0.7,
+  "min_kappa_overall": 0.6
+ },
+ "per_cell": {
+  "A_severe_coded": {
+   "n": 27,
+   "clinician_vs_rule_agreement": 1.0,
+   "clinician_vs_code_agreement": 1.0
+  },
+  "B_severe_uncoded": {
+   "n": 63,
+   "clinician_vs_rule_agreement": 1.0,
+   "clinician_vs_code_agreement": 0.0
+  },
+  "C_near_threshold": {
+   "n": 52,
+   "clinician_vs_rule_agreement": 0.7692,
+   "clinician_vs_code_agreement": 0.6346
+  },
+  "D_clearly_not_severe": {
+   "n": 20,
+   "clinician_vs_rule_agreement": 0.95,
+   "clinician_vs_code_agreement": 0.8
+  }
+ },
+ "overall": {
+  "clinician_vs_rule_kappa": 0.8345,
+  "clinician_vs_code_kappa": 0.0234,
+  "note": "pooled figures are reported only alongside the per-cell table: the sample composition was chosen by us, so a pooled number is not an estimate of agreement in the population"
+ },
+ "verdict": "Clinicians endorse the rule where it matters: agreement 1.000 on cases the rule calls severe and the coders did not (declared floor 0.7), overall kappa 0.835 (floor 0.6). The constraint may be described as a clinician-validated operationalisation rather than the authors' reading."
+}

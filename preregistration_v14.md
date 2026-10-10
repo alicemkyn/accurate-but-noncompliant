@@ -336,6 +336,121 @@ rather than a reason to bury it.
 disclosure about an existing result; the adjudication thresholds are new, and are
 declared before the data that would test them exists.
 
+## v1.10 — bounding Finding 2 by deletion rather than by argument
+
+A reader observed that Finding 2 (block G: agreement 0.897 without prior renal
+disease against 0.079 with prior dialysis or transplant) threatens the body's
+headline, because a reviewer can read it as "the severity rule is catching chronic
+elevation, so the 71% violation rate is an ESRD artifact." The paper already
+conceded the narrowing honestly but had built no defence line.
+
+The defence is a measurement, not a rebuttal. Block **H** was added to
+`scripts/10_prior_ckd_sensitivity.py` and computes what remains if the whole
+prior-renal-replacement stratum is **deleted**. Because block G's three strata
+partition all 5,954 severe cases exactly, this is a deterministic reweighting of
+an existing measurement — no new model, no new threshold, nothing fitted.
+
+| Quantity | Value |
+|---|---|
+| Prior-replacement stratum, share of ALL severe cases | 41.1% (n=2,447) |
+| Same stratum, share of observed-history subset | 58.2% — the figure that invites the misreading |
+| Severe cases remaining after deletion | 3,507 (59% of total) |
+| Agreement on those remaining cases | 0.5726 |
+| **Disagreement on those remaining cases** | **43%** |
+
+The weighted agreement across all three strata reproduces the paper's cohort
+figure of 0.3697 exactly, which is the arithmetic check that the partition is the
+one the headline is computed on.
+
+Written into the abstract, limitation (iv), the conclusion and Appendix G. The
+claim made is deliberately narrow: the concentration finding **narrows which
+population the headline describes best**, and does not make the headline an
+artifact of that population. Nothing about Finding 2's post-hoc, exploratory
+status changes — block H inherits it, and says so.
+
+**No registered threshold was changed.** Block H is a disclosure computed from
+block G's own cells.
+
+## v1.11 — the deletion test applied to the model statistic, not only the label
+
+Block H (v1.10) answered "is the headline an ESRD artifact?" for the **label**:
+delete the dialysis stratum, 3,507 severe cases remain, label–guideline
+disagreement 43%. A reader pointed out that this leaves the argument half-built,
+because the paper's headline is a **model** statistic — a mean 71% of deployed
+severe decisions are confident denials — and block H never touches it. Filling
+that gap with prose would be the move this paper exists to refuse, so
+`scripts/12_violation_rate_by_renal_history.py` computes it, reusing
+`05_subgroup_audit.py`'s splits, model factory and statistic definitions so the
+arm cannot drift from the numbers the paper reports.
+
+| Stratum | n severe (mean/split) | Coverage | Violation rate |
+|---|---|---|---|
+| Prior renal replacement | 716.4 | 0.890 | **0.9405** |
+| No prior renal replacement | 527.6 | 0.731 | 0.4790 (UNDETERMINED) |
+| Prior status unobservable | 528.8 | 0.743 | 0.5791 (UNDETERMINED) |
+| **Pooled, surviving strata** | 1,056.4 | — | **0.5295** |
+| All severe cases (paper headline) | 1,772.9 | 0.799 | 0.7143 |
+
+The model statistic behaves like the label statistic: concentrated in the
+dialysis stratum, substantially present without it.
+
+**Two accounting points, both recorded against us.**
+
+1. **Pooling weight.** `violation_rate_deployed` has `n_deployed` as its
+   denominator, not `n_severe`, and coverage differs across strata (0.89 vs 0.73
+   vs 0.74), so per-stratum rates are pooled by `coverage × n_severe`. A first
+   version of this block pooled by `n_severe`; the payload records what that
+   would have given (0.5291) so the size of the error is on the record rather
+   than silently corrected. The choice moves the result by 0.0004 here — small,
+   but not small by construction.
+2. **Both surviving strata are below our own floor.** At a mean ~528 severe cases
+   per split, the registered `min_subgroup_n = 500` is breached on at least one
+   split in each, so both are flagged **UNDETERMINED** by the same rule that
+   governs the racial-subgroup analysis. The figures are reported because
+   deleting them would be selective; the flag stays because the rule applies to
+   us too. This is the honest reading: the model-side deletion test is
+   **suggestive, not powered**.
+
+A guard was also added against the failure mode that produced this block's first
+wrong answer: `agg_across_seeds` nests each statistic as `{mean,p5,p95}`, and
+reading a flat `<key>_mean` yields `None` silently. The script now raises on an
+unpopulated headline comparison rather than writing a file full of nulls.
+
+**No registered threshold was changed.** The floor was enforced, not relaxed.
+
+## v1.12 — post-submission, during review (2026-10-10): three reviewer-requested measurements
+
+All three were requested in the ML4H reviews of the submitted manuscript. None was
+pre-registered; none changes a registered threshold; each is reported in whichever
+direction it fell. Scripts, results and this entry were added to the repository after
+submission and are dated as such.
+
+| Item | What was done | Result | Status |
+|---|---|---|---|
+| Restricted-cohort certificate (model side) | `scripts/12_violation_rate_by_renal_history.py` gained a `restricted_certificate` block: per-seed pooling from counts over the two non-dialysis strata, then the primary certificate's own quantile rule. (Supersedes v1.11's "suggestive, not powered", which applied to the *per-stratum* figures at ~528 severe/split; the *pooled* surviving cohort at 1,006–1,099 clears the floor on every split.) | Pooled surviving cohort 1,006–1,099 severe/split (above the 500 floor on every split → determinate). Coverage p5 0.711 (floor 0.50, passes); violation p95 0.563 (cap 0.05) → **FAIL on violation**, same limb as the full cohort. Mean violation 0.5295 vs 0.71 full. | post hoc, reviewer-requested |
+| eICU held-out-hospital certificate | `eicu_pipeline/heldout_hospital_certificate.py`: run_eicu.py's hospital partition (102 train / 103 held-out), harness model, tau and `run_T2`, certificate arithmetic unchanged; 20 seeds vary the model, not the partition. | AUROC transfers (0.849). Coverage 0.307 (p5 0.196), violation 0.973 (p95 0.995) → **FAIL on coverage**, as the submitted within-eICU certificate did. 80 held-out sites with severe cases, **0** clear the floor → per-site UNDETERMINED; among 33 sites with ≥20 severe/split, violation 0.85–1.00. | post hoc, reviewer-requested |
+| Clinician adjudication (protocol registered in v1.9) | One nephrologist, not an author, blinded (packet without key), scored 200-case packet under `ADJUDICATION_INSTRUCTIONS.md` unchanged. Scored with `11_clinician_adjudication.py score`. | 162/200 adjudicated, 38 blank (= "cannot tell", dropped). Cell B 63/63 (17 of 80 blank), A 27/27, C 40/52, D 19/20; κ vs rule 0.835, vs code 0.023. **Both pre-declared thresholds pass.** | protocol pre-registered; result observed |
+
+**Two bounds on the adjudication, recorded here before the paper states them.**
+(1) On every one of the 162 decided cases the adjudicator's verdict coincides exactly with the
+KDIGO stage ≥ 1 creatinine criteria (≥ 0.3 mg/dL absolute or ≥ 1.5× relative rise), with no
+exception. The result therefore validates our operationalisation against a nephrologist's
+reading of the guideline; it is not independent evidence that the displayed cases are
+clinically AKI. (2) The 38 withheld cases are not random: 30 are rule-severe (13 in cell A, 17 in cell B) and
+8 are near-threshold; median baseline creatinine 5.1 mg/dL, median rise 0.4 — the high-baseline, borderline-rise stratum
+block G already identifies as the population the rule describes least well. The script's
+auto-generated verdict sentence ("clinician-validated operationalisation") is **not** used
+in the paper; the bounded wording above is.
+
+**Provenance of the scored file.** Two earlier files returned by the adjudicator had been
+passed through a language model for formatting and were discarded unscored; the scored file
+is the adjudicator's direct entry of 1/0/blank into the unmodified packet, confirmed by him.
+The 14 input columns of the scored file are cell-for-cell identical to the packet sent.
+
+**Patient-level handling.** The returned response file (`results/adjudication_responses/`)
+is patient-level via the key and is git-ignored; `results/clinician_adjudication.json`
+carries only cell-level aggregates and is released.
+
 ### Retained findings (reported in the paper)
 
 Neither earlier run is discarded — together they are the framework's strongest evidence.

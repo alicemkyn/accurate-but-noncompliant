@@ -1,0 +1,1353 @@
+{
+ "prereg_tag": "prereg-v1.3",
+ "analysis_status": "POST-SUBMISSION, reviewer-requested, not pre-registered. The hospital partition, model factory, tau rule, constraint and certificate arithmetic are the released harness's own and were not changed.",
+ "hospital_partition": {
+  "rng_seed": 0,
+  "n_train_hospitals": 102,
+  "n_heldout_hospitals": 103,
+  "n_train_stays": 92174,
+  "n_heldout_stays": 77651,
+  "n_heldout_severe": 1873
+ },
+ "what_seeds_vary": "the patient-level training split inside the training hospitals, hence the model; NOT the hospital partition. Quantiles describe model variability on a fixed held-out hospital set.",
+ "n_seeds": 20,
+ "auroc_heldout": {
+  "mean": 0.8489,
+  "min": 0.8257,
+  "max": 0.8538
+ },
+ "certificate": {
+  "coverage_floor_beta": 0.5,
+  "violation_rate_max": 0.05,
+  "logged_policy": {
+   "coverage_severe_mean": 0.3071,
+   "coverage_severe_p5": 0.1963,
+   "coverage_severe_p95": 0.3695,
+   "violation_rate_deployed_mean": 0.9727,
+   "violation_rate_deployed_p5": 0.9396,
+   "violation_rate_deployed_p95": 0.9946,
+   "certificate_pass": false,
+   "fails_on": "coverage"
+  },
+  "enforced_policy": {
+   "coverage_severe_mean": 0.0087,
+   "coverage_severe_p5": 0.0015,
+   "coverage_severe_p95": 0.0228,
+   "violation_rate_deployed_mean": 0.0,
+   "violation_rate_deployed_p5": 0.0,
+   "violation_rate_deployed_p95": 0.0,
+   "certificate_pass": false,
+   "fails_on": "coverage"
+  }
+ },
+ "per_site": {
+  "subgroup_floor": 500,
+  "n_sites_with_severe_cases": 80,
+  "n_sites_determinate": 0,
+  "note": "eICU hospitals are small relative to the registered floor; a site below the floor on any split is UNDETERMINED and is reported, not dropped.",
+  "sites": [
+   {
+    "hospitalid": 420,
+    "n_severe_per_seed": 167,
+    "n_seeds": 20,
+    "coverage_severe": 0.2593,
+    "violation_rate_deployed": 0.9758,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 167,
+    "n_severe_per_seed": 110,
+    "n_seeds": 20,
+    "coverage_severe": 0.3491,
+    "violation_rate_deployed": 0.9805,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 416,
+    "n_severe_per_seed": 101,
+    "n_seeds": 20,
+    "coverage_severe": 0.3475,
+    "violation_rate_deployed": 0.9772,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 458,
+    "n_severe_per_seed": 90,
+    "n_seeds": 20,
+    "coverage_severe": 0.3461,
+    "violation_rate_deployed": 0.9695,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 122,
+    "n_severe_per_seed": 73,
+    "n_seeds": 20,
+    "coverage_severe": 0.1192,
+    "violation_rate_deployed": 0.8678,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 195,
+    "n_severe_per_seed": 61,
+    "n_seeds": 20,
+    "coverage_severe": 0.659,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 208,
+    "n_severe_per_seed": 59,
+    "n_seeds": 20,
+    "coverage_severe": 0.1542,
+    "violation_rate_deployed": 0.9451,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 449,
+    "n_severe_per_seed": 55,
+    "n_seeds": 20,
+    "coverage_severe": 0.3627,
+    "violation_rate_deployed": 0.9298,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 227,
+    "n_severe_per_seed": 54,
+    "n_seeds": 20,
+    "coverage_severe": 0.363,
+    "violation_rate_deployed": 0.9974,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 307,
+    "n_severe_per_seed": 54,
+    "n_seeds": 20,
+    "coverage_severe": 0.2491,
+    "violation_rate_deployed": 0.9703,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 411,
+    "n_severe_per_seed": 54,
+    "n_seeds": 20,
+    "coverage_severe": 0.3852,
+    "violation_rate_deployed": 0.9928,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 400,
+    "n_severe_per_seed": 51,
+    "n_seeds": 20,
+    "coverage_severe": 0.3578,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 277,
+    "n_severe_per_seed": 49,
+    "n_seeds": 20,
+    "coverage_severe": 0.2918,
+    "violation_rate_deployed": 0.9965,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 283,
+    "n_severe_per_seed": 48,
+    "n_seeds": 20,
+    "coverage_severe": 0.3677,
+    "violation_rate_deployed": 0.9915,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 197,
+    "n_severe_per_seed": 46,
+    "n_seeds": 20,
+    "coverage_severe": 0.325,
+    "violation_rate_deployed": 0.9064,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 176,
+    "n_severe_per_seed": 43,
+    "n_seeds": 20,
+    "coverage_severe": 0.486,
+    "violation_rate_deployed": 0.988,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 157,
+    "n_severe_per_seed": 40,
+    "n_seeds": 20,
+    "coverage_severe": 0.19,
+    "violation_rate_deployed": 0.9145,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 345,
+    "n_severe_per_seed": 35,
+    "n_seeds": 20,
+    "coverage_severe": 0.1757,
+    "violation_rate_deployed": 0.8455,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 171,
+    "n_severe_per_seed": 33,
+    "n_seeds": 20,
+    "coverage_severe": 0.4333,
+    "violation_rate_deployed": 0.9965,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 259,
+    "n_severe_per_seed": 33,
+    "n_seeds": 20,
+    "coverage_severe": 0.303,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 444,
+    "n_severe_per_seed": 33,
+    "n_seeds": 20,
+    "coverage_severe": 0.2303,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 148,
+    "n_severe_per_seed": 30,
+    "n_seeds": 20,
+    "coverage_severe": 0.2967,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 183,
+    "n_severe_per_seed": 26,
+    "n_seeds": 20,
+    "coverage_severe": 0.4,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 312,
+    "n_severe_per_seed": 25,
+    "n_seeds": 20,
+    "coverage_severe": 0.232,
+    "violation_rate_deployed": 0.9828,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 215,
+    "n_severe_per_seed": 24,
+    "n_seeds": 20,
+    "coverage_severe": 0.25,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 391,
+    "n_severe_per_seed": 23,
+    "n_seeds": 20,
+    "coverage_severe": 0.2826,
+    "violation_rate_deployed": 0.9846,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 110,
+    "n_severe_per_seed": 22,
+    "n_seeds": 20,
+    "coverage_severe": 0.2205,
+    "violation_rate_deployed": 0.9794,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 198,
+    "n_severe_per_seed": 22,
+    "n_seeds": 20,
+    "coverage_severe": 0.2659,
+    "violation_rate_deployed": 0.8547,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 403,
+    "n_severe_per_seed": 22,
+    "n_seeds": 20,
+    "coverage_severe": 0.25,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 66,
+    "n_severe_per_seed": 21,
+    "n_seeds": 20,
+    "coverage_severe": 0.4786,
+    "violation_rate_deployed": 0.9303,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 206,
+    "n_severe_per_seed": 21,
+    "n_seeds": 20,
+    "coverage_severe": 0.2976,
+    "violation_rate_deployed": 0.992,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 353,
+    "n_severe_per_seed": 21,
+    "n_seeds": 20,
+    "coverage_severe": 0.3095,
+    "violation_rate_deployed": 0.9923,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 268,
+    "n_severe_per_seed": 20,
+    "n_seeds": 20,
+    "coverage_severe": 0.26,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 396,
+    "n_severe_per_seed": 19,
+    "n_seeds": 20,
+    "coverage_severe": 0.5263,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 184,
+    "n_severe_per_seed": 18,
+    "n_seeds": 20,
+    "coverage_severe": 0.5167,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 248,
+    "n_severe_per_seed": 16,
+    "n_seeds": 20,
+    "coverage_severe": 0.1187,
+    "violation_rate_deployed": 0.8421,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 272,
+    "n_severe_per_seed": 15,
+    "n_seeds": 20,
+    "coverage_severe": 0.2467,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 419,
+    "n_severe_per_seed": 15,
+    "n_seeds": 20,
+    "coverage_severe": 0.13,
+    "violation_rate_deployed": 0.9487,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 386,
+    "n_severe_per_seed": 13,
+    "n_seeds": 20,
+    "coverage_severe": 0.1846,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 144,
+    "n_severe_per_seed": 12,
+    "n_seeds": 20,
+    "coverage_severe": 0.4625,
+    "violation_rate_deployed": 0.973,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 200,
+    "n_severe_per_seed": 12,
+    "n_seeds": 20,
+    "coverage_severe": 0.2333,
+    "violation_rate_deployed": 0.8929,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 405,
+    "n_severe_per_seed": 12,
+    "n_seeds": 20,
+    "coverage_severe": 0.5583,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 180,
+    "n_severe_per_seed": 10,
+    "n_seeds": 20,
+    "coverage_severe": 0.01,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 434,
+    "n_severe_per_seed": 10,
+    "n_seeds": 20,
+    "coverage_severe": 0.275,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 69,
+    "n_severe_per_seed": 9,
+    "n_seeds": 20,
+    "coverage_severe": 0.3167,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 108,
+    "n_severe_per_seed": 9,
+    "n_seeds": 20,
+    "coverage_severe": 0.1222,
+    "violation_rate_deployed": 0.7273,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 253,
+    "n_severe_per_seed": 9,
+    "n_seeds": 20,
+    "coverage_severe": 0.4389,
+    "violation_rate_deployed": 0.8101,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 383,
+    "n_severe_per_seed": 9,
+    "n_seeds": 20,
+    "coverage_severe": 0.4167,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 155,
+    "n_severe_per_seed": 8,
+    "n_seeds": 20,
+    "coverage_severe": 0.1938,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 210,
+    "n_severe_per_seed": 8,
+    "n_seeds": 20,
+    "coverage_severe": 0.1437,
+    "violation_rate_deployed": 0.9565,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 397,
+    "n_severe_per_seed": 8,
+    "n_seeds": 20,
+    "coverage_severe": 0.325,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 143,
+    "n_severe_per_seed": 7,
+    "n_seeds": 20,
+    "coverage_severe": 0.3714,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 412,
+    "n_severe_per_seed": 7,
+    "n_seeds": 20,
+    "coverage_severe": 0.3286,
+    "violation_rate_deployed": 0.7391,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 92,
+    "n_severe_per_seed": 6,
+    "n_seeds": 20,
+    "coverage_severe": 0.175,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 140,
+    "n_severe_per_seed": 6,
+    "n_seeds": 20,
+    "coverage_severe": 0.1583,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 258,
+    "n_severe_per_seed": 6,
+    "n_seeds": 20,
+    "coverage_severe": 0.0917,
+    "violation_rate_deployed": 0.1818,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 428,
+    "n_severe_per_seed": 6,
+    "n_seeds": 20,
+    "coverage_severe": 0.325,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 445,
+    "n_severe_per_seed": 6,
+    "n_seeds": 20,
+    "coverage_severe": 0.0583,
+    "violation_rate_deployed": 0.2857,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 182,
+    "n_severe_per_seed": 5,
+    "n_seeds": 20,
+    "coverage_severe": 0.25,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 337,
+    "n_severe_per_seed": 5,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 404,
+    "n_severe_per_seed": 4,
+    "n_seeds": 20,
+    "coverage_severe": 0.0125,
+    "violation_rate_deployed": 0.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 67,
+    "n_severe_per_seed": 3,
+    "n_seeds": 20,
+    "coverage_severe": 0.05,
+    "violation_rate_deployed": 0.6667,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 158,
+    "n_severe_per_seed": 3,
+    "n_seeds": 20,
+    "coverage_severe": 0.0667,
+    "violation_rate_deployed": 0.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 209,
+    "n_severe_per_seed": 3,
+    "n_seeds": 20,
+    "coverage_severe": 0.4333,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 310,
+    "n_severe_per_seed": 3,
+    "n_seeds": 20,
+    "coverage_severe": 0.0167,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 423,
+    "n_severe_per_seed": 3,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 61,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.5,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 263,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 266,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.05,
+    "violation_rate_deployed": 0.5,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 273,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.8,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 303,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.4,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 350,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 398,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.075,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 399,
+    "n_severe_per_seed": 2,
+    "n_seeds": 20,
+    "coverage_severe": 0.425,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 56,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 83,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.65,
+    "violation_rate_deployed": 1.0,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 85,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 201,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 204,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   },
+   {
+    "hospitalid": 422,
+    "n_severe_per_seed": 1,
+    "n_seeds": 20,
+    "coverage_severe": 0.0,
+    "violation_rate_deployed": null,
+    "status": "UNDETERMINED"
+   }
+  ]
+ },
+ "per_seed": [
+  {
+   "seed": 0,
+   "tau": 0.7579,
+   "auroc_heldout": 0.8476,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 531,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1339,
+    "n_deployed_severe": 534,
+    "coverage_severe": 0.28510411105178857,
+    "violation_rate_deployed": 0.9943820224719101,
+    "mean_satisfaction_severe": 0.21462893753336892,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 531,
+    "deferred_on_severe": 1870,
+    "n_deployed_severe": 3,
+    "coverage_severe": 0.001601708489054992,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.21462893753336892,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 1,
+   "tau": 0.7567,
+   "auroc_heldout": 0.8505,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 521,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1336,
+    "n_deployed_severe": 537,
+    "coverage_severe": 0.28670581954084357,
+    "violation_rate_deployed": 0.9702048417132216,
+    "mean_satisfaction_severe": 0.22690870261612386,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 521,
+    "deferred_on_severe": 1857,
+    "n_deployed_severe": 16,
+    "coverage_severe": 0.008542445274959957,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.22690870261612386,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 2,
+   "tau": 0.7579,
+   "auroc_heldout": 0.8501,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 573,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1288,
+    "n_deployed_severe": 585,
+    "coverage_severe": 0.3123331553657234,
+    "violation_rate_deployed": 0.9794871794871794,
+    "mean_satisfaction_severe": 0.20662039508809396,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 573,
+    "deferred_on_severe": 1861,
+    "n_deployed_severe": 12,
+    "coverage_severe": 0.006406833956219968,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.20662039508809396,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 3,
+   "tau": 0.7563,
+   "auroc_heldout": 0.8478,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 472,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1386,
+    "n_deployed_severe": 487,
+    "coverage_severe": 0.2600106780565937,
+    "violation_rate_deployed": 0.9691991786447639,
+    "mean_satisfaction_severe": 0.21516284036305391,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 472,
+    "deferred_on_severe": 1858,
+    "n_deployed_severe": 15,
+    "coverage_severe": 0.00800854244527496,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.21516284036305391,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 4,
+   "tau": 0.7555,
+   "auroc_heldout": 0.8528,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 594,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1258,
+    "n_deployed_severe": 615,
+    "coverage_severe": 0.32835024025627335,
+    "violation_rate_deployed": 0.9658536585365853,
+    "mean_satisfaction_severe": 0.23705285638013882,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 594,
+    "deferred_on_severe": 1852,
+    "n_deployed_severe": 21,
+    "coverage_severe": 0.011211959423384944,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.23705285638013882,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 5,
+   "tau": 0.7474,
+   "auroc_heldout": 0.8502,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 622,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1250,
+    "n_deployed_severe": 623,
+    "coverage_severe": 0.33262146289375333,
+    "violation_rate_deployed": 0.9983948635634029,
+    "mean_satisfaction_severe": 0.30912973838761343,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 622,
+    "deferred_on_severe": 1872,
+    "n_deployed_severe": 1,
+    "coverage_severe": 0.0005339028296849973,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.30912973838761343,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 6,
+   "tau": 0.7583,
+   "auroc_heldout": 0.8498,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 572,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1296,
+    "n_deployed_severe": 577,
+    "coverage_severe": 0.30806193272824345,
+    "violation_rate_deployed": 0.9913344887348353,
+    "mean_satisfaction_severe": 0.14468766684463427,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 572,
+    "deferred_on_severe": 1868,
+    "n_deployed_severe": 5,
+    "coverage_severe": 0.0026695141484249867,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.14468766684463427,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 7,
+   "tau": 0.7681,
+   "auroc_heldout": 0.8343,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 359,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1505,
+    "n_deployed_severe": 368,
+    "coverage_severe": 0.196476241324079,
+    "violation_rate_deployed": 0.9755434782608695,
+    "mean_satisfaction_severe": 0.1804591564335291,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 359,
+    "deferred_on_severe": 1864,
+    "n_deployed_severe": 9,
+    "coverage_severe": 0.004805125467164976,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.1804591564335291,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 8,
+   "tau": 0.7625,
+   "auroc_heldout": 0.8257,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 357,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1511,
+    "n_deployed_severe": 362,
+    "coverage_severe": 0.19327282434596904,
+    "violation_rate_deployed": 0.9861878453038674,
+    "mean_satisfaction_severe": 0.19273892151628402,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 357,
+    "deferred_on_severe": 1868,
+    "n_deployed_severe": 5,
+    "coverage_severe": 0.0026695141484249867,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.19273892151628402,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 9,
+   "tau": 0.7451,
+   "auroc_heldout": 0.8513,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 614,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1247,
+    "n_deployed_severe": 626,
+    "coverage_severe": 0.3342231713828083,
+    "violation_rate_deployed": 0.9808306709265175,
+    "mean_satisfaction_severe": 0.22156967431927388,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 614,
+    "deferred_on_severe": 1861,
+    "n_deployed_severe": 12,
+    "coverage_severe": 0.006406833956219968,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.22156967431927388,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 10,
+   "tau": 0.7557,
+   "auroc_heldout": 0.8538,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 601,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1265,
+    "n_deployed_severe": 608,
+    "coverage_severe": 0.3246129204484784,
+    "violation_rate_deployed": 0.9884868421052632,
+    "mean_satisfaction_severe": 0.27549386011745863,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 601,
+    "deferred_on_severe": 1866,
+    "n_deployed_severe": 7,
+    "coverage_severe": 0.0037373198077949813,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.27549386011745863,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 11,
+   "tau": 0.7572,
+   "auroc_heldout": 0.8524,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 597,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1266,
+    "n_deployed_severe": 607,
+    "coverage_severe": 0.3240790176187934,
+    "violation_rate_deployed": 0.9835255354200988,
+    "mean_satisfaction_severe": 0.27229044313934864,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 597,
+    "deferred_on_severe": 1863,
+    "n_deployed_severe": 10,
+    "coverage_severe": 0.005339028296849973,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.27229044313934864,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 12,
+   "tau": 0.76,
+   "auroc_heldout": 0.8485,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 516,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1352,
+    "n_deployed_severe": 521,
+    "coverage_severe": 0.2781633742658836,
+    "violation_rate_deployed": 0.9904030710172744,
+    "mean_satisfaction_severe": 0.19327282434596904,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 516,
+    "deferred_on_severe": 1868,
+    "n_deployed_severe": 5,
+    "coverage_severe": 0.0026695141484249867,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.19327282434596904,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 13,
+   "tau": 0.7473,
+   "auroc_heldout": 0.8496,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 573,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1245,
+    "n_deployed_severe": 628,
+    "coverage_severe": 0.3352909770421783,
+    "violation_rate_deployed": 0.9124203821656051,
+    "mean_satisfaction_severe": 0.2514682327816337,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 573,
+    "deferred_on_severe": 1818,
+    "n_deployed_severe": 55,
+    "coverage_severe": 0.029364655632674853,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.2514682327816337,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 14,
+   "tau": 0.7466,
+   "auroc_heldout": 0.8534,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 615,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1231,
+    "n_deployed_severe": 642,
+    "coverage_severe": 0.3427656166577683,
+    "violation_rate_deployed": 0.9579439252336449,
+    "mean_satisfaction_severe": 0.2642819006940737,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 615,
+    "deferred_on_severe": 1846,
+    "n_deployed_severe": 27,
+    "coverage_severe": 0.014415376401494928,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.2642819006940737,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 15,
+   "tau": 0.7451,
+   "auroc_heldout": 0.8536,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 671,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1182,
+    "n_deployed_severe": 691,
+    "coverage_severe": 0.36892685531233316,
+    "violation_rate_deployed": 0.9710564399421129,
+    "mean_satisfaction_severe": 0.27122263747997866,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 671,
+    "deferred_on_severe": 1853,
+    "n_deployed_severe": 20,
+    "coverage_severe": 0.010678056593699947,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.27122263747997866,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 16,
+   "tau": 0.7534,
+   "auroc_heldout": 0.8511,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 500,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1350,
+    "n_deployed_severe": 523,
+    "coverage_severe": 0.2792311799252536,
+    "violation_rate_deployed": 0.9560229445506692,
+    "mean_satisfaction_severe": 0.19754404698344902,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 500,
+    "deferred_on_severe": 1850,
+    "n_deployed_severe": 23,
+    "coverage_severe": 0.012279765082754938,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.19754404698344902,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 17,
+   "tau": 0.7473,
+   "auroc_heldout": 0.8509,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 593,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1255,
+    "n_deployed_severe": 618,
+    "coverage_severe": 0.32995194874532835,
+    "violation_rate_deployed": 0.959546925566343,
+    "mean_satisfaction_severe": 0.2445274959957288,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 593,
+    "deferred_on_severe": 1848,
+    "n_deployed_severe": 25,
+    "coverage_severe": 0.013347570742124934,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.2445274959957288,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 18,
+   "tau": 0.7568,
+   "auroc_heldout": 0.8526,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 670,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1161,
+    "n_deployed_severe": 712,
+    "coverage_severe": 0.3801388147357181,
+    "violation_rate_deployed": 0.9410112359550562,
+    "mean_satisfaction_severe": 0.22957821676454884,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 670,
+    "deferred_on_severe": 1831,
+    "n_deployed_severe": 42,
+    "coverage_severe": 0.022423918846769888,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.22957821676454884,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  },
+  {
+   "seed": 19,
+   "tau": 0.7536,
+   "auroc_heldout": 0.8524,
+   "T2": {
+    "evidence": true,
+    "enforced": false,
+    "n_severe": 1873,
+    "hard_violations": 629,
+    "escalated_on_severe": 0,
+    "deferred_on_severe": 1232,
+    "n_deployed_severe": 641,
+    "coverage_severe": 0.34223171382808326,
+    "violation_rate_deployed": 0.9812792511700468,
+    "mean_satisfaction_severe": 0.20501868659903896,
+    "rule_of_three_upper": null,
+    "pass_split": false
+   },
+   "T2_enforced": {
+    "evidence": true,
+    "enforced": true,
+    "n_severe": 1873,
+    "hard_violations": 0,
+    "escalated_on_severe": 629,
+    "deferred_on_severe": 1861,
+    "n_deployed_severe": 12,
+    "coverage_severe": 0.006406833956219968,
+    "violation_rate_deployed": 0.0,
+    "mean_satisfaction_severe": 0.20501868659903896,
+    "rule_of_three_upper": 0.001601708489054992,
+    "pass_split": true
+   }
+  }
+ ]
+}

@@ -41,7 +41,7 @@ only the training target makes it disappear.
 ```
 .
 ├── preregistration.md          # frozen pass criteria (prereg-v1.0 … v1.3) and deviations log
-├── preregistration_v14.md      # continuation log: every later deviation, v1.4 … v1.9
+├── preregistration_v14.md      # continuation log: every later deviation, v1.4 … v1.12
 ├── LICENSE                     # MIT, code and aggregate results only
 │
 ├── mimic_pipeline/             # the audit harness (dataset-agnostic) + MIMIC-IV arm
@@ -58,6 +58,7 @@ only the training target makes it disappear.
 ├── eicu_pipeline/              # eICU multi-center replication (reuses the harness)
 │   ├── build_eicu_cohort.py    #   eICU cohort adapter (only dataset-specific piece)
 │   ├── run_eicu.py             #   runs the harness on eICU with a held-out-hospital shift
+│   ├── heldout_hospital_certificate.py  #   certificate on 103 held-out hospitals + per-site (post-submission, reviewer-requested)
 │   ├── 00_check_eicu_labnames.py, dump_eicu_figdata.py
 │   ├── results/                #   aggregate eICU JSONs (DUA-safe)
 │   └── EICU_PLAN.md, EICU_FINDINGS.md
@@ -101,12 +102,15 @@ committed aggregate results or a cohort cache, and never mutates the harness.
 | `09_matched_positive_control.py` | Same cohort, same features, only the target changes | `matched_positive_control.json` |
 | `10_prior_ckd_sensitivity.py` | Does the gradient survive adjusting for prior renal disease? | `prior_ckd_sensitivity.json` |
 | `11_clinician_adjudication.py` | Is the audit constraint a defensible reading of KDIGO? | packet (gitignored) → `clinician_adjudication.json` |
+| `12_violation_rate_by_renal_history.py` | Does the headline survive deleting the prior-dialysis stratum — for the *model* statistic, not only the label? | `violation_rate_by_renal_history.json` (per-stratum rates, pooled surviving-cohort rate, exact restricted-cohort certificate) |
 
-`11` is the one analysis that is **not** complete: it draws a blinded 200-case
-packet and scores returned adjudications, with the falsification thresholds fixed
-in source before any adjudication exists. What it lacks is clinicians. The packet
-and its unblinding key are patient-level and gitignored; both regenerate from the
-seed and stratum targets recorded in the script.
+`11` has been run once: it drew a blinded 200-case packet with the falsification
+thresholds fixed in source before any adjudication existed, and one blinded
+nephrologist, not an author, scored it (162 of 200 adjudicated; both pre-declared
+thresholds pass; see `results/clinician_adjudication.json` and deviations log
+v1.12 for the two bounds on what that shows). The packet, its unblinding key and
+the returned responses are patient-level and gitignored; packet and key regenerate
+from the seed and stratum targets recorded in the script.
 
 `scripts/ADJUDICATION_INSTRUCTIONS.md` is the sheet the adjudicators receive. It is
 released because it is **part of the protocol**, not correspondence: it fixes what a
@@ -161,8 +165,8 @@ cd ../figures && pip install -r requirements.txt
 python make_figures.py && python make_eicu_figures.py
 
 # Tests (no data needed)
-cd ../mimic_pipeline && python -m pytest tests/ -q   # 50 tests (15 skip without the cohort cache)
-cd ../pima_pipeline  && python -m pytest tests/ -q   # 10 tests (3 skip without the CSV)
+cd ../mimic_pipeline && python -m pytest tests/ -q   # 74 collected; those needing the cohort cache or raw tables skip without them
+cd ../pima_pipeline  && python -m pytest tests/ -q   # 10 collected (3 skip without the CSV)
 ```
 
 Data-dependent tests **skip** rather than pass when the cohort cache is absent, so a
@@ -174,7 +178,7 @@ git tags `prereg-v1.0 … prereg-v1.3`. Those tags and their commit history live
 authors' identifying repository and cannot be included in an anonymised package; this
 package carries the dated pre-registration and deviations files, and the tagged history
 will be made public with the camera-ready version. Every constraint correction is logged as a deviation in
-`preregistration.md`, continued in `preregistration_v14.md` for revisions v1.4–v1.9;
+`preregistration.md`, continued in `preregistration_v14.md` for revisions v1.4–v1.12;
 **no pass threshold was ever changed after seeing results** — only the clinical/logical
 scope of the T2 constraint. Each mis-specification was itself flagged by the audit's own T2 axis.
 

@@ -454,8 +454,69 @@ def main() -> None:
                    "accordingly; the label-mismatch finding is unaffected.")
     print(f"\n[reading] {reading}", flush=True)
 
+    # ---------- does the headline survive deleting its most attackable stratum? ----------
+    # Block G shows the label-guideline gap concentrates in patients with prior renal
+    # replacement, which invites "your severity rule is catching chronic elevation, so
+    # the headline is an ESRD artifact". That objection is testable by DELETION, and the
+    # three strata below partition all severe cases exactly, so this is a reweighting of
+    # an existing measurement -- nothing new is fitted.
+    #
+    # NOTE ON STRATA. These are NOT the strata used for the block G reading, which are
+    # nested (no renal disease at all sits inside no prior renal replacement). Keeping
+    # the two triples distinct matters: conflating them once put a partition claim and a
+    # non-partition claim in adjacent paragraphs of the paper.
+    _g_str = G["strata"]
+    _cells = [
+        ("prior_renal_replacement", _g_str["prior_renal_replacement"]["n"],
+         _g_str["prior_renal_replacement"]["agreement"]),
+        ("no_prior_renal_replacement", _g_str["no_prior_renal_replacement"]["n"],
+         _g_str["no_prior_renal_replacement"]["agreement"]),
+        ("prior_status_unobservable", G["no_observed_history"]["n"],
+         G["no_observed_history"]["agreement"]),
+    ]
+    _n_tot = sum(n for _, n, _ in _cells)
+    _agr_all = sum(n * a for _, n, a in _cells) / _n_tot
+    _kept = [(k, n, a) for k, n, a in _cells if k != "prior_renal_replacement"]
+    _n_kept = sum(n for _, n, _ in _kept)
+    _agr_kept = sum(n * a for _, n, a in _kept) / _n_kept
+    _n_rrt = _g_str["prior_renal_replacement"]["n"]
+
+    robustness = {
+        "question": ("If the whole prior-renal-replacement stratum is deleted, does the "
+                     "label-guideline disagreement go away?"),
+        "strata_are_disjoint_not_the_nested_reading_strata": True,
+        "strata_partition_all_severe_cases": bool(_n_tot == int(len(sev))),
+        "n_severe_all": _n_tot,
+        "agreement_all_severe": round(_agr_all, 4),
+        "prior_rrt_share_of_all_severe": round(_n_rrt / _n_tot, 4),
+        "prior_rrt_share_of_observed_history": round(_n_rrt / int(len(obs)), 4),
+        "excluding_prior_rrt": {
+            "n_severe": _n_kept,
+            "share_of_all_severe": round(_n_kept / _n_tot, 4),
+            "agreement": round(_agr_kept, 4),
+            "disagreement": round(1 - _agr_kept, 4),
+        },
+        "what_this_does_not_cover": (
+            "This bounds the LABEL statistic only. The paper's headline is a model "
+            "statistic (deployed violation rate), and the same deletion applied there is "
+            "12_violation_rate_by_renal_history.py."),
+        "reading": (
+            f"The prior-renal-replacement stratum is {100*_n_rrt/_n_tot:.1f}% of all severe "
+            f"cases (the {100*_n_rrt/int(len(obs)):.0f}% figure uses the observed-history "
+            f"denominator, not all severe cases). Delete it entirely and "
+            f"{_n_kept:,} severe cases remain, {100*_n_kept/_n_tot:.0f}% of the total, where "
+            f"the administrative label still disagrees with the guideline on "
+            f"{100*(1-_agr_kept):.0f}% of them. The concentration finding narrows which "
+            f"population the headline describes best; it does not make the headline an "
+            f"artifact of that population."),
+    }
+    print(f"\n[robustness] excluding prior-RRT: n={_n_kept:,} "
+          f"({100*_n_kept/_n_tot:.0f}% of severe), agreement {_agr_kept:.4f}, "
+          f"disagreement {100*(1-_agr_kept):.0f}%", flush=True)
+
     payload = {
         "prereg_tag": "prereg-v1.6",
+        "H_headline_without_the_rrt_stratum": robustness,
         "analysis_status": (
             "EXPLORATORY, post hoc, selection-limited. Not pre-registered; added in response "
             "to review. Restricted to severe cases whose patient has an earlier MIMIC "
