@@ -1,5 +1,10 @@
 # Accurate but Non-Compliant
 
+<p align="center">
+  <img src="figures/Graphical_Abstract_Clinical_ML_Audit-Accurate.png" alt="Accurate but Non-Compliant: graphical abstract" width="100%">
+</p>
+
+<p align="center"><sub>A model accurate against its administrative label (AUROC 0.880) issues confident no-AKI decisions on 71% of guideline-severe cases; the compliance-coverage certificate is not issued for any deployment policy.</sub></p>
 Code, pre-registration and aggregate results for **"Accurate but Non-Compliant:
 Auditing the Administrative-Label Convention for AKI Risk Modelling across 206
 Hospitals"** (anonymised review package, ML4H 2026 Proceedings track).
