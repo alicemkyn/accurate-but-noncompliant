@@ -274,6 +274,504 @@
    }
   ]
  },
+ "restricted_cohort_cluster_ci": {
+  "method": "subject_id-clustered nonparametric bootstrap, 95% percentile interval. Unit of resampling = subject (patient); every admission of a drawn subject enters with the subject's draw count, so admissions of one patient are never treated as independent. Per seed: subjects of that seed's TEST set are drawn with replacement (as many as there are test subjects) and violation rate (violations / deployed severe decisions), coverage (deployed / severe) and ICD agreement (coded / severe) are recomputed on the surviving-strata severe cases; the median across seeds of (lo, hi) is reported. Pooled: all seeds' test decisions are stacked and subjects drawn from the union of test subjects; a subject appears in several seeds' test sets, so the pooled interval is DESCRIPTIVE of the stacked decisions, not an inferential interval for one draw.",
+  "B": 1000,
+  "seed": 0,
+  "ci_level": 0.95,
+  "cluster_variable": "subject_id",
+  "statistics": [
+   "violation_rate_deployed",
+   "coverage_severe",
+   "icd_agreement_on_severe"
+  ],
+  "cohort": "severe cases in strata no_prior_renal_replacement + prior_status_unobservable",
+  "per_seed_median": {
+   "violation_rate_deployed": {
+    "point_median": 0.5279,
+    "lo_median": 0.4922,
+    "hi_median": 0.5658,
+    "n_seeds": 20
+   },
+   "coverage_severe": {
+    "point_median": 0.7369,
+    "lo_median": 0.7099,
+    "hi_median": 0.7646,
+    "n_seeds": 20
+   },
+   "icd_agreement_on_severe": {
+    "point_median": 0.5737,
+    "lo_median": 0.5419,
+    "hi_median": 0.6067,
+    "n_seeds": 20
+   }
+  },
+  "pooled_across_seed_test_decisions": {
+   "n_decisions_stacked": 21129,
+   "n_deployed_stacked": 15571,
+   "n_unique_subjects_with_severe_surviving_case": 3163,
+   "n_subjects_in_more_than_one_seed_test_set": 3148,
+   "interpretation": "a subject can sit in several seeds' test sets, so the stacked decisions are not independent draws; this interval is descriptive of the stack, not an inferential interval for a single split. The per-seed medians above are the inferential figures.",
+   "violation_rate_deployed": {
+    "point": 0.5293,
+    "lo": 0.509,
+    "hi": 0.5484
+   },
+   "coverage_severe": {
+    "point": 0.7369,
+    "lo": 0.7231,
+    "hi": 0.7501
+   },
+   "icd_agreement_on_severe": {
+    "point": 0.577,
+    "lo": 0.5607,
+    "hi": 0.5945
+   }
+  },
+  "per_seed": [
+   {
+    "seed": 0,
+    "n_severe": 1091,
+    "n_deployed": 777,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 988,
+    "violation_rate_deployed": {
+     "point": 0.5277,
+     "lo": 0.4899,
+     "hi": 0.5667
+    },
+    "coverage_severe": {
+     "point": 0.7122,
+     "lo": 0.6844,
+     "hi": 0.7394
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.571,
+     "lo": 0.5387,
+     "hi": 0.6053
+    }
+   },
+   {
+    "seed": 1,
+    "n_severe": 1006,
+    "n_deployed": 739,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 910,
+    "violation_rate_deployed": {
+     "point": 0.4926,
+     "lo": 0.4534,
+     "hi": 0.5295
+    },
+    "coverage_severe": {
+     "point": 0.7346,
+     "lo": 0.7066,
+     "hi": 0.7625
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5915,
+     "lo": 0.5606,
+     "hi": 0.626
+    }
+   },
+   {
+    "seed": 2,
+    "n_severe": 1066,
+    "n_deployed": 788,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 955,
+    "violation_rate_deployed": {
+     "point": 0.5063,
+     "lo": 0.4679,
+     "hi": 0.5409
+    },
+    "coverage_severe": {
+     "point": 0.7392,
+     "lo": 0.7116,
+     "hi": 0.7679
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5835,
+     "lo": 0.5514,
+     "hi": 0.6152
+    }
+   },
+   {
+    "seed": 3,
+    "n_severe": 1067,
+    "n_deployed": 782,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 941,
+    "violation_rate_deployed": {
+     "point": 0.5256,
+     "lo": 0.4858,
+     "hi": 0.565
+    },
+    "coverage_severe": {
+     "point": 0.7329,
+     "lo": 0.7062,
+     "hi": 0.7591
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5511,
+     "lo": 0.5178,
+     "hi": 0.5839
+    }
+   },
+   {
+    "seed": 4,
+    "n_severe": 1099,
+    "n_deployed": 829,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 990,
+    "violation_rate_deployed": {
+     "point": 0.4873,
+     "lo": 0.4525,
+     "hi": 0.523
+    },
+    "coverage_severe": {
+     "point": 0.7543,
+     "lo": 0.7302,
+     "hi": 0.7788
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5878,
+     "lo": 0.5589,
+     "hi": 0.6181
+    }
+   },
+   {
+    "seed": 5,
+    "n_severe": 1058,
+    "n_deployed": 785,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 974,
+    "violation_rate_deployed": {
+     "point": 0.5083,
+     "lo": 0.4722,
+     "hi": 0.5433
+    },
+    "coverage_severe": {
+     "point": 0.742,
+     "lo": 0.7158,
+     "hi": 0.7667
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5813,
+     "lo": 0.5512,
+     "hi": 0.6126
+    }
+   },
+   {
+    "seed": 6,
+    "n_severe": 1075,
+    "n_deployed": 802,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 980,
+    "violation_rate_deployed": {
+     "point": 0.52,
+     "lo": 0.4839,
+     "hi": 0.5587
+    },
+    "coverage_severe": {
+     "point": 0.746,
+     "lo": 0.7183,
+     "hi": 0.77
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5665,
+     "lo": 0.5324,
+     "hi": 0.5992
+    }
+   },
+   {
+    "seed": 7,
+    "n_severe": 1068,
+    "n_deployed": 772,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 961,
+    "violation_rate_deployed": {
+     "point": 0.5363,
+     "lo": 0.4982,
+     "hi": 0.5707
+    },
+    "coverage_severe": {
+     "point": 0.7228,
+     "lo": 0.6956,
+     "hi": 0.7486
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.6086,
+     "lo": 0.5787,
+     "hi": 0.6403
+    }
+   },
+   {
+    "seed": 8,
+    "n_severe": 1078,
+    "n_deployed": 823,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 975,
+    "violation_rate_deployed": {
+     "point": 0.5237,
+     "lo": 0.4924,
+     "hi": 0.5601
+    },
+    "coverage_severe": {
+     "point": 0.7635,
+     "lo": 0.7402,
+     "hi": 0.7884
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5881,
+     "lo": 0.5536,
+     "hi": 0.617
+    }
+   },
+   {
+    "seed": 9,
+    "n_severe": 1067,
+    "n_deployed": 816,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 958,
+    "violation_rate_deployed": {
+     "point": 0.5282,
+     "lo": 0.492,
+     "hi": 0.5638
+    },
+    "coverage_severe": {
+     "point": 0.7648,
+     "lo": 0.7365,
+     "hi": 0.7902
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.567,
+     "lo": 0.5364,
+     "hi": 0.598
+    }
+   },
+   {
+    "seed": 10,
+    "n_severe": 1050,
+    "n_deployed": 750,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 951,
+    "violation_rate_deployed": {
+     "point": 0.5547,
+     "lo": 0.5158,
+     "hi": 0.592
+    },
+    "coverage_severe": {
+     "point": 0.7143,
+     "lo": 0.6862,
+     "hi": 0.7417
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5743,
+     "lo": 0.5442,
+     "hi": 0.6064
+    }
+   },
+   {
+    "seed": 11,
+    "n_severe": 1016,
+    "n_deployed": 765,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 923,
+    "violation_rate_deployed": {
+     "point": 0.5804,
+     "lo": 0.5437,
+     "hi": 0.6168
+    },
+    "coverage_severe": {
+     "point": 0.753,
+     "lo": 0.7258,
+     "hi": 0.7782
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5728,
+     "lo": 0.5364,
+     "hi": 0.6034
+    }
+   },
+   {
+    "seed": 12,
+    "n_severe": 1050,
+    "n_deployed": 781,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 961,
+    "violation_rate_deployed": {
+     "point": 0.5557,
+     "lo": 0.5181,
+     "hi": 0.5953
+    },
+    "coverage_severe": {
+     "point": 0.7438,
+     "lo": 0.7161,
+     "hi": 0.7694
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5648,
+     "lo": 0.5342,
+     "hi": 0.597
+    }
+   },
+   {
+    "seed": 13,
+    "n_severe": 1049,
+    "n_deployed": 762,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 957,
+    "violation_rate_deployed": {
+     "point": 0.5617,
+     "lo": 0.5256,
+     "hi": 0.5971
+    },
+    "coverage_severe": {
+     "point": 0.7264,
+     "lo": 0.6986,
+     "hi": 0.7535
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5643,
+     "lo": 0.5334,
+     "hi": 0.596
+    }
+   },
+   {
+    "seed": 14,
+    "n_severe": 1096,
+    "n_deployed": 795,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 996,
+    "violation_rate_deployed": {
+     "point": 0.5358,
+     "lo": 0.495,
+     "hi": 0.5727
+    },
+    "coverage_severe": {
+     "point": 0.7254,
+     "lo": 0.6978,
+     "hi": 0.7524
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5812,
+     "lo": 0.5522,
+     "hi": 0.6119
+    }
+   },
+   {
+    "seed": 15,
+    "n_severe": 1032,
+    "n_deployed": 711,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 937,
+    "violation_rate_deployed": {
+     "point": 0.5387,
+     "lo": 0.5,
+     "hi": 0.5784
+    },
+    "coverage_severe": {
+     "point": 0.689,
+     "lo": 0.6624,
+     "hi": 0.7195
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5707,
+     "lo": 0.5395,
+     "hi": 0.6015
+    }
+   },
+   {
+    "seed": 16,
+    "n_severe": 1045,
+    "n_deployed": 767,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 936,
+    "violation_rate_deployed": {
+     "point": 0.5463,
+     "lo": 0.5082,
+     "hi": 0.5849
+    },
+    "coverage_severe": {
+     "point": 0.734,
+     "lo": 0.7082,
+     "hi": 0.7608
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5732,
+     "lo": 0.5397,
+     "hi": 0.6069
+    }
+   },
+   {
+    "seed": 17,
+    "n_severe": 1037,
+    "n_deployed": 782,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 937,
+    "violation_rate_deployed": {
+     "point": 0.5051,
+     "lo": 0.4691,
+     "hi": 0.5409
+    },
+    "coverage_severe": {
+     "point": 0.7541,
+     "lo": 0.7271,
+     "hi": 0.7802
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5834,
+     "lo": 0.5508,
+     "hi": 0.6151
+    }
+   },
+   {
+    "seed": 18,
+    "n_severe": 1073,
+    "n_deployed": 816,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 950,
+    "violation_rate_deployed": {
+     "point": 0.5319,
+     "lo": 0.4963,
+     "hi": 0.5693
+    },
+    "coverage_severe": {
+     "point": 0.7605,
+     "lo": 0.7356,
+     "hi": 0.7849
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5676,
+     "lo": 0.5324,
+     "hi": 0.5991
+    }
+   },
+   {
+    "seed": 19,
+    "n_severe": 1006,
+    "n_deployed": 729,
+    "n_subjects_in_test_set": 50145,
+    "n_subjects_with_severe_surviving_case": 916,
+    "violation_rate_deployed": {
+     "point": 0.524,
+     "lo": 0.4831,
+     "hi": 0.5633
+    },
+    "coverage_severe": {
+     "point": 0.7247,
+     "lo": 0.6962,
+     "hi": 0.7503
+    },
+    "icd_agreement_on_severe": {
+     "point": 0.5924,
+     "lo": 0.5593,
+     "hi": 0.6249
+    }
+   }
+  ]
+ },
+ "cluster_ci_added_in": "v1.13 (W3PHIAI-27 revision; post hoc; no threshold changed)",
  "headline_comparison": {
   "pooling_weight": "n_deployed = coverage_severe * n_severe. `violation_rate_deployed` has n_deployed as its denominator, so pooling per-stratum rates by n_severe would only be exact if coverage were identical across strata.",
   "violation_rate_prior_renal_replacement": 0.9405,

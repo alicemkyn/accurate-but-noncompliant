@@ -1,0 +1,344 @@
+claim_text,value,source_file,json_key_path,status
+Restricted (non-dialysis) cohort: deployed violation rate p95 across seeds,0.5626,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.violation_rate.p95,read
+Restricted cohort: deployed violation rate mean across seeds,0.5295,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.violation_rate.mean,read
+Restricted cohort: coverage on severe cases p5 across seeds,0.711,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.coverage.p5,read
+Restricted cohort: coverage on severe cases mean across seeds,0.7369,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.coverage.mean,read
+"Restricted cohort: severe cases per split, min",1006.0,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.n_severe_per_split.min,read
+"Restricted cohort: severe cases per split, mean",1056.5,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.n_severe_per_split.mean,read
+"Restricted cohort: severe cases per split, max",1099.0,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.n_severe_per_split.max,read
+Restricted cohort: certificate passes,False,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.certificate_pass,read
+Restricted cohort: certificate fails on limb,violation,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.fails_on,read
+Restricted cohort: coverage floor beta,0.5,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.beta,read
+Restricted cohort: violation cap,0.05,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.cap,read
+"Headline: violation rate, surviving (non-dialysis) cases, n_deployed-weighted",0.5295,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.violation_rate_surviving_cases,read
+"Headline: violation rate, prior-renal-replacement stratum",0.9405,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.violation_rate_prior_renal_replacement,read
+"Headline: mean severe cases per split, prior-renal-replacement stratum",716.4,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.n_severe_mean_prior_renal_replacement,read
+"Headline: mean severe cases per split, surviving strata",1056.4,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.n_severe_mean_surviving,read
+"Headline: mean deployed decisions per split, surviving strata",778.5,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.n_deployed_mean_surviving,read
+"Restricted cohort, deployed violation rate: median across seeds of per-seed point estimate",0.5279,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.violation_rate_deployed.point_median,read
+"Restricted cohort, deployed violation rate: median across seeds of subject-clustered 95% CI lower bound",0.4922,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.violation_rate_deployed.lo_median,read
+"Restricted cohort, deployed violation rate: median across seeds of subject-clustered 95% CI upper bound",0.5658,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.violation_rate_deployed.hi_median,read
+"Restricted cohort, deployed violation rate: pooled-across-seed-test-decisions estimate (descriptive)",0.5293,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.violation_rate_deployed.point,read
+"Restricted cohort, deployed violation rate: pooled subject-clustered 95% CI lower (descriptive)",0.509,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.violation_rate_deployed.lo,read
+"Restricted cohort, deployed violation rate: pooled subject-clustered 95% CI upper (descriptive)",0.5484,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.violation_rate_deployed.hi,read
+"Restricted cohort, coverage on severe cases: median across seeds of per-seed point estimate",0.7369,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.coverage_severe.point_median,read
+"Restricted cohort, coverage on severe cases: median across seeds of subject-clustered 95% CI lower bound",0.7099,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.coverage_severe.lo_median,read
+"Restricted cohort, coverage on severe cases: median across seeds of subject-clustered 95% CI upper bound",0.7646,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.coverage_severe.hi_median,read
+"Restricted cohort, coverage on severe cases: pooled-across-seed-test-decisions estimate (descriptive)",0.7369,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.coverage_severe.point,read
+"Restricted cohort, coverage on severe cases: pooled subject-clustered 95% CI lower (descriptive)",0.7231,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.coverage_severe.lo,read
+"Restricted cohort, coverage on severe cases: pooled subject-clustered 95% CI upper (descriptive)",0.7501,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.coverage_severe.hi,read
+"Restricted cohort, ICD-label agreement on severe cases: median across seeds of per-seed point estimate",0.5737,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.icd_agreement_on_severe.point_median,read
+"Restricted cohort, ICD-label agreement on severe cases: median across seeds of subject-clustered 95% CI lower bound",0.5419,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.icd_agreement_on_severe.lo_median,read
+"Restricted cohort, ICD-label agreement on severe cases: median across seeds of subject-clustered 95% CI upper bound",0.6067,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.per_seed_median.icd_agreement_on_severe.hi_median,read
+"Restricted cohort, ICD-label agreement on severe cases: pooled-across-seed-test-decisions estimate (descriptive)",0.577,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.icd_agreement_on_severe.point,read
+"Restricted cohort, ICD-label agreement on severe cases: pooled subject-clustered 95% CI lower (descriptive)",0.5607,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.icd_agreement_on_severe.lo,read
+"Restricted cohort, ICD-label agreement on severe cases: pooled subject-clustered 95% CI upper (descriptive)",0.5945,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.icd_agreement_on_severe.hi,read
+Cluster bootstrap: number of resamples B,1000,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.B,read
+Cluster bootstrap: RNG seed,0,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.seed,read
+Cluster bootstrap: cluster variable,subject_id,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.cluster_variable,read
+Cluster bootstrap: stacked severe decisions across 20 seed test sets,21129,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.n_decisions_stacked,read
+Cluster bootstrap: unique subjects with a severe surviving case across seeds,3163,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.n_unique_subjects_with_severe_surviving_case,read
+Cluster bootstrap: subjects appearing in more than one seed's test set,3148,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.n_subjects_in_more_than_one_seed_test_set,read
+eICU held-out hospitals: AUROC mean across seeds,0.8489,eicu_pipeline/results/heldout_hospital_certificate.json,auroc_heldout.mean,read
+eICU held-out hospitals: AUROC min across seeds,0.8257,eicu_pipeline/results/heldout_hospital_certificate.json,auroc_heldout.min,read
+eICU held-out hospitals: AUROC max across seeds,0.8538,eicu_pipeline/results/heldout_hospital_certificate.json,auroc_heldout.max,read
+"eICU held-out: coverage on severe cases, mean (logged policy)",0.3071,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.coverage_severe_mean,read
+"eICU held-out: coverage on severe cases, p5 (logged policy)",0.1963,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.coverage_severe_p5,read
+"eICU held-out: deployed violation rate, mean (logged policy)",0.9727,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.violation_rate_deployed_mean,read
+"eICU held-out: deployed violation rate, p95 (logged policy)",0.9946,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.violation_rate_deployed_p95,read
+eICU held-out: certificate passes (logged policy),False,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.certificate_pass,read
+eICU held-out: certificate fails on limb (logged policy),coverage,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.fails_on,read
+eICU partition: training hospitals,102,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.n_train_hospitals,read
+eICU partition: held-out hospitals,103,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.n_heldout_hospitals,read
+eICU partition: training stays,92174,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.n_train_stays,read
+eICU partition: held-out stays,77651,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.n_heldout_stays,read
+eICU partition: held-out severe cases,1873,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.n_heldout_severe,read
+eICU partition: RNG seed,0,eicu_pipeline/results/heldout_hospital_certificate.json,hospital_partition.rng_seed,read
+eICU per-site: held-out sites with severe cases,80,eicu_pipeline/results/heldout_hospital_certificate.json,per_site.n_sites_with_severe_cases,read
+eICU per-site: sites clearing the registered subgroup floor,0,eicu_pipeline/results/heldout_hospital_certificate.json,per_site.n_sites_determinate,read
+eICU per-site: registered subgroup floor,500,eicu_pipeline/results/heldout_hospital_certificate.json,per_site.subgroup_floor,read
+eICU: number of seeds,20,eicu_pipeline/results/heldout_hospital_certificate.json,n_seeds,read
+Adjudication: cases decided (non-blank),162,mimic_pipeline/results/clinician_adjudication.json,n_cases_adjudicated,read
+Adjudication: cases left blank by every reviewer,38,mimic_pipeline/results/clinician_adjudication.json,n_cases_left_blank_by_every_reviewer,read
+Adjudication: number of reviewers,1,mimic_pipeline/results/clinician_adjudication.json,n_reviewers,read
+Adjudication cell A_severe_coded: decided cases,27,mimic_pipeline/results/clinician_adjudication.json,per_cell.A_severe_coded.n,read
+Adjudication cell A_severe_coded: clinician-vs-rule agreement,1.0,mimic_pipeline/results/clinician_adjudication.json,per_cell.A_severe_coded.clinician_vs_rule_agreement,read
+Adjudication cell A_severe_coded: clinician-vs-code agreement,1.0,mimic_pipeline/results/clinician_adjudication.json,per_cell.A_severe_coded.clinician_vs_code_agreement,read
+Adjudication cell A_severe_coded: agreeing decided cases (from cross-tab),27,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.A_severe_coded.n_agree_with_rule,read
+Adjudication cell A_severe_coded: blank cases (from cross-tab),13,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.A_severe_coded.n_blank,read
+Adjudication cell B_severe_uncoded: decided cases,63,mimic_pipeline/results/clinician_adjudication.json,per_cell.B_severe_uncoded.n,read
+Adjudication cell B_severe_uncoded: clinician-vs-rule agreement,1.0,mimic_pipeline/results/clinician_adjudication.json,per_cell.B_severe_uncoded.clinician_vs_rule_agreement,read
+Adjudication cell B_severe_uncoded: clinician-vs-code agreement,0.0,mimic_pipeline/results/clinician_adjudication.json,per_cell.B_severe_uncoded.clinician_vs_code_agreement,read
+Adjudication cell B_severe_uncoded: agreeing decided cases (from cross-tab),63,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.B_severe_uncoded.n_agree_with_rule,read
+Adjudication cell B_severe_uncoded: blank cases (from cross-tab),17,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.B_severe_uncoded.n_blank,read
+Adjudication cell C_near_threshold: decided cases,52,mimic_pipeline/results/clinician_adjudication.json,per_cell.C_near_threshold.n,read
+Adjudication cell C_near_threshold: clinician-vs-rule agreement,0.7692,mimic_pipeline/results/clinician_adjudication.json,per_cell.C_near_threshold.clinician_vs_rule_agreement,read
+Adjudication cell C_near_threshold: clinician-vs-code agreement,0.6346,mimic_pipeline/results/clinician_adjudication.json,per_cell.C_near_threshold.clinician_vs_code_agreement,read
+Adjudication cell C_near_threshold: agreeing decided cases (from cross-tab),40,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.C_near_threshold.n_agree_with_rule,read
+Adjudication cell C_near_threshold: blank cases (from cross-tab),8,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.C_near_threshold.n_blank,read
+Adjudication cell D_clearly_not_severe: decided cases,20,mimic_pipeline/results/clinician_adjudication.json,per_cell.D_clearly_not_severe.n,read
+Adjudication cell D_clearly_not_severe: clinician-vs-rule agreement,0.95,mimic_pipeline/results/clinician_adjudication.json,per_cell.D_clearly_not_severe.clinician_vs_rule_agreement,read
+Adjudication cell D_clearly_not_severe: clinician-vs-code agreement,0.8,mimic_pipeline/results/clinician_adjudication.json,per_cell.D_clearly_not_severe.clinician_vs_code_agreement,read
+Adjudication cell D_clearly_not_severe: agreeing decided cases (from cross-tab),19,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.D_clearly_not_severe.n_agree_with_rule,read
+Adjudication cell D_clearly_not_severe: blank cases (from cross-tab),0,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.D_clearly_not_severe.n_blank,read
+"Adjudication: Cohen's kappa, clinician vs rule",0.8345,mimic_pipeline/results/clinician_adjudication.json,overall.clinician_vs_rule_kappa,read
+"Adjudication: Cohen's kappa, clinician vs administrative code",0.0234,mimic_pipeline/results/clinician_adjudication.json,overall.clinician_vs_code_kappa,read
+"Adjudication: declared floor, cell-B agreement",0.7,mimic_pipeline/results/clinician_adjudication.json,declared_thresholds.min_agreement_cell_B,read
+"Adjudication: declared floor, overall kappa",0.6,mimic_pipeline/results/clinician_adjudication.json,declared_thresholds.min_kappa_overall,read
+Cross-tab: cases,200,mimic_pipeline/results/adjudication_by_stratum.json,n_cases,read
+Cross-tab: decided,162,mimic_pipeline/results/adjudication_by_stratum.json,n_decided,read
+Cross-tab: blank,38,mimic_pipeline/results/adjudication_by_stratum.json,n_blank,read
+"Cross-tab, renal history prior_renal_replacement: cases",63,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.n_cases,read
+"Cross-tab, renal history prior_renal_replacement: decided",53,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.n_decided,read
+"Cross-tab, renal history prior_renal_replacement: blank",10,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.n_blank,read
+"Cross-tab, renal history prior_renal_replacement: agree with rule",51,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.n_agree_with_rule,read
+"Cross-tab, renal history prior_renal_replacement: agreement on decided",0.9623,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.agreement_on_decided,read
+"Cross-tab, renal history prior_renal_replacement: blank share",0.1587,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_renal_replacement.blank_share,read
+"Cross-tab, renal history no_prior_renal_replacement: cases",72,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.n_cases,read
+"Cross-tab, renal history no_prior_renal_replacement: decided",56,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.n_decided,read
+"Cross-tab, renal history no_prior_renal_replacement: blank",16,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.n_blank,read
+"Cross-tab, renal history no_prior_renal_replacement: agree with rule",52,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.n_agree_with_rule,read
+"Cross-tab, renal history no_prior_renal_replacement: agreement on decided",0.9286,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.agreement_on_decided,read
+"Cross-tab, renal history no_prior_renal_replacement: blank share",0.2222,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.no_prior_renal_replacement.blank_share,read
+"Cross-tab, renal history prior_status_unobservable: cases",65,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.n_cases,read
+"Cross-tab, renal history prior_status_unobservable: decided",53,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.n_decided,read
+"Cross-tab, renal history prior_status_unobservable: blank",12,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.n_blank,read
+"Cross-tab, renal history prior_status_unobservable: agree with rule",46,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.n_agree_with_rule,read
+"Cross-tab, renal history prior_status_unobservable: agreement on decided",0.8679,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.agreement_on_decided,read
+"Cross-tab, renal history prior_status_unobservable: blank share",0.1846,mimic_pipeline/results/adjudication_by_stratum.json,per_renal_history.prior_status_unobservable.blank_share,read
+"Cross-tab, trajectory A1_elevated_at_arrival: cases",92,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.n_cases,read
+"Cross-tab, trajectory A1_elevated_at_arrival: decided",65,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.n_decided,read
+"Cross-tab, trajectory A1_elevated_at_arrival: blank",27,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.n_blank,read
+"Cross-tab, trajectory A1_elevated_at_arrival: agree with rule",65,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.n_agree_with_rule,read
+"Cross-tab, trajectory A1_elevated_at_arrival: agreement on decided",1.0,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.agreement_on_decided,read
+"Cross-tab, trajectory A1_elevated_at_arrival: blank share",0.2935,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A1_elevated_at_arrival.blank_share,read
+"Cross-tab, trajectory A2_rise_from_near_normal: cases",25,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.n_cases,read
+"Cross-tab, trajectory A2_rise_from_near_normal: decided",25,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.n_decided,read
+"Cross-tab, trajectory A2_rise_from_near_normal: blank",0,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.n_blank,read
+"Cross-tab, trajectory A2_rise_from_near_normal: agree with rule",22,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.n_agree_with_rule,read
+"Cross-tab, trajectory A2_rise_from_near_normal: agreement on decided",0.88,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.agreement_on_decided,read
+"Cross-tab, trajectory A2_rise_from_near_normal: blank share",0.0,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A2_rise_from_near_normal.blank_share,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: cases",83,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.n_cases,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: decided",72,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.n_decided,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: blank",11,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.n_blank,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: agree with rule",62,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.n_agree_with_rule,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: agreement on decided",0.8611,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.agreement_on_decided,read
+"Cross-tab, trajectory A3_rise_from_elevated_base: blank share",0.1325,mimic_pipeline/results/adjudication_by_stratum.json,per_trajectory.A3_rise_from_elevated_base.blank_share,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_renal_replacement: cases,4,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_renal_replacement: decided,3,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_renal_replacement: agree with rule,3,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_renal_replacement: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history A_severe_coded|no_prior_renal_replacement: cases,17,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|no_prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history A_severe_coded|no_prior_renal_replacement: decided,10,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|no_prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history A_severe_coded|no_prior_renal_replacement: agree with rule,10,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|no_prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history A_severe_coded|no_prior_renal_replacement: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|no_prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_status_unobservable: cases,19,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_status_unobservable.n_cases,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_status_unobservable: decided,14,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_status_unobservable.n_decided,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_status_unobservable: agree with rule,14,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_status_unobservable.n_agree_with_rule,read
+Cross-tab cell_x_renal_history A_severe_coded|prior_status_unobservable: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.A_severe_coded|prior_status_unobservable.agreement_on_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_renal_replacement: cases,45,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_renal_replacement: decided,37,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_renal_replacement: agree with rule,37,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_renal_replacement: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|no_prior_renal_replacement: cases,14,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|no_prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history B_severe_uncoded|no_prior_renal_replacement: decided,10,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|no_prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|no_prior_renal_replacement: agree with rule,10,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|no_prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history B_severe_uncoded|no_prior_renal_replacement: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|no_prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_status_unobservable: cases,21,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_status_unobservable.n_cases,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_status_unobservable: decided,16,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_status_unobservable.n_decided,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_status_unobservable: agree with rule,16,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_status_unobservable.n_agree_with_rule,read
+Cross-tab cell_x_renal_history B_severe_uncoded|prior_status_unobservable: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.B_severe_uncoded|prior_status_unobservable.agreement_on_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_renal_replacement: cases,14,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_renal_replacement: decided,13,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_renal_replacement: agree with rule,11,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_renal_replacement: agreement on decided,0.8462,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|no_prior_renal_replacement: cases,30,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|no_prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history C_near_threshold|no_prior_renal_replacement: decided,25,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|no_prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|no_prior_renal_replacement: agree with rule,22,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|no_prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history C_near_threshold|no_prior_renal_replacement: agreement on decided,0.88,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|no_prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_status_unobservable: cases,16,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_status_unobservable.n_cases,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_status_unobservable: decided,14,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_status_unobservable.n_decided,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_status_unobservable: agree with rule,7,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_status_unobservable.n_agree_with_rule,read
+Cross-tab cell_x_renal_history C_near_threshold|prior_status_unobservable: agreement on decided,0.5,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.C_near_threshold|prior_status_unobservable.agreement_on_decided,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|no_prior_renal_replacement: cases,11,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|no_prior_renal_replacement.n_cases,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|no_prior_renal_replacement: decided,11,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|no_prior_renal_replacement.n_decided,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|no_prior_renal_replacement: agree with rule,10,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|no_prior_renal_replacement.n_agree_with_rule,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|no_prior_renal_replacement: agreement on decided,0.9091,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|no_prior_renal_replacement.agreement_on_decided,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|prior_status_unobservable: cases,9,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|prior_status_unobservable.n_cases,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|prior_status_unobservable: decided,9,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|prior_status_unobservable.n_decided,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|prior_status_unobservable: agree with rule,9,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|prior_status_unobservable.n_agree_with_rule,read
+Cross-tab cell_x_renal_history D_clearly_not_severe|prior_status_unobservable: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_renal_history.D_clearly_not_severe|prior_status_unobservable.agreement_on_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A1_elevated_at_arrival: cases,30,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A1_elevated_at_arrival.n_cases,read
+Cross-tab cell_x_trajectory A_severe_coded|A1_elevated_at_arrival: decided,19,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A1_elevated_at_arrival.n_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A1_elevated_at_arrival: agree with rule,19,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A1_elevated_at_arrival.n_agree_with_rule,read
+Cross-tab cell_x_trajectory A_severe_coded|A1_elevated_at_arrival: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A1_elevated_at_arrival.agreement_on_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A2_rise_from_near_normal: cases,1,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A2_rise_from_near_normal.n_cases,read
+Cross-tab cell_x_trajectory A_severe_coded|A2_rise_from_near_normal: decided,1,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A2_rise_from_near_normal.n_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A2_rise_from_near_normal: agree with rule,1,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A2_rise_from_near_normal.n_agree_with_rule,read
+Cross-tab cell_x_trajectory A_severe_coded|A2_rise_from_near_normal: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A2_rise_from_near_normal.agreement_on_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A3_rise_from_elevated_base: cases,9,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A3_rise_from_elevated_base.n_cases,read
+Cross-tab cell_x_trajectory A_severe_coded|A3_rise_from_elevated_base: decided,7,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A3_rise_from_elevated_base.n_decided,read
+Cross-tab cell_x_trajectory A_severe_coded|A3_rise_from_elevated_base: agree with rule,7,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A3_rise_from_elevated_base.n_agree_with_rule,read
+Cross-tab cell_x_trajectory A_severe_coded|A3_rise_from_elevated_base: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.A_severe_coded|A3_rise_from_elevated_base.agreement_on_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A1_elevated_at_arrival: cases,62,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A1_elevated_at_arrival.n_cases,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A1_elevated_at_arrival: decided,46,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A1_elevated_at_arrival.n_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A1_elevated_at_arrival: agree with rule,46,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A1_elevated_at_arrival.n_agree_with_rule,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A1_elevated_at_arrival: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A1_elevated_at_arrival.agreement_on_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A2_rise_from_near_normal: cases,2,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A2_rise_from_near_normal.n_cases,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A2_rise_from_near_normal: decided,2,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A2_rise_from_near_normal.n_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A2_rise_from_near_normal: agree with rule,2,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A2_rise_from_near_normal.n_agree_with_rule,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A2_rise_from_near_normal: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A2_rise_from_near_normal.agreement_on_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A3_rise_from_elevated_base: cases,16,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A3_rise_from_elevated_base.n_cases,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A3_rise_from_elevated_base: decided,15,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A3_rise_from_elevated_base.n_decided,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A3_rise_from_elevated_base: agree with rule,15,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A3_rise_from_elevated_base.n_agree_with_rule,read
+Cross-tab cell_x_trajectory B_severe_uncoded|A3_rise_from_elevated_base: agreement on decided,1.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.B_severe_uncoded|A3_rise_from_elevated_base.agreement_on_decided,read
+Cross-tab cell_x_trajectory C_near_threshold|A2_rise_from_near_normal: cases,2,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A2_rise_from_near_normal.n_cases,read
+Cross-tab cell_x_trajectory C_near_threshold|A2_rise_from_near_normal: decided,2,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A2_rise_from_near_normal.n_decided,read
+Cross-tab cell_x_trajectory C_near_threshold|A2_rise_from_near_normal: agree with rule,0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A2_rise_from_near_normal.n_agree_with_rule,read
+Cross-tab cell_x_trajectory C_near_threshold|A2_rise_from_near_normal: agreement on decided,0.0,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A2_rise_from_near_normal.agreement_on_decided,read
+Cross-tab cell_x_trajectory C_near_threshold|A3_rise_from_elevated_base: cases,58,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A3_rise_from_elevated_base.n_cases,read
+Cross-tab cell_x_trajectory C_near_threshold|A3_rise_from_elevated_base: decided,50,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A3_rise_from_elevated_base.n_decided,read
+Cross-tab cell_x_trajectory C_near_threshold|A3_rise_from_elevated_base: agree with rule,40,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A3_rise_from_elevated_base.n_agree_with_rule,read
+Cross-tab cell_x_trajectory C_near_threshold|A3_rise_from_elevated_base: agreement on decided,0.8,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.C_near_threshold|A3_rise_from_elevated_base.agreement_on_decided,read
+Cross-tab cell_x_trajectory D_clearly_not_severe|A2_rise_from_near_normal: cases,20,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.D_clearly_not_severe|A2_rise_from_near_normal.n_cases,read
+Cross-tab cell_x_trajectory D_clearly_not_severe|A2_rise_from_near_normal: decided,20,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.D_clearly_not_severe|A2_rise_from_near_normal.n_decided,read
+Cross-tab cell_x_trajectory D_clearly_not_severe|A2_rise_from_near_normal: agree with rule,19,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.D_clearly_not_severe|A2_rise_from_near_normal.n_agree_with_rule,read
+Cross-tab cell_x_trajectory D_clearly_not_severe|A2_rise_from_near_normal: agreement on decided,0.95,mimic_pipeline/results/adjudication_by_stratum.json,cell_x_trajectory.D_clearly_not_severe|A2_rise_from_near_normal.agreement_on_decided,read
+Cross-tab: number of small cells (n_decided < 10),6,mimic_pipeline/results/adjudication_by_stratum.json,small_cell_warning (len),read
+Restricted cohort: severe cases surviving deletion of prior-RRT stratum,3507,mimic_pipeline/results/prior_ckd_sensitivity.json,H_headline_without_the_rrt_stratum.excluding_prior_rrt.n_severe,verified (phase-2 addition)
+Restricted cohort: share of all severe cases surviving,0.589,mimic_pipeline/results/prior_ckd_sensitivity.json,H_headline_without_the_rrt_stratum.excluding_prior_rrt.share_of_all_severe,verified (phase-2 addition)
+Restricted cohort: label agreement (cohort-level),0.5726,mimic_pipeline/results/prior_ckd_sensitivity.json,H_headline_without_the_rrt_stratum.excluding_prior_rrt.agreement,verified (phase-2 addition)
+Restricted cohort: label disagreement (cohort-level),0.4274,mimic_pipeline/results/prior_ckd_sensitivity.json,H_headline_without_the_rrt_stratum.excluding_prior_rrt.disagreement,verified (phase-2 addition)
+All severe cases (cohort-level),5954,mimic_pipeline/results/prior_ckd_sensitivity.json,H_headline_without_the_rrt_stratum.n_severe_all,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: violation_rate_deployed mean,0.9405,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.violation_rate_deployed.mean,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: violation_rate_deployed p5,0.9184,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.violation_rate_deployed.p5,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: violation_rate_deployed p95,0.9556,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.violation_rate_deployed.p95,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: coverage_severe mean,0.8898,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.coverage_severe.mean,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: coverage_severe p5,0.8685,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.coverage_severe.p5,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: coverage_severe p95,0.9094,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.coverage_severe.p95,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: icd_agreement_on_severe mean,0.0788,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.icd_agreement_on_severe.mean,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: icd_agreement_on_severe p5,0.0655,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.icd_agreement_on_severe.p5,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: icd_agreement_on_severe p95,0.0936,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.icd_agreement_on_severe.p95,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_severe mean,716.4,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_severe.mean,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_severe p5,634.6,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_severe.p5,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_severe p95,789.55,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_severe.p95,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_severe_min_over_splits,627,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_severe_min_over_splits,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_severe_max_over_splits,800,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_severe_max_over_splits,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: n_splits_below_floor,0,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.n_splits_below_floor,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: status,OK,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.status,verified (phase-2 addition)
+Per-stratum prior_renal_replacement: subgroup_floor,500,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_renal_replacement.subgroup_floor,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: violation_rate_deployed mean,0.479,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.violation_rate_deployed.mean,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: violation_rate_deployed p5,0.4486,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.violation_rate_deployed.p5,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: violation_rate_deployed p95,0.5104,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.violation_rate_deployed.p95,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: coverage_severe mean,0.7305,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.coverage_severe.mean,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: coverage_severe p5,0.6809,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.coverage_severe.p5,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: coverage_severe p95,0.7648,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.coverage_severe.p95,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: icd_agreement_on_severe mean,0.5974,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.icd_agreement_on_severe.mean,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: icd_agreement_on_severe p5,0.5709,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.icd_agreement_on_severe.p5,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: icd_agreement_on_severe p95,0.6306,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.icd_agreement_on_severe.p95,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_severe mean,527.65,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_severe.mean,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_severe p5,505.65,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_severe.p5,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_severe p95,552.5,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_severe.p95,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_severe_min_over_splits,499,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_severe_min_over_splits,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_severe_max_over_splits,562,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_severe_max_over_splits,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: n_splits_below_floor,1,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.n_splits_below_floor,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: status,UNDETERMINED,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.status,verified (phase-2 addition)
+Per-stratum no_prior_renal_replacement: subgroup_floor,500,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.no_prior_renal_replacement.subgroup_floor,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: violation_rate_deployed mean,0.5791,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.violation_rate_deployed.mean,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: violation_rate_deployed p5,0.5273,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.violation_rate_deployed.p5,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: violation_rate_deployed p95,0.6165,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.violation_rate_deployed.p95,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: coverage_severe mean,0.7433,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.coverage_severe.mean,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: coverage_severe p5,0.7145,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.coverage_severe.p5,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: coverage_severe p95,0.78,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.coverage_severe.p95,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: icd_agreement_on_severe mean,0.5567,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.icd_agreement_on_severe.mean,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: icd_agreement_on_severe p5,0.5371,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.icd_agreement_on_severe.p5,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: icd_agreement_on_severe p95,0.5866,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.icd_agreement_on_severe.p95,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_severe mean,528.8,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_severe.mean,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_severe p5,499.95,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_severe.p5,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_severe p95,561.0,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_severe.p95,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_severe_min_over_splits,499,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_severe_min_over_splits,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_severe_max_over_splits,561,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_severe_max_over_splits,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: n_splits_below_floor,1,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.n_splits_below_floor,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: status,UNDETERMINED,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.status,verified (phase-2 addition)
+Per-stratum prior_status_unobservable: subgroup_floor,500,mimic_pipeline/results/violation_rate_by_renal_history.json,per_stratum.prior_status_unobservable.subgroup_floor,verified (phase-2 addition)
+Restricted cohort: p95,0.7635,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.coverage.p95,verified (phase-2 addition)
+Restricted cohort: p5,0.4923,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_certificate.violation_rate.p5,verified (phase-2 addition)
+Restricted cohort: weight_choice_matters_by,0.0004,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.weight_choice_matters_by,verified (phase-2 addition)
+Restricted cohort: same_pooling_with_n_severe_weight,0.5291,mimic_pipeline/results/violation_rate_by_renal_history.json,headline_comparison.same_pooling_with_n_severe_weight,verified (phase-2 addition)
+Restricted cohort: n_deployed_stacked,15571,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.n_deployed_stacked,verified (phase-2 addition)
+Restricted cohort: ci_level,0.95,mimic_pipeline/results/violation_rate_by_renal_history.json,restricted_cohort_cluster_ci.ci_level,verified (phase-2 addition)
+eICU held-out logged_policy: coverage_severe_p95,0.3695,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.coverage_severe_p95,verified (phase-2 addition)
+eICU held-out logged_policy: violation_rate_deployed_p5,0.9396,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.logged_policy.violation_rate_deployed_p5,verified (phase-2 addition)
+eICU held-out enforced_policy: coverage_severe_mean,0.0087,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.coverage_severe_mean,verified (phase-2 addition)
+eICU held-out enforced_policy: coverage_severe_p5,0.0015,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.coverage_severe_p5,verified (phase-2 addition)
+eICU held-out enforced_policy: coverage_severe_p95,0.0228,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.coverage_severe_p95,verified (phase-2 addition)
+eICU held-out enforced_policy: violation_rate_deployed_mean,0.0,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.violation_rate_deployed_mean,verified (phase-2 addition)
+eICU held-out enforced_policy: violation_rate_deployed_p5,0.0,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.violation_rate_deployed_p5,verified (phase-2 addition)
+eICU held-out enforced_policy: violation_rate_deployed_p95,0.0,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.violation_rate_deployed_p95,verified (phase-2 addition)
+eICU held-out enforced_policy: certificate_pass,False,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.certificate_pass,verified (phase-2 addition)
+eICU held-out enforced_policy: fails_on,coverage,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.enforced_policy.fails_on,verified (phase-2 addition)
+eICU held-out: certificate.coverage_floor_beta,0.5,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.coverage_floor_beta,verified (phase-2 addition)
+eICU held-out: certificate.violation_rate_max,0.05,eicu_pipeline/results/heldout_hospital_certificate.json,certificate.violation_rate_max,verified (phase-2 addition)
+eICU held-out per-site: sites with >=20 severe stays per seed,33,eicu_pipeline/results/heldout_hospital_certificate.json,derived: per_site.sites[n_severe_per_seed>=20] (count),derived from per_site.sites
+eICU held-out per-site: min violation rate among sites with >=20 severe,0.8455,eicu_pipeline/results/heldout_hospital_certificate.json,derived: min(per_site.sites[n_severe_per_seed>=20].violation_rate_deployed),derived from per_site.sites
+eICU held-out per-site: max violation rate among sites with >=20 severe,1.0,eicu_pipeline/results/heldout_hospital_certificate.json,derived: max(per_site.sites[n_severe_per_seed>=20].violation_rate_deployed),derived from per_site.sites
+eICU held-out per-site: median violation rate among sites with >=20 severe,0.988,eicu_pipeline/results/heldout_hospital_certificate.json,derived: median(per_site.sites[n_severe_per_seed>=20].violation_rate_deployed),derived from per_site.sites
+eICU within logged_policy: coverage_severe_mean,0.3876,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.coverage_severe_mean,verified (phase-2 addition)
+eICU within logged_policy: coverage_severe_p5,0.3436,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.coverage_severe_p5,verified (phase-2 addition)
+eICU within logged_policy: violation_rate_deployed_mean,0.9275,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.violation_rate_deployed_mean,verified (phase-2 addition)
+eICU within logged_policy: violation_rate_deployed_p95,0.9764,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.violation_rate_deployed_p95,verified (phase-2 addition)
+eICU within logged_policy: certificate_pass,False,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.certificate_pass,verified (phase-2 addition)
+eICU within logged_policy: fails_on,coverage,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.fails_on,verified (phase-2 addition)
+eICU within enforced_policy: coverage_severe_mean,0.0285,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.coverage_severe_mean,verified (phase-2 addition)
+eICU within enforced_policy: coverage_severe_p5,0.0089,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.coverage_severe_p5,verified (phase-2 addition)
+eICU within enforced_policy: violation_rate_deployed_mean,0.0,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.violation_rate_deployed_mean,verified (phase-2 addition)
+eICU within enforced_policy: violation_rate_deployed_p95,0.0,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.violation_rate_deployed_p95,verified (phase-2 addition)
+eICU within enforced_policy: certificate_pass,False,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.certificate_pass,verified (phase-2 addition)
+eICU within enforced_policy: fails_on,coverage,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.fails_on,verified (phase-2 addition)
+eICU within: aggregate.auroc_mean,0.8523,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.auroc_mean,verified (phase-2 addition)
+eICU within: n_severe_acute,4142,eicu_pipeline/results/audit_summary_eicu_v1.3.json,n_severe_acute,verified (phase-2 addition)
+eICU within: aki_rate_in_severe_acute,0.4317,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aki_rate_in_severe_acute,verified (phase-2 addition)
+eICU within: negative_controls.NC_B_constraint_blind.n_severe,1260,eicu_pipeline/results/audit_summary_eicu_v1.3.json,negative_controls.NC_B_constraint_blind.n_severe,verified (phase-2 addition)
+eICU within: aggregate.enforced_arm.escalation_rate_on_severe,0.3591,eicu_pipeline/results/audit_summary_eicu_v1.3.json,aggregate.enforced_arm.escalation_rate_on_severe,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: coverage_severe_mean,0.7986,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.coverage_severe_mean,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: coverage_severe_p5,0.7815,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.coverage_severe_p5,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: violation_rate_deployed_mean,0.7143,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.violation_rate_deployed_mean,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: violation_rate_deployed_p95,0.7444,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.violation_rate_deployed_p95,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: certificate_pass,False,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.certificate_pass,verified (phase-2 addition)
+MIMIC-IV full cohort logged_policy: fails_on,violation,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.logged_policy.fails_on,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: coverage_severe_mean,0.2282,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.coverage_severe_mean,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: coverage_severe_p5,0.2035,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.coverage_severe_p5,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: violation_rate_deployed_mean,0.0,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.violation_rate_deployed_mean,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: violation_rate_deployed_p95,0.0,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.violation_rate_deployed_p95,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: certificate_pass,False,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.certificate_pass,verified (phase-2 addition)
+MIMIC-IV full cohort enforced_policy: fails_on,coverage,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.enforced_policy.fails_on,verified (phase-2 addition)
+MIMIC-IV full cohort: aggregate.auroc_mean,0.8797,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.auroc_mean,verified (phase-2 addition)
+MIMIC-IV full cohort: aggregate.auroc_range,"[0.8779, 0.8817]",mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.auroc_range,verified (phase-2 addition)
+MIMIC-IV full cohort: n_severe_acute,5954,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,n_severe_acute,verified (phase-2 addition)
+MIMIC-IV full cohort: aki_rate_in_severe_acute,0.3697,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aki_rate_in_severe_acute,verified (phase-2 addition)
+MIMIC-IV full cohort: aggregate.enforced_arm.escalation_rate_on_severe,0.5704,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.enforced_arm.escalation_rate_on_severe,verified (phase-2 addition)
+MIMIC-IV full cohort: aggregate.compliance_coverage_certificate.coverage_floor_beta,0.5,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.coverage_floor_beta,verified (phase-2 addition)
+MIMIC-IV full cohort: aggregate.compliance_coverage_certificate.violation_rate_max,0.05,mimic_pipeline/results/audit_summary_mimic_final_v1.3.json,aggregate.compliance_coverage_certificate.violation_rate_max,verified (phase-2 addition)
+Threshold grid: n_gridpoints,30,mimic_pipeline/results/threshold_sensitivity_v1.3.json,n_gridpoints,verified (phase-2 addition)
+Threshold grid: n_passing_gridpoints,0,mimic_pipeline/results/threshold_sensitivity_v1.3.json,n_passing_gridpoints,verified (phase-2 addition)
+Threshold grid: any_policy_passes_anywhere,False,mimic_pipeline/results/threshold_sensitivity_v1.3.json,any_policy_passes_anywhere,verified (phase-2 addition)
+Threshold grid: betas,"[0.3, 0.4, 0.5, 0.6, 0.7]",mimic_pipeline/results/threshold_sensitivity_v1.3.json,betas,verified (phase-2 addition)
+Threshold grid: caps,"[0.02, 0.05, 0.1]",mimic_pipeline/results/threshold_sensitivity_v1.3.json,caps,verified (phase-2 addition)
+Urine-output arm: counts.admissions_with_computable_urine_limb,51089,mimic_pipeline/results/urine_output_arm.json,counts.admissions_with_computable_urine_limb,verified (phase-2 addition)
+Urine-output arm: counts.creatinine_aki_positive,16899,mimic_pipeline/results/urine_output_arm.json,counts.creatinine_aki_positive,verified (phase-2 addition)
+Urine-output arm: conservative.additional_aki_from_urine_only,6253,mimic_pipeline/results/urine_output_arm.json,conservative.additional_aki_from_urine_only,verified (phase-2 addition)
+Urine-output arm: conservative.undercount_fraction_of_creatinine_positives,0.37,mimic_pipeline/results/urine_output_arm.json,conservative.undercount_fraction_of_creatinine_positives,verified (phase-2 addition)
+Adjudication cell A_severe_coded: n_cases,40,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.A_severe_coded.n_cases,verified (phase-2 addition)
+Adjudication cell A_severe_coded: n_decided,27,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.A_severe_coded.n_decided,verified (phase-2 addition)
+Adjudication cell A_severe_coded: blank_share,0.325,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.A_severe_coded.blank_share,verified (phase-2 addition)
+Adjudication cell B_severe_uncoded: n_cases,80,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.B_severe_uncoded.n_cases,verified (phase-2 addition)
+Adjudication cell B_severe_uncoded: n_decided,63,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.B_severe_uncoded.n_decided,verified (phase-2 addition)
+Adjudication cell B_severe_uncoded: blank_share,0.2125,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.B_severe_uncoded.blank_share,verified (phase-2 addition)
+Adjudication cell C_near_threshold: n_cases,60,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.C_near_threshold.n_cases,verified (phase-2 addition)
+Adjudication cell C_near_threshold: n_decided,52,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.C_near_threshold.n_decided,verified (phase-2 addition)
+Adjudication cell C_near_threshold: blank_share,0.1333,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.C_near_threshold.blank_share,verified (phase-2 addition)
+Adjudication cell D_clearly_not_severe: n_cases,20,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.D_clearly_not_severe.n_cases,verified (phase-2 addition)
+Adjudication cell D_clearly_not_severe: n_decided,20,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.D_clearly_not_severe.n_decided,verified (phase-2 addition)
+Adjudication cell D_clearly_not_severe: blank_share,0.0,mimic_pipeline/results/adjudication_by_stratum.json,per_cell.D_clearly_not_severe.blank_share,verified (phase-2 addition)
+Adjudication: small-cell rule,n_decided < 10,mimic_pipeline/results/adjudication_by_stratum.json,small_cell_rule,verified (phase-2 addition)
+Adjudication cell B: agreement if every blank is counted against the rule (63/80),0.7875,mimic_pipeline/results/adjudication_by_stratum.json,derived: per_cell.B_severe_uncoded.n_agree_with_rule / per_cell.B_severe_uncoded.n_cases,derived (63/80)

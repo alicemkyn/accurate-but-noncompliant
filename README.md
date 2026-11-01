@@ -41,7 +41,7 @@ only the training target makes it disappear.
 ```
 .
 ├── preregistration.md          # frozen pass criteria (prereg-v1.0 … v1.3) and deviations log
-├── preregistration_v14.md      # continuation log: every later deviation, v1.4 … v1.12
+├── preregistration_v14.md      # continuation log: every later deviation, v1.4 … v1.13
 ├── LICENSE                     # MIT, code and aggregate results only
 │
 ├── mimic_pipeline/             # the audit harness (dataset-agnostic) + MIMIC-IV arm
@@ -178,7 +178,7 @@ git tags `prereg-v1.0 … prereg-v1.3`. Those tags and their commit history live
 authors' identifying repository and cannot be included in an anonymised package; this
 package carries the dated pre-registration and deviations files, and the tagged history
 will be made public with the camera-ready version. Every constraint correction is logged as a deviation in
-`preregistration.md`, continued in `preregistration_v14.md` for revisions v1.4–v1.12;
+`preregistration.md`, continued in `preregistration_v14.md` for revisions v1.4–v1.13;
 **no pass threshold was ever changed after seeing results** — only the clinical/logical
 scope of the T2 constraint. Each mis-specification was itself flagged by the audit's own T2 axis.
 

@@ -1,0 +1,293 @@
+{
+ "prereg_tag": "prereg-v1.11",
+ "analysis_status": "EXPLORATORY, post hoc, selection-limited. Inherits every caveat of blocks G and H of 10_prior_ckd_sensitivity.py, including differential observability of prior history. No registered threshold is changed; only the grouping variable is new.",
+ "what_this_answers": "Block H showed the LABEL disagreement survives deleting the prior-renal-replacement stratum. This arm asks the same question of the MODEL statistic the headline actually reports: the deployed violation rate.",
+ "strata_are_a_partition": true,
+ "stratum_definition": "prior_renal_replacement: a dialysis or transplant status code in an admission discharged before the audited one. no_prior_renal_replacement: earlier admission exists, no such code. prior_status_unobservable: no earlier MIMIC admission, so prior status cannot be read. These three cover every admission exactly once and are NOT the nested triple used for the block G reading.",
+ "reused_from_05_subgroup_audit": [
+  "_subject_split",
+  "per_split_subgroup_stats",
+  "agg_across_seeds"
+ ],
+ "per_stratum": {
+  "no_prior_renal_replacement": {
+   "icd_agreement_on_severe": {
+    "mean": 0.5974,
+    "p5": 0.5709,
+    "p95": 0.6306,
+    "n_seeds": 20
+   },
+   "coverage_severe": {
+    "mean": 0.7305,
+    "p5": 0.6809,
+    "p95": 0.7648,
+    "n_seeds": 20
+   },
+   "violation_rate_deployed": {
+    "mean": 0.479,
+    "p5": 0.4486,
+    "p95": 0.5104,
+    "n_seeds": 20
+   },
+   "hard_violations": {
+    "mean": 184.7,
+    "p5": 164.55,
+    "p95": 203.2,
+    "n_seeds": 20
+   },
+   "n_severe": {
+    "mean": 527.65,
+    "p5": 505.65,
+    "p95": 552.5,
+    "n_seeds": 20
+   },
+   "n_severe_mean": 527.6,
+   "status": "UNDETERMINED",
+   "n_severe_min_over_splits": 499,
+   "n_severe_max_over_splits": 562,
+   "n_splits_below_floor": 1,
+   "subgroup_floor": 500
+  },
+  "prior_renal_replacement": {
+   "icd_agreement_on_severe": {
+    "mean": 0.0788,
+    "p5": 0.0655,
+    "p95": 0.0936,
+    "n_seeds": 20
+   },
+   "coverage_severe": {
+    "mean": 0.8898,
+    "p5": 0.8685,
+    "p95": 0.9094,
+    "n_seeds": 20
+   },
+   "violation_rate_deployed": {
+    "mean": 0.9405,
+    "p5": 0.9184,
+    "p95": 0.9556,
+    "n_seeds": 20
+   },
+   "hard_violations": {
+    "mean": 599.9,
+    "p5": 522.2,
+    "p95": 666.9,
+    "n_seeds": 20
+   },
+   "n_severe": {
+    "mean": 716.4,
+    "p5": 634.6,
+    "p95": 789.55,
+    "n_seeds": 20
+   },
+   "n_severe_mean": 716.4,
+   "status": "OK",
+   "n_severe_min_over_splits": 627,
+   "n_severe_max_over_splits": 800,
+   "n_splits_below_floor": 0,
+   "subgroup_floor": 500
+  },
+  "prior_status_unobservable": {
+   "icd_agreement_on_severe": {
+    "mean": 0.5567,
+    "p5": 0.5371,
+    "p95": 0.5866,
+    "n_seeds": 20
+   },
+   "coverage_severe": {
+    "mean": 0.7433,
+    "p5": 0.7145,
+    "p95": 0.78,
+    "n_seeds": 20
+   },
+   "violation_rate_deployed": {
+    "mean": 0.5791,
+    "p5": 0.5273,
+    "p95": 0.6165,
+    "n_seeds": 20
+   },
+   "hard_violations": {
+    "mean": 227.35,
+    "p5": 208.0,
+    "p95": 244.05,
+    "n_seeds": 20
+   },
+   "n_severe": {
+    "mean": 528.8,
+    "p5": 499.95,
+    "p95": 561.0,
+    "n_seeds": 20
+   },
+   "n_severe_mean": 528.8,
+   "status": "UNDETERMINED",
+   "n_severe_min_over_splits": 499,
+   "n_severe_max_over_splits": 561,
+   "n_splits_below_floor": 1,
+   "subgroup_floor": 500
+  }
+ },
+ "restricted_certificate": {
+  "rule": "coverage_p5 >= beta AND violation_p95 <= cap, identical to experiment.py",
+  "beta": 0.5,
+  "cap": 0.05,
+  "n_seeds": 20,
+  "n_severe_per_split": {
+   "mean": 1056.5,
+   "min": 1006.0,
+   "max": 1099.0
+  },
+  "coverage": {
+   "mean": 0.7369,
+   "p5": 0.711,
+   "p95": 0.7635
+  },
+  "violation_rate": {
+   "mean": 0.5295,
+   "p5": 0.4923,
+   "p95": 0.5626
+  },
+  "coverage_limb_passes": true,
+  "violation_limb_passes": false,
+  "certificate_pass": false,
+  "fails_on": "violation",
+  "pooled_cohort_above_subgroup_floor": true,
+  "subgroup_floor": 500,
+  "per_seed": [
+   {
+    "n_severe": 1091.0,
+    "n_deployed": 777.0,
+    "coverage": 0.7122,
+    "violation_rate": 0.5277
+   },
+   {
+    "n_severe": 1006.0,
+    "n_deployed": 739.0,
+    "coverage": 0.7346,
+    "violation_rate": 0.4926
+   },
+   {
+    "n_severe": 1066.0,
+    "n_deployed": 788.0,
+    "coverage": 0.7392,
+    "violation_rate": 0.5063
+   },
+   {
+    "n_severe": 1067.0,
+    "n_deployed": 782.0,
+    "coverage": 0.7329,
+    "violation_rate": 0.5256
+   },
+   {
+    "n_severe": 1099.0,
+    "n_deployed": 829.0,
+    "coverage": 0.7543,
+    "violation_rate": 0.4873
+   },
+   {
+    "n_severe": 1058.0,
+    "n_deployed": 785.0,
+    "coverage": 0.742,
+    "violation_rate": 0.5083
+   },
+   {
+    "n_severe": 1075.0,
+    "n_deployed": 802.0,
+    "coverage": 0.746,
+    "violation_rate": 0.52
+   },
+   {
+    "n_severe": 1068.0,
+    "n_deployed": 772.0,
+    "coverage": 0.7228,
+    "violation_rate": 0.5363
+   },
+   {
+    "n_severe": 1078.0,
+    "n_deployed": 823.0,
+    "coverage": 0.7635,
+    "violation_rate": 0.5237
+   },
+   {
+    "n_severe": 1067.0,
+    "n_deployed": 816.0,
+    "coverage": 0.7648,
+    "violation_rate": 0.5282
+   },
+   {
+    "n_severe": 1050.0,
+    "n_deployed": 750.0,
+    "coverage": 0.7143,
+    "violation_rate": 0.5547
+   },
+   {
+    "n_severe": 1016.0,
+    "n_deployed": 765.0,
+    "coverage": 0.753,
+    "violation_rate": 0.5804
+   },
+   {
+    "n_severe": 1050.0,
+    "n_deployed": 781.0,
+    "coverage": 0.7438,
+    "violation_rate": 0.5557
+   },
+   {
+    "n_severe": 1049.0,
+    "n_deployed": 762.0,
+    "coverage": 0.7264,
+    "violation_rate": 0.5617
+   },
+   {
+    "n_severe": 1096.0,
+    "n_deployed": 795.0,
+    "coverage": 0.7254,
+    "violation_rate": 0.5358
+   },
+   {
+    "n_severe": 1032.0,
+    "n_deployed": 711.0,
+    "coverage": 0.689,
+    "violation_rate": 0.5387
+   },
+   {
+    "n_severe": 1045.0,
+    "n_deployed": 767.0,
+    "coverage": 0.734,
+    "violation_rate": 0.5463
+   },
+   {
+    "n_severe": 1037.0,
+    "n_deployed": 782.0,
+    "coverage": 0.7541,
+    "violation_rate": 0.5051
+   },
+   {
+    "n_severe": 1073.0,
+    "n_deployed": 816.0,
+    "coverage": 0.7605,
+    "violation_rate": 0.5319
+   },
+   {
+    "n_severe": 1006.0,
+    "n_deployed": 729.0,
+    "coverage": 0.7247,
+    "violation_rate": 0.524
+   }
+  ]
+ },
+ "headline_comparison": {
+  "pooling_weight": "n_deployed = coverage_severe * n_severe. `violation_rate_deployed` has n_deployed as its denominator, so pooling per-stratum rates by n_severe would only be exact if coverage were identical across strata.",
+  "violation_rate_prior_renal_replacement": 0.9405,
+  "violation_rate_surviving_cases": 0.5295,
+  "n_severe_mean_prior_renal_replacement": 716.4,
+  "n_severe_mean_surviving": 1056.4,
+  "n_deployed_mean_prior_renal_replacement": 637.5,
+  "n_deployed_mean_surviving": 778.5,
+  "coverage_severe_mean_by_stratum": {
+   "prior_renal_replacement": 0.8898,
+   "no_prior_renal_replacement": 0.7305,
+   "prior_status_unobservable": 0.7433
+  },
+  "same_pooling_with_n_severe_weight": 0.5291,
+  "weight_choice_matters_by": 0.0004
+ }
+}

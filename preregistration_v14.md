@@ -451,6 +451,56 @@ The 14 input columns of the scored file are cell-for-cell identical to the packe
 is patient-level via the key and is git-ignored; `results/clinician_adjudication.json`
 carries only cell-level aggregates and is released.
 
+## v1.13 — W3PHIAI-27 revision (2026-10-31): cross-tab and clustered CIs, both post hoc, no threshold changed
+
+Written for the resubmission to W3PHIAI-27 (AAAI-27). Both items were promised in the ML4H
+rebuttal; neither was pre-registered; neither changes a registered threshold or any
+existing result. Every figure below is read from the named results key
+(`claim_verification_w3phiai.csv` lists each one with its key path).
+
+| Item | What was done | Result | Status |
+|---|---|---|---|
+| Adjudication × renal history × trajectory | `scripts/13_adjudication_by_stratum.py` joins the 200 adjudicated cases (via the git-ignored key) to the block-H renal-history partition (`build_prior_indicators` from script 10, `renal_history_labels` from script 12) and to the error-taxonomy trajectory classes A1/A2/A3 (script 05's nadir rule). Blanks are "cannot tell" and are excluded from the agreement denominator, as in script 11. Output `results/adjudication_by_stratum.json` is aggregate-only; cells with < 10 decided cases are listed under `small_cell_warning` (6 cells). | Renal history — prior RRT: 51/53 agree (10 blank); no prior RRT: 52/56 (16 blank); unobservable: 46/53 (12 blank). Trajectory — A1: 65/65 (27 blank, blank share 0.29); A2: 22/25 (0 blank); A3: 62/72 (11 blank). The blanks concentrate in A1 (already elevated at arrival), consistent with the v1.12 reading; the A1 cases that were decided agree with the rule without exception. | post hoc, exploratory |
+| Subject-clustered CIs, restricted cohort | `scripts/12_violation_rate_by_renal_history.py` gained `restricted_cohort_cluster_ci`: subject_id-clustered nonparametric bootstrap (B = 1000 from `experiment.bootstrap_B`, seed 0), per seed over that seed's test subjects, with the median across the 20 seeds of (lo, hi) reported; plus a descriptive pooled interval over the stacked test decisions (21129 decisions, 3163 subjects, 3148 of whom appear in more than one seed's test set, so the pooled interval is not inferential). The `restricted_certificate` and `headline_comparison` blocks are byte-identical to the copy frozen before the re-run (`tests/fixtures/violation_rate_by_renal_history.v1_12_frozen.json`; enforced by `tests/test_restricted_cluster_ci.py`). The payload guard now refuses to write if the CI block is missing or any bound is None. | Per-seed median point [CI]: violation 0.528 [0.492, 0.566]; coverage 0.737 [0.710, 0.765]; ICD agreement 0.574 [0.542, 0.607]. Pooled (descriptive): violation 0.529 [0.509, 0.548]; coverage 0.737 [0.723, 0.750]; ICD agreement 0.577 [0.561, 0.595]. The patient-level interval for the violation rate sits far above the 0.05 cap on every seed, so the restricted-cohort verdict (FAIL on violation) does not depend on the choice between seed-quantile and patient-bootstrap uncertainty. | post hoc, reviewer-promised |
+
+**Tests added.** `tests/test_adjudication_by_stratum.py` (8) and `tests/test_restricted_cluster_ci.py` (7),
+every guard mutation-verified (the mutations and their outcomes are recorded in
+`new_analyses_notes.md`). `tests/fixtures/` holds the frozen v1.12 aggregate copy; it carries no
+patient identifiers.
+
+**Patient-level handling.** Script 13 reads the blinding key and the response file in-process
+only; the written JSON is walked for `hadm_id`/`subject_id`/`case_id` at every depth and the
+script refuses to write if one is found. Row-level decisions used by the bootstrap in script 12
+never leave the process; the payload receives quantiles.
+
+**W3PHIAI-27 manuscript (2026-10-31): which rebuttal promises are discharged where.** The ten
+"we will …" commitments posted on OpenReview (`rebuttal_posts/00_global.md` … `04_zpgV.md`) and the
+section of the W3PHIAI-27 `main.tex` / `supplementary.tex` that discharges each. Section numbers are
+those of the W3PHIAI-27 body (1 Introduction … 7 Conclusion; 5.1–5.6 Results); S-numbers are the
+supplementary document.
+
+| # | Promise (rebuttal file) | Discharged in |
+|---|---|---|
+| 1 | Restricted-cohort model-level certificate: violation rate, coverage, verdict, intervals, determinacy (00_global §1; 01_bpXE Q2) | Sec. 5.4 "Restricted cohort" + Table 2 (robustness); S14 Tables S17–S18; S7 pointer |
+| 2 | eICU held-out-hospital certificate with the limb difference stated (00_global §2; 01_bpXE Q4) | Sec. 5.4 "Held-out hospitals" + Table 2; S14 Table S19; S8 pointer |
+| 3 | Clinician adjudication with the per-cell table and the two bounds (00_global §3; 01_bpXE Q1; 02_Fxcc; 03_NUPj) | Sec. 5.6 (new subsection) + abstract; S14 Tables S20–S22; deviations row 17 updated |
+| 4 | Narrow "no deployment policy" to "neither of the two tested policies … 30 (β, cap) grid points; other thresholds, abstention policies, overrides untested" (00_global; 01_bpXE Q3) | Abstract, Sec. 1 (three consequences), Sec. 5.4 (title and closing sentence), Sec. 6 limitation 5, Sec. 7 |
+| 5 | Reframe the coverage floor as a registered anti-gaming constraint with no clinical derivation (00_global; 01_bpXE Q3) | Sec. 3 (certificate paragraph), Sec. 6 limitation 5 |
+| 6 | Consider "guideline-discordant" in place of "non-compliant" (02_Fxcc) | "non-compliant" survives only in the title and the defining paragraph (Sec. 3); interpretive uses now read "discordant"/"guideline-discordant" (Sec. 5.1, 6, 7) |
+| 7 | Concede the hypothetical deployment setting more fully in the Introduction (02_Fxcc) | Sec. 1 "What is audited, and the limit of the conditional"; Sec. 6 limitation 3 |
+| 8 | Expand KDIGO at first use in the Introduction (04_zpgV) | Sec. 1 "Study design, stated once" |
+| 9 | Define arm vs split; rewrite the sentence that read as if arms were folds (04_zpgV) | Sec. 1 design paragraph (definitions); Sec. 5.1 second paragraph (rewritten) |
+| 10 | Two-sentence ICD-code vs KDIGO-rule contrast with the 37% agreement figure (04_zpgV) | Sec. 1 design paragraph |
+
+Not promised but changed for consistency with the evidence: the body no longer asserts that the
+nadir-as-baseline and urine-output simplifications are conservative (03_NUPj reply said they were);
+Sec. 6 now states they are not assumed conservative, quotes the urine arm (6,253 additional
+AKI-positive admissions among 51,089; 37% undercount vs 16,899), and says the effect on the
+severe-subgroup figures is unevaluated. S9 item 1 was softened to match; the ML4H wording is kept
+verbatim in S13.10. The rebuttal's blank-case medians (baseline 5.1 mg/dL, rise 0.4) are not in any
+results file and were NOT written into the paper; the traceable trajectory cross-tab of blanks
+(27 A1 / 11 A3 / 0 A2, `adjudication_by_stratum.json`) is reported instead.
+
 ### Retained findings (reported in the paper)
 
 Neither earlier run is discarded — together they are the framework's strongest evidence.

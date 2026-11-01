@@ -1,0 +1,354 @@
+{
+ "revision": "v1.13 (W3PHIAI-27); post hoc, exploratory; no registered threshold changed",
+ "n_cases": 200,
+ "n_decided": 162,
+ "n_blank": 38,
+ "n_reviewers": 1,
+ "blank_handling": "a blank is 'cannot tell from what is shown', not a 'no': blanks are excluded from the agreement denominator and never counted as disagreement (same rule as 11_clinician_adjudication.py)",
+ "agreement_definition": "clinician majority verdict == rule_severe from the blinding key",
+ "stratum_definition": "Three mutually exclusive strata covering every admission exactly once. (block H partition from 12_violation_rate_by_renal_history.py)",
+ "trajectory_definition": {
+  "A1_elevated_at_arrival": "creat_nadir_24h >= 4.0 mg/dL (missing nadir -> 0.0)",
+  "A2_rise_from_near_normal": "creat_nadir_24h < 2.0 mg/dL",
+  "A3_rise_from_elevated_base": "2.0 <= creat_nadir_24h < 4.0 mg/dL",
+  "source": "05_subgroup_audit.taxonomy_for_split, axis A"
+ },
+ "small_cell_rule": "n_decided < 10",
+ "small_cell_warning": [
+  "cell_x_renal_history:A_severe_coded|prior_renal_replacement",
+  "cell_x_renal_history:D_clearly_not_severe|prior_status_unobservable",
+  "cell_x_trajectory:A_severe_coded|A2_rise_from_near_normal",
+  "cell_x_trajectory:A_severe_coded|A3_rise_from_elevated_base",
+  "cell_x_trajectory:B_severe_uncoded|A2_rise_from_near_normal",
+  "cell_x_trajectory:C_near_threshold|A2_rise_from_near_normal"
+ ],
+ "empty_combinations_zero_cases": {
+  "cell_x_renal_history": [
+   "D_clearly_not_severe|prior_renal_replacement"
+  ],
+  "cell_x_trajectory": [
+   "C_near_threshold|A1_elevated_at_arrival",
+   "D_clearly_not_severe|A1_elevated_at_arrival",
+   "D_clearly_not_severe|A3_rise_from_elevated_base"
+  ],
+  "renal_history_x_trajectory": [
+   "prior_renal_replacement|A2_rise_from_near_normal"
+  ]
+ },
+ "per_renal_history": {
+  "prior_renal_replacement": {
+   "n_cases": 63,
+   "n_decided": 53,
+   "n_blank": 10,
+   "n_agree_with_rule": 51,
+   "agreement_on_decided": 0.9623,
+   "blank_share": 0.1587
+  },
+  "no_prior_renal_replacement": {
+   "n_cases": 72,
+   "n_decided": 56,
+   "n_blank": 16,
+   "n_agree_with_rule": 52,
+   "agreement_on_decided": 0.9286,
+   "blank_share": 0.2222
+  },
+  "prior_status_unobservable": {
+   "n_cases": 65,
+   "n_decided": 53,
+   "n_blank": 12,
+   "n_agree_with_rule": 46,
+   "agreement_on_decided": 0.8679,
+   "blank_share": 0.1846
+  }
+ },
+ "per_trajectory": {
+  "A1_elevated_at_arrival": {
+   "n_cases": 92,
+   "n_decided": 65,
+   "n_blank": 27,
+   "n_agree_with_rule": 65,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2935
+  },
+  "A2_rise_from_near_normal": {
+   "n_cases": 25,
+   "n_decided": 25,
+   "n_blank": 0,
+   "n_agree_with_rule": 22,
+   "agreement_on_decided": 0.88,
+   "blank_share": 0.0
+  },
+  "A3_rise_from_elevated_base": {
+   "n_cases": 83,
+   "n_decided": 72,
+   "n_blank": 11,
+   "n_agree_with_rule": 62,
+   "agreement_on_decided": 0.8611,
+   "blank_share": 0.1325
+  }
+ },
+ "per_cell": {
+  "A_severe_coded": {
+   "n_cases": 40,
+   "n_decided": 27,
+   "n_blank": 13,
+   "n_agree_with_rule": 27,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.325
+  },
+  "B_severe_uncoded": {
+   "n_cases": 80,
+   "n_decided": 63,
+   "n_blank": 17,
+   "n_agree_with_rule": 63,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2125
+  },
+  "C_near_threshold": {
+   "n_cases": 60,
+   "n_decided": 52,
+   "n_blank": 8,
+   "n_agree_with_rule": 40,
+   "agreement_on_decided": 0.7692,
+   "blank_share": 0.1333
+  },
+  "D_clearly_not_severe": {
+   "n_cases": 20,
+   "n_decided": 20,
+   "n_blank": 0,
+   "n_agree_with_rule": 19,
+   "agreement_on_decided": 0.95,
+   "blank_share": 0.0
+  }
+ },
+ "cell_x_renal_history": {
+  "A_severe_coded|prior_renal_replacement": {
+   "n_cases": 4,
+   "n_decided": 3,
+   "n_blank": 1,
+   "n_agree_with_rule": 3,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.25
+  },
+  "A_severe_coded|no_prior_renal_replacement": {
+   "n_cases": 17,
+   "n_decided": 10,
+   "n_blank": 7,
+   "n_agree_with_rule": 10,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.4118
+  },
+  "A_severe_coded|prior_status_unobservable": {
+   "n_cases": 19,
+   "n_decided": 14,
+   "n_blank": 5,
+   "n_agree_with_rule": 14,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2632
+  },
+  "B_severe_uncoded|prior_renal_replacement": {
+   "n_cases": 45,
+   "n_decided": 37,
+   "n_blank": 8,
+   "n_agree_with_rule": 37,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.1778
+  },
+  "B_severe_uncoded|no_prior_renal_replacement": {
+   "n_cases": 14,
+   "n_decided": 10,
+   "n_blank": 4,
+   "n_agree_with_rule": 10,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2857
+  },
+  "B_severe_uncoded|prior_status_unobservable": {
+   "n_cases": 21,
+   "n_decided": 16,
+   "n_blank": 5,
+   "n_agree_with_rule": 16,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2381
+  },
+  "C_near_threshold|prior_renal_replacement": {
+   "n_cases": 14,
+   "n_decided": 13,
+   "n_blank": 1,
+   "n_agree_with_rule": 11,
+   "agreement_on_decided": 0.8462,
+   "blank_share": 0.0714
+  },
+  "C_near_threshold|no_prior_renal_replacement": {
+   "n_cases": 30,
+   "n_decided": 25,
+   "n_blank": 5,
+   "n_agree_with_rule": 22,
+   "agreement_on_decided": 0.88,
+   "blank_share": 0.1667
+  },
+  "C_near_threshold|prior_status_unobservable": {
+   "n_cases": 16,
+   "n_decided": 14,
+   "n_blank": 2,
+   "n_agree_with_rule": 7,
+   "agreement_on_decided": 0.5,
+   "blank_share": 0.125
+  },
+  "D_clearly_not_severe|no_prior_renal_replacement": {
+   "n_cases": 11,
+   "n_decided": 11,
+   "n_blank": 0,
+   "n_agree_with_rule": 10,
+   "agreement_on_decided": 0.9091,
+   "blank_share": 0.0
+  },
+  "D_clearly_not_severe|prior_status_unobservable": {
+   "n_cases": 9,
+   "n_decided": 9,
+   "n_blank": 0,
+   "n_agree_with_rule": 9,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.0
+  }
+ },
+ "cell_x_trajectory": {
+  "A_severe_coded|A1_elevated_at_arrival": {
+   "n_cases": 30,
+   "n_decided": 19,
+   "n_blank": 11,
+   "n_agree_with_rule": 19,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.3667
+  },
+  "A_severe_coded|A2_rise_from_near_normal": {
+   "n_cases": 1,
+   "n_decided": 1,
+   "n_blank": 0,
+   "n_agree_with_rule": 1,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.0
+  },
+  "A_severe_coded|A3_rise_from_elevated_base": {
+   "n_cases": 9,
+   "n_decided": 7,
+   "n_blank": 2,
+   "n_agree_with_rule": 7,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2222
+  },
+  "B_severe_uncoded|A1_elevated_at_arrival": {
+   "n_cases": 62,
+   "n_decided": 46,
+   "n_blank": 16,
+   "n_agree_with_rule": 46,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2581
+  },
+  "B_severe_uncoded|A2_rise_from_near_normal": {
+   "n_cases": 2,
+   "n_decided": 2,
+   "n_blank": 0,
+   "n_agree_with_rule": 2,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.0
+  },
+  "B_severe_uncoded|A3_rise_from_elevated_base": {
+   "n_cases": 16,
+   "n_decided": 15,
+   "n_blank": 1,
+   "n_agree_with_rule": 15,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.0625
+  },
+  "C_near_threshold|A2_rise_from_near_normal": {
+   "n_cases": 2,
+   "n_decided": 2,
+   "n_blank": 0,
+   "n_agree_with_rule": 0,
+   "agreement_on_decided": 0.0,
+   "blank_share": 0.0
+  },
+  "C_near_threshold|A3_rise_from_elevated_base": {
+   "n_cases": 58,
+   "n_decided": 50,
+   "n_blank": 8,
+   "n_agree_with_rule": 40,
+   "agreement_on_decided": 0.8,
+   "blank_share": 0.1379
+  },
+  "D_clearly_not_severe|A2_rise_from_near_normal": {
+   "n_cases": 20,
+   "n_decided": 20,
+   "n_blank": 0,
+   "n_agree_with_rule": 19,
+   "agreement_on_decided": 0.95,
+   "blank_share": 0.0
+  }
+ },
+ "renal_history_x_trajectory": {
+  "prior_renal_replacement|A1_elevated_at_arrival": {
+   "n_cases": 40,
+   "n_decided": 32,
+   "n_blank": 8,
+   "n_agree_with_rule": 32,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.2
+  },
+  "prior_renal_replacement|A3_rise_from_elevated_base": {
+   "n_cases": 23,
+   "n_decided": 21,
+   "n_blank": 2,
+   "n_agree_with_rule": 19,
+   "agreement_on_decided": 0.9048,
+   "blank_share": 0.087
+  },
+  "no_prior_renal_replacement|A1_elevated_at_arrival": {
+   "n_cases": 25,
+   "n_decided": 15,
+   "n_blank": 10,
+   "n_agree_with_rule": 15,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.4
+  },
+  "no_prior_renal_replacement|A2_rise_from_near_normal": {
+   "n_cases": 12,
+   "n_decided": 12,
+   "n_blank": 0,
+   "n_agree_with_rule": 10,
+   "agreement_on_decided": 0.8333,
+   "blank_share": 0.0
+  },
+  "no_prior_renal_replacement|A3_rise_from_elevated_base": {
+   "n_cases": 35,
+   "n_decided": 29,
+   "n_blank": 6,
+   "n_agree_with_rule": 27,
+   "agreement_on_decided": 0.931,
+   "blank_share": 0.1714
+  },
+  "prior_status_unobservable|A1_elevated_at_arrival": {
+   "n_cases": 27,
+   "n_decided": 18,
+   "n_blank": 9,
+   "n_agree_with_rule": 18,
+   "agreement_on_decided": 1.0,
+   "blank_share": 0.3333
+  },
+  "prior_status_unobservable|A2_rise_from_near_normal": {
+   "n_cases": 13,
+   "n_decided": 13,
+   "n_blank": 0,
+   "n_agree_with_rule": 12,
+   "agreement_on_decided": 0.9231,
+   "blank_share": 0.0
+  },
+  "prior_status_unobservable|A3_rise_from_elevated_base": {
+   "n_cases": 25,
+   "n_decided": 22,
+   "n_blank": 3,
+   "n_agree_with_rule": 16,
+   "agreement_on_decided": 0.7273,
+   "blank_share": 0.12
+  }
+ }
+}

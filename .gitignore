@@ -14,6 +14,9 @@ data/**
 **/data/**
 !**/data/
 *.csv
+# Exception: the claim→results-key trace table carries no patient-level rows
+# (columns: claim_text, value, source_file, json_key_path, status).
+!claim_verification_w3phiai.csv
 *.csv.gz
 *.parquet
 *.feather

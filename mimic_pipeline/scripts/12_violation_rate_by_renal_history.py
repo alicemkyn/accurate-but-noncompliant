@@ -23,6 +23,13 @@ STATUS: exploratory, post hoc, selection-limited -- it inherits every caveat of
 blocks G and H, including that prior history is differentially observable.  No
 registered threshold is touched.
 
+v1.13 (W3PHIAI-27 revision) adds `restricted_cohort_cluster_ci`: subject-clustered
+bootstrap 95% intervals for the pooled surviving cohort's violation rate, coverage
+and ICD agreement, per seed (median of the bounds across seeds) and on the stacked
+test decisions (descriptive, since a subject recurs across seeds' test sets). The
+`restricted_certificate` and `headline_comparison` blocks are unchanged; a test
+compares them against a copy frozen before the re-run.
+
     python scripts/12_violation_rate_by_renal_history.py \
         --cohort audit_mimic_out/aki_cohort.parquet \
         --mimic-hosp ../mimic_raw/hosp --config config.yaml
@@ -76,6 +83,150 @@ def renal_history_labels(df: pd.DataFrame) -> pd.Series:
     return pd.Series(out, index=df.index, name="renal_history")
 
 
+CI_STATS = ("violation_rate_deployed", "coverage_severe", "icd_agreement_on_severe")
+CLUSTER_CI_METHOD = (
+    "subject_id-clustered nonparametric bootstrap, 95% percentile interval. Unit of "
+    "resampling = subject (patient); every admission of a drawn subject enters with the "
+    "subject's draw count, so admissions of one patient are never treated as independent. "
+    "Per seed: subjects of that seed's TEST set are drawn with replacement (as many as "
+    "there are test subjects) and violation rate (violations / deployed severe decisions), "
+    "coverage (deployed / severe) and ICD agreement (coded / severe) are recomputed on the "
+    "surviving-strata severe cases; the median across seeds of (lo, hi) is reported. "
+    "Pooled: all seeds' test decisions are stacked and subjects drawn from the union of "
+    "test subjects; a subject appears in several seeds' test sets, so the pooled interval "
+    "is DESCRIPTIVE of the stacked decisions, not an inferential interval for one draw.")
+
+
+def _subject_cluster_draws(subject, cols, universe, B, rng):
+    """Cluster-bootstrap sums of `cols` by resampling subjects from `universe`.
+
+    `subject` aligns with every array in `cols`; `universe` is the sorted array of
+    ALL subjects eligible to be drawn (a seed's test subjects), including those who
+    contribute no severe row and therefore a zero vector. Returns (B, k) sums.
+    """
+    uniq, inv = np.unique(subject, return_inverse=True)
+    names = list(cols)
+    M = np.zeros((len(universe), len(names)))
+    pos = np.searchsorted(universe, uniq)
+    if not np.array_equal(universe[pos], uniq):
+        raise SystemExit("cluster bootstrap: a severe-row subject is not in the test universe")
+    for j, k in enumerate(names):
+        M[pos, j] = np.bincount(inv, weights=cols[k], minlength=len(uniq))
+    n_u = len(universe)
+    out = np.empty((B, len(names)))
+    for b in range(B):
+        counts = np.bincount(rng.integers(0, n_u, n_u), minlength=n_u)
+        out[b] = counts @ M
+    return out
+
+
+def _three_stats(sums):
+    """sums: (..., 4) = [n_severe, n_deployed, violations, coded] -> dict of rates."""
+    sev, dep, viol, coded = (sums[..., i] for i in range(4))
+    with np.errstate(divide="ignore", invalid="ignore"):
+        return {"violation_rate_deployed": viol / dep,
+                "coverage_severe": dep / sev,
+                "icd_agreement_on_severe": coded / sev}
+
+
+def compute_cluster_cis(rows_per_seed, pooled_rows, B=2000, seed=0):
+    """Subject-clustered bootstrap CIs for the surviving cohort; aggregates only."""
+    rng = np.random.default_rng(seed)
+    cols_of = lambda r: {"n_severe": np.ones(len(r["subject"])), "n_deployed": r["deployed"],
+                         "violations": r["violation"], "coded": r["aki"]}
+    per_seed_out = []
+    for r, pr in zip(rows_per_seed, pooled_rows):
+        cols = cols_of(r)
+        point_sums = np.array([cols[k].sum() for k in cols])
+        # the row-level reconstruction must reproduce the count-level pooling exactly,
+        # or the CI would be for a different quantity than the certificate reports
+        if abs(point_sums[0] - pr["n_severe"]) > 1e-6 or abs(point_sums[1] - pr["n_deployed"]) > 1e-6:
+            raise SystemExit(
+                f"seed {r['seed']}: row-level severe/deployed counts {point_sums[:2]} differ "
+                f"from the count-level pooling {pr['n_severe']}/{pr['n_deployed']}")
+        draws = _three_stats(_subject_cluster_draws(r["subject"], cols, r["test_subjects"], B, rng))
+        point = _three_stats(point_sums)
+        rec = {"seed": r["seed"], "n_severe": int(point_sums[0]),
+               "n_deployed": int(point_sums[1]),
+               "n_subjects_in_test_set": int(len(r["test_subjects"])),
+               "n_subjects_with_severe_surviving_case": int(len(np.unique(r["subject"])))}
+        for k in CI_STATS:
+            lo, hi = np.nanpercentile(draws[k], [2.5, 97.5])
+            rec[k] = {"point": round(float(point[k]), 4),
+                      "lo": round(float(lo), 4), "hi": round(float(hi), 4)}
+        per_seed_out.append(rec)
+
+    per_seed_median = {}
+    for k in CI_STATS:
+        per_seed_median[k] = {
+            "point_median": round(float(np.median([r[k]["point"] for r in per_seed_out])), 4),
+            "lo_median": round(float(np.median([r[k]["lo"] for r in per_seed_out])), 4),
+            "hi_median": round(float(np.median([r[k]["hi"] for r in per_seed_out])), 4),
+            "n_seeds": int(len(per_seed_out))}
+
+    # pooled: stack every seed's test decisions; cluster = subject across the whole stack
+    subj = np.concatenate([r["subject"] for r in rows_per_seed])
+    cols = {"n_severe": np.ones(len(subj)),
+            "n_deployed": np.concatenate([r["deployed"] for r in rows_per_seed]),
+            "violations": np.concatenate([r["violation"] for r in rows_per_seed]),
+            "coded": np.concatenate([r["aki"] for r in rows_per_seed])}
+    universe = np.unique(np.concatenate([r["test_subjects"] for r in rows_per_seed]))
+    point_sums = np.array([cols[k].sum() for k in cols])
+    draws = _three_stats(_subject_cluster_draws(subj, cols, universe, B, rng))
+    point = _three_stats(point_sums)
+    appearances = np.unique(np.concatenate(
+        [np.unique(r["subject"]) for r in rows_per_seed]), return_counts=True)[1]
+    pooled = {
+        "n_decisions_stacked": int(point_sums[0]),
+        "n_deployed_stacked": int(point_sums[1]),
+        "n_unique_subjects_with_severe_surviving_case": int(len(appearances)),
+        "n_subjects_in_more_than_one_seed_test_set": int((appearances > 1).sum()),
+        "interpretation": (
+            "a subject can sit in several seeds' test sets, so the stacked decisions are "
+            "not independent draws; this interval is descriptive of the stack, not an "
+            "inferential interval for a single split. The per-seed medians above are the "
+            "inferential figures."),
+    }
+    for k in CI_STATS:
+        lo, hi = np.nanpercentile(draws[k], [2.5, 97.5])
+        pooled[k] = {"point": round(float(point[k]), 4),
+                     "lo": round(float(lo), 4), "hi": round(float(hi), 4)}
+    return {"method": CLUSTER_CI_METHOD, "B": int(B), "seed": int(seed), "ci_level": 0.95,
+            "cluster_variable": "subject_id",
+            "statistics": list(CI_STATS),
+            "cohort": "severe cases in strata " + " + ".join(
+                ["no_prior_renal_replacement", "prior_status_unobservable"]),
+            "per_seed_median": per_seed_median,
+            "pooled_across_seed_test_decisions": pooled,
+            "per_seed": per_seed_out}
+
+
+def missing_cluster_ci_keys(payload) -> list:
+    """Names of absent/None cluster-CI entries; empty list means the block is complete."""
+    blk = payload.get("restricted_cohort_cluster_ci")
+    if not isinstance(blk, dict):
+        return ["restricted_cohort_cluster_ci"]
+    missing = []
+    for req in ("method", "B", "seed"):
+        if blk.get(req) is None:
+            missing.append(f"restricted_cohort_cluster_ci.{req}")
+    for k in CI_STATS:
+        med = blk.get("per_seed_median", {}).get(k) or {}
+        for b in ("lo_median", "hi_median", "point_median"):
+            if med.get(b) is None:
+                missing.append(f"restricted_cohort_cluster_ci.per_seed_median.{k}.{b}")
+        pooled = blk.get("pooled_across_seed_test_decisions", {}).get(k) or {}
+        for b in ("lo", "hi", "point"):
+            if pooled.get(b) is None:
+                missing.append(f"restricted_cohort_cluster_ci.pooled_across_seed_test_decisions.{k}.{b}")
+    for rec in blk.get("per_seed", []):
+        for k in CI_STATS:
+            for b in ("lo", "hi", "point"):
+                if (rec.get(k) or {}).get(b) is None:
+                    missing.append(f"restricted_cohort_cluster_ci.per_seed[{rec.get('seed')}].{k}.{b}")
+    return missing
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cohort", required=True)
@@ -109,7 +260,13 @@ def main() -> None:
     severe_all = df["severe_acute"].astype(bool).to_numpy()
     nadir_all = pd.to_numeric(df["creat_nadir_24h"], errors="coerce").to_numpy()
 
+    # the two strata that remain once the dialysis/transplant stratum is deleted;
+    # defined once, used by the per-seed pooling, the certificate and the cluster CIs
+    surviving_strata = ["no_prior_renal_replacement", "prior_status_unobservable"]
+    subject_all = df["subject_id"].to_numpy()
+
     per_seed = []
+    rows_per_seed = []   # row-level decisions on the surviving severe cases, for the cluster CIs
     for seed in seeds:
         tr, te = _subject_split(df, test_size, seed)
         model = PipelineCoupled(mcfg["hidden_layers"], mcfg["calibrate"], seed=seed)
@@ -125,6 +282,23 @@ def main() -> None:
             probs, y[te], severe_all[te], tau, g, thr_severe, nadir_all[te], min_n))
         print(f"  seed {seed:2d}: tau={tau:.4f} n_severe={int(severe_all[te].sum())}",
               flush=True)
+
+        # Row-level decisions, with the SAME definitions per_split_subgroup_stats uses
+        # (deployed = confident; violation = confident AND predicted no-AKI), kept only
+        # for severe cases in the surviving strata. These rows never leave this process:
+        # the payload receives bootstrap quantiles, not rows.
+        pred = (probs >= 0.5).astype(int)
+        conf = np.maximum(probs, 1 - probs)
+        confident = conf >= tau
+        m = severe_all[te] & g.isin(surviving_strata).to_numpy()
+        rows_per_seed.append({
+            "seed": int(seed),
+            "test_subjects": np.unique(subject_all[te]),
+            "subject": subject_all[te][m],
+            "deployed": confident[m].astype(float),
+            "violation": ((pred == 0) & confident)[m].astype(float),
+            "aki": y[te][m].astype(float),
+        })
 
     keys = ["icd_agreement_on_severe", "coverage_severe", "violation_rate_deployed",
             "hard_violations", "n_severe"]
@@ -151,7 +325,6 @@ def main() -> None:
     # counts, then take the quantiles -- the same arithmetic as the primary certificate.
     beta = float(cfg.audit["coverage_floor_beta"])
     vmax = float(cfg.audit["violation_rate_max"])
-    surviving_strata = ["no_prior_renal_replacement", "prior_status_unobservable"]
     pooled_rows = []
     for d in per_seed:
         n_sev = n_dep = viol = 0.0
@@ -204,6 +377,22 @@ def main() -> None:
     print(f"\n[restricted certificate] coverage p5={cov_p5:.4f} (floor {beta}), "
           f"violation p95={vr_p95:.4f} (cap {vmax}) -> "
           f"{'PASS' if restricted_certificate['certificate_pass'] else 'FAIL on ' + restricted_certificate['fails_on']}",
+          flush=True)
+
+    # ---------- subject-clustered bootstrap CIs on the surviving cohort (v1.13) ----------
+    # The certificate above reports seed-to-seed quantiles, which measure how much the
+    # figure moves when the split and the model change. A reviewer asked for the other
+    # uncertainty: sampling variation at the PATIENT level, with admissions of the same
+    # subject treated as one cluster. The two are reported side by side, not merged.
+    boot_B = int(cfg.experiment.get("bootstrap_B", 2000))
+    boot_seed = 0
+    cluster_ci = compute_cluster_cis(rows_per_seed, pooled_rows, B=boot_B, seed=boot_seed)
+    print(f"\n[cluster CI] B={boot_B}: per-seed median CI violation "
+          f"{cluster_ci['per_seed_median']['violation_rate_deployed']['lo_median']:.4f}-"
+          f"{cluster_ci['per_seed_median']['violation_rate_deployed']['hi_median']:.4f}; pooled "
+          f"{cluster_ci['pooled_across_seed_test_decisions']['violation_rate_deployed']['point']:.4f} "
+          f"[{cluster_ci['pooled_across_seed_test_decisions']['violation_rate_deployed']['lo']:.4f}, "
+          f"{cluster_ci['pooled_across_seed_test_decisions']['violation_rate_deployed']['hi']:.4f}]",
           flush=True)
 
     # The headline comparison: does deleting the dialysis stratum move the 71%?
@@ -270,6 +459,8 @@ def main() -> None:
             "_subject_split", "per_split_subgroup_stats", "agg_across_seeds"],
         "per_stratum": strata,
         "restricted_certificate": restricted_certificate,
+        "restricted_cohort_cluster_ci": cluster_ci,
+        "cluster_ci_added_in": "v1.13 (W3PHIAI-27 revision; post hoc; no threshold changed)",
         "headline_comparison": {
             "pooling_weight": (
                 "n_deployed = coverage_severe * n_severe. `violation_rate_deployed` has "
@@ -301,6 +492,7 @@ def main() -> None:
     # refuse to write a headline comparison that is silently all-null: this arm
     # exists to produce one number, so an unpopulated payload is a failure, not a
     # result
+    # v1.13: a missing cluster-CI block or a None bound is refused, not written
     hc = payload["headline_comparison"]
     missing = [k for k in ("violation_rate_prior_renal_replacement",
                            "violation_rate_surviving_cases",
@@ -309,6 +501,7 @@ def main() -> None:
     # payload -- a result that exists only in a log is not a result
     if "certificate_pass" not in payload.get("restricted_certificate", {}):
         missing.append("restricted_certificate.certificate_pass")
+    missing += missing_cluster_ci_keys(payload)
     if missing:
         raise SystemExit(
             "headline comparison is unpopulated: " + ", ".join(missing) +
