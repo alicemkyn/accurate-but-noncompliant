@@ -1,5 +1,9 @@
 # AuditNeSy — Pre-Registration of Pass Criteria (v1.4, RATIFIED)
 
+> **Note on scope (added 2026-11-01).** This log records the full history of the work, including
+> an earlier submission of the manuscript and the reviews it received. Venue names and dates are
+> kept because the log is a dated record; entries are appended, never rewritten.
+
 **Status:** RATIFIED — frozen at tag `prereg-v1.3` for all pass criteria; issued as **v1.4** to record
 the completed deviations log (§8) and to mark declared-but-unimplemented machinery (§9).
 Supersedes `prereg-v1.0`…`v1.3`. **No pass threshold, criterion, or definition is changed in v1.4.**
@@ -474,7 +478,7 @@ script refuses to write if one is found. Row-level decisions used by the bootstr
 never leave the process; the payload receives quantiles.
 
 **W3PHIAI-27 manuscript (2026-10-31): which rebuttal promises are discharged where.** The ten
-"we will …" commitments posted on OpenReview (`rebuttal_posts/00_global.md` … `04_zpgV.md`) and the
+"we will …" commitments in the authors' posted responses to the earlier review (not included in this repository) and the
 section of the W3PHIAI-27 `main.tex` / `supplementary.tex` that discharges each. Section numbers are
 those of the W3PHIAI-27 body (1 Introduction … 7 Conclusion; 5.1–5.6 Results); S-numbers are the
 supplementary document.

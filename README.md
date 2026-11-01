@@ -4,10 +4,13 @@
   <img src="figures/Graphical_Abstract_Clinical_ML_Audit-Accurate.png" alt="Accurate but Non-Compliant: graphical abstract" width="100%">
 </p>
 
-<p align="center"><sub>A model accurate against its administrative label (AUROC 0.880) issues confident no-AKI decisions on 71% of guideline-severe cases; the compliance-coverage certificate is not issued for any deployment policy.</sub></p>
+<p align="center"><sub>A model accurate against its administrative label (AUROC 0.880) issues confident no-AKI decisions on 71% of guideline-severe cases; the compliance-coverage certificate is not issued for either tested deployment policy.</sub></p>
 Code, pre-registration and aggregate results for **"Accurate but Non-Compliant:
 Auditing the Administrative-Label Convention for AKI Risk Modelling across 206
-Hospitals"** (anonymised review package, ML4H 2026 Proceedings track).
+Hospitals"**.
+
+Commits before November 2026 were authored anonymously for a double-blind review;
+later commits carry the authors' names.
 
 The paper audits a common convention: training and evaluating a clinical risk
 model against an administrative diagnosis code, then reading its output as a
@@ -58,7 +61,7 @@ only the training target makes it disappear.
 ├── eicu_pipeline/              # eICU multi-center replication (reuses the harness)
 │   ├── build_eicu_cohort.py    #   eICU cohort adapter (only dataset-specific piece)
 │   ├── run_eicu.py             #   runs the harness on eICU with a held-out-hospital shift
-│   ├── heldout_hospital_certificate.py  #   certificate on 103 held-out hospitals + per-site (post-submission, reviewer-requested)
+│   ├── heldout_hospital_certificate.py  #   certificate on 103 held-out hospitals + per-site (post hoc, added after the pre-registered study)
 │   ├── 00_check_eicu_labnames.py, dump_eicu_figdata.py
 │   ├── results/                #   aggregate eICU JSONs (DUA-safe)
 │   └── EICU_PLAN.md, EICU_FINDINGS.md
@@ -174,10 +177,9 @@ green run without MIMIC access does not mean the data-facing logic was exercised
 
 ## Pre-registration
 All pass thresholds were frozen **before** any test-fold evaluation and version-controlled as
-git tags `prereg-v1.0 … prereg-v1.3`. Those tags and their commit history live in the
-authors' identifying repository and cannot be included in an anonymised package; this
-package carries the dated pre-registration and deviations files, and the tagged history
-will be made public with the camera-ready version. Every constraint correction is logged as a deviation in
+git tags `prereg-v1.0 … prereg-v1.3` in the authors' development repository. This
+repository carries the dated pre-registration and deviations files; the tagged
+development history will be made public with the camera-ready version. Every constraint correction is logged as a deviation in
 `preregistration.md`, continued in `preregistration_v14.md` for revisions v1.4–v1.13;
 **no pass threshold was ever changed after seeing results** — only the clinical/logical
 scope of the T2 constraint. Each mis-specification was itself flagged by the audit's own T2 axis.

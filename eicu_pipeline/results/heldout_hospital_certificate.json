@@ -1,6 +1,6 @@
 {
  "prereg_tag": "prereg-v1.3",
- "analysis_status": "POST-SUBMISSION, reviewer-requested, not pre-registered. The hospital partition, model factory, tau rule, constraint and certificate arithmetic are the released harness's own and were not changed.",
+ "analysis_status": "Post hoc, added after the pre-registered study; not pre-registered. The hospital partition, model factory, tau rule, constraint and certificate arithmetic are the released harness's own and were not changed.",
  "hospital_partition": {
   "rng_seed": 0,
   "n_train_hospitals": 102,

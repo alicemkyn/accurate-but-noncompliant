@@ -6,7 +6,7 @@ suite on **acute kidney injury (AKI) risk prediction** from MIMIC-IV (hosp modul
 This package is the MIMIC-IV arm of the paper. It implements the audit
 against the **ratified pre-registration** (`../preregistration.md`; the
 `prereg-v1.0 … v1.3` tags live in the authors' identifying repository and are
-not part of this anonymised package).
+not part of this repository).
 
 > **Data access & DUA.** MIMIC-IV requires PhysioNet credentialing + a signed
 > DUA. **No patient-level data or derived artifacts (cohort caches, decision

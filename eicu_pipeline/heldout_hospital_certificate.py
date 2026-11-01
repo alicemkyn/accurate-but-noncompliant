@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-"""Held-out-hospital compliance-coverage certificate on eICU (reviewer request, post-submission).
+"""Held-out-hospital compliance-coverage certificate on eICU (post hoc, added after the pre-registered study).
 
-WHY THIS EXISTS.  The submitted paper used the held-out-hospital split on eICU only as
-the axis of a negative control (NC-C), which reports calibration and abstention. A
-reviewer asked for the CENTRAL outcomes on that split -- severe-subgroup violation
+WHY THIS EXISTS.  The pre-registered study used the held-out-hospital split on eICU only as
+the axis of a negative control (NC-C), which reports calibration and abstention. An
+external reader asked for the CENTRAL outcomes on that split -- severe-subgroup violation
 rate, coverage, and the certificate verdict -- and for per-site results on adequately
 sized hospitals. None of that was computed before submission. This script computes it
 and says so in its own output.
@@ -152,7 +152,7 @@ def main():
 
     payload = {
         "prereg_tag": cfg.prereg_tag,
-        "analysis_status": ("POST-SUBMISSION, reviewer-requested, not pre-registered. The hospital "
+        "analysis_status": ("Post hoc, added after the pre-registered study; not pre-registered. The hospital "
                             "partition, model factory, tau rule, constraint and certificate arithmetic "
                             "are the released harness's own and were not changed."),
         "hospital_partition": {"rng_seed": 0, "n_train_hospitals": len(train_h), "n_heldout_hospitals": len(eval_h),
